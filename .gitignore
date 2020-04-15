@@ -1,0 +1,4 @@
+node modules/
+.vscode
+.env
+/coverage
