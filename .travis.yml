@@ -1,15 +1,19 @@
 language: node_js
 node_js:
-  - "stable"
+  - 'stable'
 cache:
   directories:
-    - "node_modules"
+    - 'node_modules'
 env:
   global:
     - DB_ENV=test
+    - CC_TEST_REPORTER_ID=5bd2b78323fd9194a93fb74eac6782ead4c76ba197e6c09bebb706a8f4de0ffe
 
 before_script:
   - npm install make-coverage-badge
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
   - npm test
 after_script:
