@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.com/Labs-EU4/lambda-door-client.svg?branch=develop)](https://travis-ci.com/Labs-EU-Flex/lambda-door-client)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3215e41f53c76c37a5c0/maintainability)](https://codeclimate.com/github/Labs-EU-Flex/lambda-door-client/maintainability)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/738d7f2c-3314-433f-a029-75781d5251a4/deploy-status)](https://app.netlify.com/sites/lambdadooreuflex/deploys)
 
 <!--
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1568ef4b-934b-4ce2-a4e1-0a00a72f719b/deploy-status)](https://app.netlify.com/sites/lambdadooreu4/deploys)
