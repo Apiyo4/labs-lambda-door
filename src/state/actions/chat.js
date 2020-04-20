@@ -7,25 +7,25 @@ import firebase from 'firebase';
 const config =
   process.env.NODE_ENV === 'production'
     ? {
-        apiKey: 'AIzaSyAj67NaIY02EMbV3_EfxXo7ZgK3DZRE8a8',
-        authDomain: 'lambda-door-production.firebaseapp.com',
-        databaseURL: 'https://lambda-door-production.firebaseio.com',
-        projectId: 'lambda-door-production',
-        storageBucket: 'lambda-door-production.appspot.com',
-        messagingSenderId: '927209006367',
-        appId: '1:927209006367:web:14101371db0091bb01fc2a',
-        measurementId: 'G-T13VD107V1',
+        apiKey: 'AIzaSyAxCmkZQ-Q8Mz2rWuig2bq4KxtOL-hdOQs',
+        authDomain: 'lambdadooreuflex-production.firebaseapp.com',
+        databaseURL: 'https://lambdadooreuflex-production.firebaseio.com',
+        projectId: 'lambdadooreuflex-production',
+        storageBucket: 'lambdadooreuflex-production.appspot.com',
+        messagingSenderId: '153366108245',
+        appId: '1:153366108245:web:2785a15f13142177085cdc',
+        measurementId: 'G-PYFFRYC2S1',
       }
     : {
         // test environment
-        apiKey: 'AIzaSyAZsLzEsGjOdUeWVj7Z7vu2tqv6tBpIzfU',
-        authDomain: 'lambda-door.firebaseapp.com',
-        databaseURL: 'https://lambda-door.firebaseio.com',
-        projectId: 'lambda-door',
-        storageBucket: 'lambda-door.appspot.com',
-        messagingSenderId: '1083433035630',
-        appId: '1:1083433035630:web:4dd012a984da9b39b4437f',
-        measurementId: 'G-NV9850LZBG',
+        apiKey: 'AIzaSyBlZZO9b4zhxVyiJ8de9HAm3UZDDLwwB3U',
+        authDomain: 'lambdadooreuflex-c4b3e.firebaseapp.com',
+        databaseURL: 'https://lambdadooreuflex-c4b3e.firebaseio.com',
+        projectId: 'lambdadooreuflex-c4b3e',
+        storageBucket: 'lambdadooreuflex-c4b3e.appspot.com',
+        messagingSenderId: '1071325469722',
+        appId: '1:1071325469722:web:59c2d2c5d5a03de8dd05a3',
+        measurementId: 'G-ECBBE3VTFN',
       };
 
 firebase.initializeApp(config);
