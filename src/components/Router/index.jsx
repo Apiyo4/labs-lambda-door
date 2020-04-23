@@ -82,7 +82,7 @@ const AppRouter = ({
           path="/reviews/salary/:id"
           component={DetailedSalaryReview}
         />
-        
+
         <DashboardLayout path="/companyReviews/:id" component={CompanyReview} />
         <DashboardLayout
           path="/interviewreviews/:id"
@@ -111,10 +111,7 @@ const AppRouter = ({
           path="/search-results/interview/:id"
           component={DetailedInterviewSearchCard}
         />
-        <DashboardLayout
-          path="/users"
-          component={UserProfile}
-        />
+        <DashboardLayout path="/users" component={UserProfile} />
         <DashboardLayout component={NotFound} />
       </Switch>
     </BrowserRouter>
