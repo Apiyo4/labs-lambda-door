@@ -36,8 +36,8 @@ import DetailedSalarySearchCard from '../Layout/Search/DetailedSalarySearchCard'
 import DetailedInterviewSearchCard from '../Layout/Search/DetailedInterviewSearchCard';
 import { HighestRated } from '../UserDashboard/TopRated/HighestRated';
 import Chat from '../Layout/Chat/Chat';
-
 import { getChats } from '../../state/actions/chat';
+import { UserProfile } from '../UserProfile';
 
 const start = async () => {
   const token = localStorage.getItem('token');
@@ -82,6 +82,7 @@ const AppRouter = ({
           path="/reviews/salary/:id"
           component={DetailedSalaryReview}
         />
+        
         <DashboardLayout path="/companyReviews/:id" component={CompanyReview} />
         <DashboardLayout
           path="/interviewreviews/:id"
@@ -109,6 +110,10 @@ const AppRouter = ({
         <DashboardLayout
           path="/search-results/interview/:id"
           component={DetailedInterviewSearchCard}
+        />
+        <DashboardLayout
+          path="/users"
+          component={UserProfile}
         />
         <DashboardLayout component={NotFound} />
       </Switch>
