@@ -19,17 +19,20 @@ export const Links = ()=>{
             <form>
             <p>Github</p>
             <Input
-            type="url"
+            type="text"
+            placeholder="https://"
             />
             
             <p>Linkedin</p>
             <Input
             type="text"
+            placeholder="https://"
             />
 
             <p>Portfolio</p>
             <Input
             type="text"
+            placeholder="https://"
             />
         </form>
         </div>
