@@ -13,6 +13,11 @@ const Input = styled.input`
 const H4 = styled.h4`
   font-weight: bold;
 `;
+
+const Button = styled.button`
+border: 2px solid #7C9E9A;
+padding:12px 20px;
+    `
 export const UserForm = () => {
   return (
     <div>
@@ -32,7 +37,7 @@ export const UserForm = () => {
         <H4>Location</H4>
         <Input placeholder="Nigeria" />
         <br />
-        <button>Update Profile</button>
+        <Button>Update Profile</Button>
       </form>
     </div>
   );
