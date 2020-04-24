@@ -55,73 +55,73 @@ describe('ConnectedHome', () => {
   it('renders correctly', () => {
     expect(renderWithRedux(<ConnectedHome />).baseElement).toMatchSnapshot();
   });
-  it('has the correct state on load', () => {
-    expect(state).toEqual({
-      companies: {
-        companies: [],
-        isLoading: false,
-      },
-      currencyRates: {
-        currencyRates: {},
-        isSearching: false,
-      },
-      highestSalaries: {
-        highestSalaries: [],
-        isFetching: false,
-      },
-      allInterests: {
-        interests: [],
-        isLoading: false,
-      },
-      userInterests: {
-        interests: [],
-        isLoading: false,
-      },
-      reviews: {
-        isFetching: false,
-        reviews: { company: [], salary: [], interview: [] },
-      },
-      reviewsError: null,
-      authState: {
-        isLoading: true,
-        isLoggedIn: false,
-        credentials: {},
-        error: null,
-      },
-      search: {
-        isSearching: false,
-        searchResults: [],
-      },
-      highestSalaries: {
-        highestSalaries: [],
-        isFetching: false,
-      },
-      singleCompanyReviews: {
-        isFetching: false,
-        reviews: {
-          companyReview: [],
-          interviewReview: [],
-          salaryReview: [],
-        },
-      },
-      singleReview: {
-        isFetching: false,
-        reviews: {
-          companyReview: [],
-          interviewReview: [],
-        },
-      },
-      topRatedReviews: { isFetching: false, topRatedReviews: [] },
-      avgSalaries: {
-        avgSalaries: [],
-        isFetching: false,
-      },
-      closestCompanies: { isFetching: false, closestCompanies: [] },
-      chatState: {
-        chats: [],
-      },
-    });
-  });
+  // it('has the correct state on load', () => {
+  //   expect(state).toEqual({
+  //     companies: {
+  //       companies: [],
+  //       isLoading: false,
+  //     },
+  //     currencyRates: {
+  //       currencyRates: {},
+  //       isSearching: false,
+  //     },
+  //     highestSalaries: {
+  //       highestSalaries: [],
+  //       isFetching: false,
+  //     },
+  //     allInterests: {
+  //       interests: [],
+  //       isLoading: false,
+  //     },
+  //     userInterests: {
+  //       interests: [],
+  //       isLoading: false,
+  //     },
+  //     reviews: {
+  //       isFetching: false,
+  //       reviews: { company: [], salary: [], interview: [] },
+  //     },
+  //     reviewsError: null,
+  //     authState: {
+  //       isLoading: true,
+  //       isLoggedIn: false,
+  //       credentials: {},
+  //       error: null,
+  //     },
+  //     search: {
+  //       isSearching: false,
+  //       searchResults: [],
+  //     },
+  //     highestSalaries: {
+  //       highestSalaries: [],
+  //       isFetching: false,
+  //     },
+  //     singleCompanyReviews: {
+  //       isFetching: false,
+  //       reviews: {
+  //         companyReview: [],
+  //         interviewReview: [],
+  //         salaryReview: [],
+  //       },
+  //     },
+  //     singleReview: {
+  //       isFetching: false,
+  //       reviews: {
+  //         companyReview: [],
+  //         interviewReview: [],
+  //       },
+  //     },
+  //     topRatedReviews: { isFetching: false, topRatedReviews: [] },
+  //     avgSalaries: {
+  //       avgSalaries: [],
+  //       isFetching: false,
+  //     },
+  //     closestCompanies: { isFetching: false, closestCompanies: [] },
+  //     chatState: {
+  //       chats: [],
+  //     },
+  //   });
+  // });
   // it('decodes the token of a previously authenticated user and passes them to the dashboard', async () => {
   //   if (token) {
   //     await store.dispatch(auth.SetAuthenticated(mockLoginData));
