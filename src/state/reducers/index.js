@@ -12,6 +12,7 @@ import singleReviewReducer from './singleReview';
 import searchReducer from './search';
 import ratesReducer from './currencyRates';
 import chatReducer from './chat';
+import {isCloseReducer } from './isClose';
 
 const rootReducer = combineReducers({
   reviews: reviewsReducer,
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   highestSalaries: highestSalaryReducer,
   currencyRates: ratesReducer,
   chatState: chatReducer,
+  isClose: isCloseReducer,
 });
 
 export default rootReducer;

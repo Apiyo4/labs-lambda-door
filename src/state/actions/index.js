@@ -7,13 +7,16 @@ import { getTopRatedReviews } from './topRatedReviews';
 import { getClosestCompanies } from './closestCompanies';
 
 import { getAvgSalaries } from './avgSalaries';
+import { changeIsClose } from './isClose';
 
 // eslint-disable-next-line import/prefer-default-export
 export const actions = {
-  getCompanyReviews,
-  getSalaryReviews,
-  getInterviewReviews,
-  getAvgSalaries,
-  getTopRatedReviews,
-  getClosestCompanies,
-};
+         getCompanyReviews,
+         getSalaryReviews,
+         getInterviewReviews,
+         getAvgSalaries,
+         getTopRatedReviews,
+         getClosestCompanies,
+         changeIsClose,
+       };
+

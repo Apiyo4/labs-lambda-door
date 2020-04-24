@@ -37,7 +37,7 @@ import DetailedInterviewSearchCard from '../Layout/Search/DetailedInterviewSearc
 import { HighestRated } from '../UserDashboard/TopRated/HighestRated';
 import Chat from '../Layout/Chat/Chat';
 import { getChats } from '../../state/actions/chat';
-import { UserProfile } from '../UserProfile';
+import UserProfile from '../UserProfile';
 
 const start = async () => {
   const token = localStorage.getItem('token');

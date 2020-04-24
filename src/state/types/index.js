@@ -138,3 +138,5 @@ export const CHAT_OPEN = 'CHAT_OPEN';
 export const GET_OPEN_CHATS = 'GET_OPEN_CHATS';
 export const SET_CHAT_MESSAGES = 'SET_CHAT_MESSAGES';
 export const CLOSE_CHAT = 'CLOSE_CHAT';
+// CLOSE STATE
+export const ISCLOSE_CHANGE =  'ISCLOSE_CHANGE'
