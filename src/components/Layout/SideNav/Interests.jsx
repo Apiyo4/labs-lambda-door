@@ -6,6 +6,16 @@ import React, { useState, useEffect } from 'react';
 import { Tag, Dropdown, Icon, Menu } from 'antd';
 import { connect } from 'react-redux';
 import { removeInterest, addInterest, getInterests, getUsersInterests } from '../../../state/actions/interests';
+import styled from 'styled-components';
+
+
+const Div = styled.div`
+padding:100px
+margin:3px
+`
+
+
+
 
 const Interests = ({
   authState: {
@@ -16,14 +26,14 @@ const Interests = ({
   removeInterest,
   addInterest,
   getInterests,
-  getUsersInterests 
+  getUsersInterests
 }) => {
   const [inputVisible, setInputVisible] = useState(false);
 
   useEffect(() => {
     async function allInterests() {
       await getInterests();
-      await getUsersInterests(id); 
+      await getUsersInterests(id);
     }
 
     allInterests();
@@ -45,8 +55,8 @@ const Interests = ({
   const menu = (
     <Menu>
       {allInterests.interests
-      .filter(elem => !userInterests.interests.map(int => int.interest).includes(elem.interest))
-      .map(obj => (
+        .filter(elem => !userInterests.interests.map(int => int.interest).includes(elem.interest))
+        .map(obj => (
           <Menu.Item
             onClick={() => handleAddInterest(id, obj.id)}
             key={obj.id}
@@ -62,27 +72,27 @@ const Interests = ({
       {!userInterests.interests.length ? (
         <p>No interests yet</p>
       ) : (
-        <>
-          {!inputVisible &&
-            userInterests.interests.map((elem) => <Tag key={elem.id}>{elem.interest}</Tag> )
-          }
-          {inputVisible &&
-            userInterests.interests.map(elem => {
-              return (
-                <Tag
-                  key={elem.id}
-                  closable
-                  onClose={e => handleRemoveInterest(e, elem.id)}
-                >
-                  {elem.interest}
-                </Tag>
-              );
-            })}
-        </>
-      )}
+          <>
+            {!inputVisible &&
+              userInterests.interests.map((elem) => <Tag key={elem.id}>{elem.interest}</Tag>)
+            }
+            {inputVisible &&
+              userInterests.interests.map(elem => {
+                return (
+                  <Tag
+                    key={elem.id}
+                    closable
+                    onClose={e => handleRemoveInterest(e, elem.id)}
+                  >
+                    {elem.interest}
+                  </Tag>
+                );
+              })}
+          </>
+        )}
 
       <br />
-
+      <Div></Div>
       {inputVisible && (
         <>
           <Dropdown overlay={menu} trigger={['click']}>
