@@ -58,7 +58,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
               <H4bold>{credentials.full_name}</H4bold>
             </Div1>
           ) : (
-            ''
+            null
           )}
 
           {credentials.username !== null ? (
@@ -67,7 +67,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
               <H4bold>{credentials.username}</H4bold>
             </Div1>
           ) : (
-            ''
+            null
           )}
 
           {credentials.email_address !== null ? (
@@ -76,7 +76,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
               <H4bold>{credentials.email_address}</H4bold>
             </Div1>
           ) : (
-            ''
+            null
           )}
 
           {credentials.age !== null ? (
@@ -85,7 +85,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
               <H4bold>{credentials.age}</H4bold>
             </Div1>
           ) : (
-            ''
+            null
           )}
 
           {credentials.location !== null ? (
@@ -94,7 +94,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
               <H4bold>{credentials.location}</H4bold>
             </Div1>
           ) : (
-            ''
+            null
           )}
 
           {credentials.github_link !== null ? (
@@ -103,7 +103,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
               <H4bold> {credentials.github_link} </H4bold>
             </Div1>
           ) : (
-            ''
+            null
           )}
 
           {credentials.linkedin_link !== null ? (
@@ -112,7 +112,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
               <H4bold>{credentials.github_link}</H4bold>
             </Div1>
           ) : (
-            ''
+            null
           )}
 
           {credentials.portfolio_link !== null ? (
@@ -120,7 +120,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
               <h4>Portfolio Link:</h4>
               <h4Bold>{credentials.portfolio_link}</h4Bold>
             </Div1>
-          ) : ''}
+          ) : null }
         </Div>
       )}
     </DivBorder>
