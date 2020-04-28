@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import UserForm from './UserForm';
+import {UserForm} from './UserForm';
 import { connect } from 'react-redux';
 
 const Div = styled.div`

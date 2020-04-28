@@ -19,12 +19,12 @@ const Button = styled.button`
 border: 2px solid #7C9E9A;
 padding:12px 20px;
     `
-const UserForm = ({ credentials }) => {
+export const UserForm = ({ credentials }) => {
   return (
     <div>
       <form>
         <H4>Full Name:</H4>
-        <Input placeholder="josiah-williams" />
+        {/* <Input value={credentials.full_name} /> */}
         <br />
         <H4>Username:</H4>
         <Input placeholder="josiah-williams" />
@@ -54,9 +54,9 @@ const UserForm = ({ credentials }) => {
 };
 
 
-const mapStateToProps = state => ({
-  credentials: state.authState.credentials,
-  isLoading: state.authState.isLoading
-});
+// const mapStateToProps = state => ({
+//   credentials: state.authState.credentials,
+//   isLoading: state.authState.isLoading
+// });
 
-export default connect(mapStateToProps)(UserForm);
+// export default connect(mapStateToProps)(UserForm);
