@@ -56,7 +56,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
           {credentials.full_name !== null ? (
             <Div1>
               <h4>Full Name:</h4>
-              <h4Bold>{credentials.full_name}</h4Bold>
+              <H4bold>{credentials.full_name}</H4bold>
             </Div1>
           ) : (
             ''
@@ -65,7 +65,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
           {credentials.username !== null ? (
             <Div1>
               <h4>Username:</h4>
-              <H4Bold>{credentials.username}</H4Bold>
+              <H4bold>{credentials.username}</H4bold>
             </Div1>
           ) : (
             ''
@@ -83,7 +83,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
           {credentials.age !== null ? (
             <Div1>
               <h4>Age:</h4>
-              <h4Bold>{credentials.age}</h4Bold>
+              <H4bold>{credentials.age}</H4bold>
             </Div1>
           ) : (
             ''
@@ -110,7 +110,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
           {credentials.linkedin_link !== null ? (
             <Div1>
               <h4>Linkedin Link:</h4>
-              <h4Bold>{credentials.github_link}</h4Bold>
+              <H4bold>{credentials.github_link}</H4bold>
             </Div1>
           ) : (
             ''
@@ -121,9 +121,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
               <h4>Portfolio Link:</h4>
               <h4Bold>{credentials.portfolio_link}</h4Bold>
             </Div1>
-          ) : (
-            ''
-          )}
+          ) : ''}
         </Div>
       )}
     </DivBorder>
