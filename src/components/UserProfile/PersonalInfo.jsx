@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { UserForm } from './UserForm';
+import UserForm from './UserForm';
 import { connect } from 'react-redux';
 
 const Div = styled.div`
@@ -29,7 +29,6 @@ const DivBorder = styled.div`
   padding-bottom: 3%;
 `;
 const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
-  console.log(credentials);
 
   return (
     <DivBorder>

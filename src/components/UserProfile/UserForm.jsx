@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 const Input = styled.input`
   margin-bottom: 1%;
@@ -18,27 +19,44 @@ const Button = styled.button`
 border: 2px solid #7C9E9A;
 padding:12px 20px;
     `
-export const UserForm = () => {
+const UserForm = ({ credentials }) => {
   return (
     <div>
       <form>
-        <H4>Full Name</H4>
+        <H4>Full Name:</H4>
         <Input placeholder="josiah-williams" />
         <br />
-        <H4>Username</H4>
+        <H4>Username:</H4>
         <Input placeholder="josiah-williams" />
         <br />
-        <H4>Email</H4>
+        <H4>Email:</H4>
         <Input placeholder="josiahdamiwilliams@gmail.com" />
         <br />
-        <H4>Age</H4>
+        <H4>Age:</H4>
         <Input placeholder="20" />
         <br />
-        <H4>Location</H4>
+        <H4>Location:</H4>
         <Input placeholder="Nigeria" />
         <br />
+        <H4>Github Link:</H4>
+        <Input />
+        <br/>
+        <H4>Linkedin Link:</H4>
+        <Input/>
+        <br/>
+        <H4>Portfolio Link:</H4>
+        <Input/>
+        <br/>
         <Button>Update Profile</Button>
       </form>
     </div>
   );
 };
+
+
+const mapStateToProps = state => ({
+  credentials: state.authState.credentials,
+  isLoading: state.authState.isLoading
+});
+
+export default connect(mapStateToProps)(UserForm);
