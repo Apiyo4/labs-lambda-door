@@ -8,14 +8,11 @@ import { connect } from 'react-redux';
 import { removeInterest, addInterest, getInterests, getUsersInterests } from '../../../state/actions/interests';
 import styled from 'styled-components';
 
+const Div =  styled.div`
 
-const Div = styled.div`
-padding:100px
-margin:3px
+ margin: 2%;
+
 `
-
-
-
 
 const Interests = ({
   authState: {
@@ -92,7 +89,11 @@ const Interests = ({
         )}
 
       <br />
-      <Div></Div>
+      {userInterests.interests.length?(
+        <Div></Div>  
+      ): <div></div>
+    }
+       
       {inputVisible && (
         <>
           <Dropdown overlay={menu} trigger={['click']}>
