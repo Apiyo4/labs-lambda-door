@@ -19,33 +19,57 @@ const Button = styled.button`
 border: 2px solid #7C9E9A;
 padding:12px 20px;
     `
-export const UserForm = ({ credentials }) => {
+const UserForm = ({ credentials }) => {
+
+  const values = {
+    full_name: credentials.full_name
+  }
+
   return (
     <div>
       <form>
         <H4>Full Name:</H4>
-        {/* <Input value={credentials.full_name} /> */}
+        <Input
+        type="text"
+        placeholder={credentials.full_name} />
         <br />
         <H4>Username:</H4>
-        <Input placeholder="josiah-williams" />
+        <Input
+        type="text"
+        placeholder={credentials.username} />
         <br />
         <H4>Email:</H4>
-        <Input placeholder="josiahdamiwilliams@gmail.com" />
+        <Input 
+        type="text"
+        placeholder={credentials.email_address} />
         <br />
         <H4>Age:</H4>
-        <Input placeholder="20" />
+        <Input 
+        type="text"
+        placeholder={credentials.age} />
         <br />
         <H4>Location:</H4>
-        <Input placeholder="Nigeria" />
+        <Input 
+        type="text"
+        placeholder={credentials.location} />
         <br />
         <H4>Github Link:</H4>
-        <Input />
+        <Input 
+        type="text"
+        placeholder={credentials.github_link}
+        />
         <br/>
         <H4>Linkedin Link:</H4>
-        <Input/>
+        <Input
+        type="text"
+        placeholder={credentials.linkedin_link}
+        />
         <br/>
         <H4>Portfolio Link:</H4>
-        <Input/>
+        <Input
+        type="text"
+        placeholder={credentials.portfolio_link}
+        />
         <br/>
         <Button>Update Profile</Button>
       </form>
@@ -54,9 +78,9 @@ export const UserForm = ({ credentials }) => {
 };
 
 
-// const mapStateToProps = state => ({
-//   credentials: state.authState.credentials,
-//   isLoading: state.authState.isLoading
-// });
+const mapStateToProps = state => ({
+  credentials: state.authState.credentials,
+  isLoading: state.authState.isLoading
+});
 
-// export default connect(mapStateToProps)(UserForm);
+export default connect(mapStateToProps)(UserForm);
