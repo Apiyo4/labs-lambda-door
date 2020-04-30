@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
@@ -17,21 +17,33 @@ const H4 = styled.h4`
 
 const Button = styled.button`
 border: 2px solid #7C9E9A;
-padding:12px 20px;
-    `
-const UserForm = ({ credentials }) => {
+padding:12px 20px;`
+const UserForm = ({ credentials, editProfile }) => {
 
-  const values = {
-    full_name: credentials.full_name
+  const [ formData, setFormData] = useState({
+    fullName: credentials.full_name,
+    username: credentials.username,
+
+  })
+
+  const onSubmit = event => {
+    console.log(formData);
+    event.preventDefault();
   }
+
+  // const [formData, setFormData] = useState({
+  //   formFullName: credentials.full_name,
+  // })
 
   return (
     <div>
-      <form>
+      <form onSubmit={onSubmit}>
         <H4>Full Name:</H4>
         <Input
         type="text"
-        placeholder={credentials.full_name} />
+        placeholder={credentials.full_name}
+        value={formData.fullName}
+        />
         <br />
         <H4>Username:</H4>
         <Input
@@ -46,7 +58,8 @@ const UserForm = ({ credentials }) => {
         <H4>Age:</H4>
         <Input 
         type="text"
-        placeholder={credentials.age} />
+        placeholder={credentials.age}
+        />
         <br />
         <H4>Location:</H4>
         <Input 
@@ -80,7 +93,8 @@ const UserForm = ({ credentials }) => {
 
 const mapStateToProps = state => ({
   credentials: state.authState.credentials,
-  isLoading: state.authState.isLoading
+  isLoading: state.authState.isLoading,
+  editProfile: state.authState.editProfile
 });
 
 export default connect(mapStateToProps)(UserForm);
