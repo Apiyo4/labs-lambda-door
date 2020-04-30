@@ -29,7 +29,6 @@ const DivBorder = styled.div`
   padding-bottom: 3%;
 `;
 const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
-
   return (
     <DivBorder>
       <div>
@@ -57,70 +56,56 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
               <h4>Full Name:</h4>
               <H4bold>{credentials.full_name}</H4bold>
             </Div1>
-          ) : (
-            null
-          )}
+          ) : null}
 
           {credentials.username !== null ? (
             <Div1>
               <h4>Username:</h4>
               <H4bold>{credentials.username}</H4bold>
             </Div1>
-          ) : (
-            null
-          )}
+          ) : null}
 
           {credentials.email_address !== null ? (
             <Div1>
               <h4>Email Address:</h4>
               <H4bold>{credentials.email_address}</H4bold>
             </Div1>
-          ) : (
-            null
-          )}
+          ) : null}
 
           {credentials.age !== null ? (
             <Div1>
               <h4>Age:</h4>
               <H4bold>{credentials.age}</H4bold>
             </Div1>
-          ) : (
-            null
-          )}
+          ) : null}
 
           {credentials.location !== null ? (
             <Div1>
               <h4>Location:</h4>
               <H4bold>{credentials.location}</H4bold>
             </Div1>
-          ) : (
-            null
-          )}
+          ) : null}
 
           {credentials.github_link !== null ? (
             <Div1>
               <h4>Github Link:</h4>
               <H4bold> {credentials.github_link} </H4bold>
             </Div1>
-          ) : (
-            null
-          )}
+          ) : null}
 
           {credentials.linkedin_link !== null ? (
             <Div1>
               <h4>Linkedin Link:</h4>
               <H4bold>{credentials.github_link}</H4bold>
             </Div1>
-          ) : (
-            null
-          )}
+          ) : null}
 
           {credentials.portfolio_link !== null ? (
             <Div1>
               <h4>Portfolio Link:</h4>
               <h4Bold>{credentials.portfolio_link}</h4Bold>
             </Div1>
-          ) : null }
+          ) : null}
         </Div>
       )}
     </DivBorder>
