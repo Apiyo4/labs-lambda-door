@@ -41,7 +41,8 @@ const UserForm = ({ credentials, EditAllUserProfile, openForm }) => {
   const onSubmit = event => {
     event.preventDefault();
     console.log(formData);
-    EditAllUserProfile(formData, credentials.id, openForm);
+    EditAllUserProfile(formData, credentials.id);
+    window.location.reload();
   };
 
   const onChange = event => {

@@ -28,17 +28,17 @@ export const editProfile = (value, id) => async dispatch => {
   }
 };
 
-export const EditAllUserProfile = (value, id, openForm) => async dispatch => {
+export const EditAllUserProfile = (value, id) => async dispatch => {
   try {
     const { data } = await axios.patch(
       `${process.env.REACT_APP_BACKEND_URL}/users/${id}`,
       value
     );
+    await dispatch({type: types.ISCLOSE_CHANGE})
     dispatch({
       type: types.EDIT_ALL_USER_PROFILE,
       payload: data,
     });
-    openForm();
   } catch (error) {
     console.log(error);
   }
