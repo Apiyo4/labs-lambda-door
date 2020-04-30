@@ -6,6 +6,13 @@ import React, { useState, useEffect } from 'react';
 import { Tag, Dropdown, Icon, Menu } from 'antd';
 import { connect } from 'react-redux';
 import { removeInterest, addInterest, getInterests, getUsersInterests } from '../../../state/actions/interests';
+import styled from 'styled-components';
+
+const Div =  styled.div`
+
+ margin: 2%;
+
+`
 
 const Interests = ({
   authState: {
@@ -82,7 +89,11 @@ const Interests = ({
       )}
 
       <br />
-
+      {userInterests.interests.length?(
+        <Div></Div>  
+      ): <div></div>
+    }
+       
       {inputVisible && (
         <>
           <Dropdown overlay={menu} trigger={['click']}>
