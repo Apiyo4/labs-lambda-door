@@ -45,7 +45,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
               <span onClick={openForm}>Close</span>
             </H4margin>
             <div>
-              <UserForm />
+              <UserForm openForm={openForm} />
             </div>
           </div>
         )}

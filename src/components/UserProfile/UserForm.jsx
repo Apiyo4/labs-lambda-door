@@ -20,7 +20,7 @@ const H4 = styled.h4`
 const Button = styled.button`
 border: 2px solid #7C9E9A;
 padding:12px 20px;`
-const UserForm = ({ credentials, EditAllUserProfile }) => {
+const UserForm = ({ credentials, EditAllUserProfile, openForm }) => {
 
   const [ formData, setFormData] = useState({
     profile_picture: credentials.profile_picture,
@@ -39,13 +39,12 @@ const UserForm = ({ credentials, EditAllUserProfile }) => {
     slack_id: credentials.slack_id,
   })
 
-  // const history = useHistory();
 
   const onSubmit = event => {
     event.preventDefault();
     console.log(formData);
-    // EditAllUserProfile(formData, credentials.id);
-    // history.push('/users');
+    EditAllUserProfile(formData, credentials.id, openForm);
+  
   }
 
   const onChange = event => {
