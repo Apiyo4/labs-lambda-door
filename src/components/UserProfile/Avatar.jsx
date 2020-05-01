@@ -14,11 +14,6 @@ export const AvatarContainer = () => {
   return (
     <Div>
       <Avatar />
-      <div>
-        <p>
-          Location:<Bolder>Nigeria</Bolder>
-        </p>
-      </div>
     </Div>
   );
 };
