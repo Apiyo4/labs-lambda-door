@@ -103,7 +103,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
           {credentials.portfolio_link !== null ? (
             <Div1>
               <h4>Portfolio Link:</h4>
-              <h4Bold>{credentials.portfolio_link}</h4Bold>
+              <h4bold>{credentials.portfolio_link}</h4bold>
             </Div1>
           ) : null}
         </Div>
