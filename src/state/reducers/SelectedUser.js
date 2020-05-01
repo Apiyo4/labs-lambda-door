@@ -11,6 +11,7 @@ export const selectedUserReducer =(state=initialState, action)=>{
                 ...state,
                 isLoading : true,
             }
+            
         case types.GET_SELECTED_USER_DETAILS_SUCCESS:
             return{
                 ...state,
