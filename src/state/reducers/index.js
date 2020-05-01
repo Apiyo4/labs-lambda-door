@@ -15,7 +15,6 @@ import chatReducer from './chat';
 import {isCloseReducer } from './isClose';
 import { selectedUserReducer } from './SelectedUser';
 
-
 const rootReducer = combineReducers({
   reviews: reviewsReducer,
   reviewsError: reviewsError,
@@ -33,7 +32,7 @@ const rootReducer = combineReducers({
   currencyRates: ratesReducer,
   chatState: chatReducer,
   isClose: isCloseReducer,
-  selectedUser: selectedUserReducer,
+  selectUserDetails: selectedUserReducer
 });
 
 export default rootReducer;

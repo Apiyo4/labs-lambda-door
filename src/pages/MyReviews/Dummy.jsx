@@ -1,20 +1,23 @@
 import React from 'react';
 import { useEffect } from 'react';
 import Axios from 'axios';
-
-const Dummy = () =>{
-
+import { selectedUsers } from '../../state/actions/selectedusers';
+import { connect } from 'react-redux';
+const Dummy = ({selectedUsers,selectUserDetails}) =>{
+console.log(selectUserDetails)
     const url = process.env.REACT_APP_BACKEND_URL + "/users/1";
     useEffect(()=>{
-        Axios.get(url).then(
-            res =>{
-                // debugger
-            }
-        ).catch(
-            err=>{
-                // debugger
-            }
-        )
+        selectedUsers(2)
+        
+    //     Axios.get(url).then(
+    //         res =>{
+    //             // debugger
+    //         }
+    //     ).catch(
+    //         err=>{
+    //             // debugger
+    //         }
+    //     )
     })
     return(
         <div>
@@ -22,7 +25,13 @@ const Dummy = () =>{
         </div>
     )
 }
-export default Dummy;
+const mapStateToProps =(state)=>{
+    return {
+        selectUserDetails:state.selectUserDetails 
+    }
+}
+export default connect(mapStateToProps,{selectedUsers})(Dummy);
+
 
 // state
 // { Full Name
