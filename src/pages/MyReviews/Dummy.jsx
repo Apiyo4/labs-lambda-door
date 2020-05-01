@@ -23,3 +23,16 @@ const Dummy = () =>{
     )
 }
 export default Dummy;
+
+// state
+// { Full Name
+// Email Address
+// Location
+// Linkedin Link
+// Username
+// Age
+// Github Link
+// portfolio Link
+// }
+
+
