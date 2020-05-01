@@ -15,6 +15,11 @@ const Div1 = styled.div`
   width: 50%;
   margin-bottom: 1%;
 `;
+const Initialdiv =styled.div`
+flex-direction: column;
+width: 100%;
+margin-bottom:2%;
+`;
 const H4bold = styled.h4`
   font-weight: bold;
   font-size:22px;
@@ -67,10 +72,10 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
       {isClose && (
         <Div>
         {credentials.full_name !== null ? (
-            <Div1>
-              <H4bold><UserOutlined /> {credentials.full_name} </H4bold>
-              <h4> {credentials.username} </h4>
-            </Div1>
+            <Initialdiv>
+              <H4bold> {credentials.full_name} </H4bold>
+              <h4> <UserOutlined /> {credentials.username} </h4>
+            </Initialdiv>
             
           ) : null}
           {/* {credentials.username !== null ? (
