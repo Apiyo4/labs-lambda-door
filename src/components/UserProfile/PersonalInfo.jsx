@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import UserForm from './UserForm';
 import { connect } from 'react-redux';
+import { EditOutlined } from "@ant-design/icons";
 
 const Div = styled.div`
   display: flex;
@@ -35,7 +36,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
         {isClose && (
           <H4margin>
             {' '}
-            <span onClick={openForm}>Edit </span>
+            <span onClick={openForm}><EditOutlined />Edit</span>
           </H4margin>
         )}
         {!isClose && (
