@@ -4,6 +4,7 @@ import UserForm from './UserForm';
 import { connect } from 'react-redux';
 import { EditOutlined, UserAddOutlined, UserOutlined, MailOutlined, CompassOutlined, FileExcelFilled } from "@ant-design/icons";
 import { GithubOutlined, LinkedinOutlined, ProfileOutlined} from "@ant-design/icons";
+import Userfield from './Userfields';
 
 const Div = styled.div`
   display: flex;
@@ -93,35 +94,15 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
             </Div1>
           ) : null}
 
-          {credentials.age !== null ? (
-            <Div1>
-              <h4><UserAddOutlined /> {credentials.age} </h4>
-            </Div1>
-          ) : null}
+          <Userfield credentials={credentials.age} UserAddOutlined={UserAddOutlined}/>
 
-          {credentials.location !== null ? (
-            <Div1>
-              <h4><CompassOutlined /> {credentials.location} </h4>
-            </Div1>
-          ) : null}
+          <Userfield credentials={credentials.location} UserAddOutlined={CompassOutlined}/>
 
-          {credentials.github_link !== null ? (
-            <Div1>
-              <h4><GithubOutlined /> {credentials.github_link} </h4>
-            </Div1>
-          ) : null}
+          <Userfield credentials={credentials.github_link} UserAddOutlined={GithubOutlined}/>
 
-          {credentials.linkedin_link !== null ? (
-            <Div1>
-              <h4><LinkedinOutlined /> {credentials.github_link} </h4>
-            </Div1>
-          ) : null}
-
-          {credentials.portfolio_link !== null ? (
-            <Div1>
-              <h4><ProfileOutlined /> {credentials.portfolio_link} </h4>
-            </Div1>
-          ) : null}
+          <Userfield credentials={credentials.linkedin_link} UserAddOutlined={LinkedinOutlined}/>
+          
+          <Userfield credentials={credentials.portfolio_link} UserAddOutlined={ProfileOutlined}/>
         </Div>
       )}
     </DivBorder>
