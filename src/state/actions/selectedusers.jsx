@@ -7,7 +7,7 @@ export const selectedUsers =(id)=> async dispatch => {
     dispatch({type:types.GET_SELECTED_USER_DETAILS})
     try{
         const response =await axios.get(url)
-        dispatch({type:types.GET_SELECTED_USER_DETAILS_SUCCESS, payload:response})
+        dispatch({type:types.GET_SELECTED_USER_DETAILS_SUCCESS, payload:response.data})
     }
     catch(error){
       dispatch({type:types.GET_SELECTED_USER_DETAILS_FAILURE, payload:"Unable to fetch user details!"})  
