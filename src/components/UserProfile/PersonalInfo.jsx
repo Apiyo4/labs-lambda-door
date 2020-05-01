@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { UserForm } from './UserForm';
+import UserForm from './UserForm';
+import { connect } from 'react-redux';
 
 const Div = styled.div`
   display: flex;
@@ -27,7 +28,7 @@ const DivBorder = styled.div`
   padding-top: 3%;
   padding-bottom: 3%;
 `;
-export const PersonalInfo = ({ openForm, isClose }) => {
+const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
   return (
     <DivBorder>
       <div>
@@ -43,35 +44,77 @@ export const PersonalInfo = ({ openForm, isClose }) => {
               <span onClick={openForm}>Close</span>
             </H4margin>
             <div>
-              <UserForm />
+              <UserForm openForm={openForm} />
             </div>
           </div>
         )}
       </div>
       {isClose && (
         <Div>
-          <Div1>
-            <h4>Full Name</h4>
-            <H4bold>josiah-williams</H4bold>
-          </Div1>
-          <Div1>
-            <h4>Username</h4>
-            <H4bold>josiah-williams</H4bold>
-          </Div1>
-          <Div1>
-            <h4>Email</h4>
-            <H4bold>josiahdamiwilliams@gmail.com</H4bold>
-          </Div1>
-          <Div1>
-            <h4>Age</h4>
-            <H4bold>20</H4bold>
-          </Div1>
-          <Div1>
-            <h4>Location</h4>
-            <H4bold>Nigeria</H4bold>
-          </Div1>
+          {credentials.full_name !== null ? (
+            <Div1>
+              <h4>Full Name:</h4>
+              <H4bold>{credentials.full_name}</H4bold>
+            </Div1>
+          ) : null}
+
+          {credentials.username !== null ? (
+            <Div1>
+              <h4>Username:</h4>
+              <H4bold>{credentials.username}</H4bold>
+            </Div1>
+          ) : null}
+
+          {credentials.email_address !== null ? (
+            <Div1>
+              <h4>Email Address:</h4>
+              <H4bold>{credentials.email_address}</H4bold>
+            </Div1>
+          ) : null}
+
+          {credentials.age !== null ? (
+            <Div1>
+              <h4>Age:</h4>
+              <H4bold>{credentials.age}</H4bold>
+            </Div1>
+          ) : null}
+
+          {credentials.location !== null ? (
+            <Div1>
+              <h4>Location:</h4>
+              <H4bold>{credentials.location}</H4bold>
+            </Div1>
+          ) : null}
+
+          {credentials.github_link !== null ? (
+            <Div1>
+              <h4>Github Link:</h4>
+              <H4bold> {credentials.github_link} </H4bold>
+            </Div1>
+          ) : null}
+
+          {credentials.linkedin_link !== null ? (
+            <Div1>
+              <h4>Linkedin Link:</h4>
+              <H4bold>{credentials.github_link}</H4bold>
+            </Div1>
+          ) : null}
+
+          {credentials.portfolio_link !== null ? (
+            <Div1>
+              <h4>Portfolio Link:</h4>
+              <h4Bold>{credentials.portfolio_link}</h4Bold>
+            </Div1>
+          ) : null}
         </Div>
       )}
     </DivBorder>
   );
 };
+
+const mapStateToProps = state => ({
+  credentials: state.authState.credentials,
+  isLoading: state.authState.isLoading,
+});
+
+export default connect(mapStateToProps)(PersonalInfo);

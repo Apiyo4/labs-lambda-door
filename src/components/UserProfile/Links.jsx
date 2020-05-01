@@ -12,8 +12,6 @@ const Input = styled.input`
   box-sizing: border-box;
 `;
 
-
-
 export const Links = ()=>{
     return(
         <div>
@@ -36,7 +34,6 @@ export const Links = ()=>{
             placeholder="https://"
             />
         </form>
-        </div>
-        
+        </div>   
     )
     }
