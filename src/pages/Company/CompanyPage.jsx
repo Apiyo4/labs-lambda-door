@@ -14,6 +14,7 @@ import CompanyReviewCard from '../../components/Company/CompanyReview/CompanyRev
 import InterviewReviewList from '../../components/Company/InterviewReviews/InterviewReviewList';
 import SalaryReviewsList from '../../components/Company/SalaryReviews/SalaryReviewsList';
 
+
 const { TabPane } = Tabs;
 const CompanyPage = ({
   getCompanies,

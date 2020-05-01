@@ -16,6 +16,12 @@ export const authState = (state = initialState, action) => {
         ...state,
         isLoading: true,
       };
+      case types.EDIT_ALL_USER_PROFILE:
+        return {
+          ...state,
+          isLoading: false,
+          credentials: action.payload
+        };
     case types.LOG_IN_USER_SUCCESS:
     case types.EDIT_PROFILE_PICTURE_SUCCESS:
       return {
@@ -46,7 +52,6 @@ export const authState = (state = initialState, action) => {
         isLoggedIn: true,
         error: action.payload,
       };
-
     default:
       return state;
   }

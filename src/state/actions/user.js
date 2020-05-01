@@ -27,3 +27,19 @@ export const editProfile = (value, id) => async dispatch => {
     failureNotification('Profile could not be updated');
   }
 };
+
+export const EditAllUserProfile = (value, id) => async dispatch => {
+  try {
+    const { data } = await axios.patch(
+      `${process.env.REACT_APP_BACKEND_URL}/users/${id}`,
+      value
+    );
+    await dispatch({type: types.ISCLOSE_CHANGE})
+    dispatch({
+      type: types.EDIT_ALL_USER_PROFILE,
+      payload: data,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

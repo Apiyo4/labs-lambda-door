@@ -1,6 +1,6 @@
 import React from 'react';
 import { AvatarContainer } from './Avatar';
-import { PersonalInfo } from './PersonalInfo';
+import PersonalInfo from './PersonalInfo';
 import { Links } from './Links';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
@@ -28,7 +28,7 @@ const UserProfile = ({ changeIsClose, isClose }) => {
         </DivMargin>
         
 
-        {isClose.isClose && <Links />}
+        {/* {isClose.isClose && <Links />} */}
       </div>
     </Div>
   );

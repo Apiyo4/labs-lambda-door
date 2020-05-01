@@ -9,6 +9,7 @@ import {
 import MySalaryReviewList from '../../components/MyReviews/Salary/MySalaryReviewList';
 import CompanyReviewList from '../../components/MyReviews/Company/CompanyReviewList';
 import InterviewReviewList from '../../components/MyReviews/Interview/InterviewReviewList';
+import Dummy from './Dummy';
 
 const { TabPane } = Tabs;
 
@@ -22,6 +23,7 @@ const ManageReviews = ({ history, location }) => {
 
   return (
     <div>
+      <Dummy />
       <h1>My Reviews</h1>
       <Tabs defaultActiveKey={String(location.state)}>
         <TabPane tab="Company Reviews" key="0">
