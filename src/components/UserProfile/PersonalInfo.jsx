@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import UserForm from './UserForm';
 import { connect } from 'react-redux';
-import { EditOutlined } from "@ant-design/icons";
+import { EditOutlined, UserAddOutlined, UserOutlined, MailOutlined, CompassOutlined, FileExcelFilled } from "@ant-design/icons";
+import { GithubOutlined, LinkedinOutlined, ProfileOutlined} from "@ant-design/icons";
 
 const Div = styled.div`
   display: flex;
@@ -10,15 +11,27 @@ const Div = styled.div`
   justify-content: space-between;
 `;
 const Div1 = styled.div`
+  flex-direction:column;
   width: 50%;
   margin-bottom: 1%;
 `;
 const H4bold = styled.h4`
   font-weight: bold;
+  font-size:22px;
+  
+`;
+const H4 = styled.h4`
+  font-size:18px;
 `;
 const H4margin = styled.h4`
   text-align: right;
   cursor:pointer
+`;
+const Emaildiv=styled.div`
+height:100%; 
+display:flex; 
+flex-direction:column; 
+justify-content:flex-end;
 `;
 const DivBorder = styled.div`
   border: 1px solid #ccc;
@@ -53,59 +66,55 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
       </div>
       {isClose && (
         <Div>
-          {credentials.full_name !== null ? (
+        {credentials.full_name !== null ? (
             <Div1>
-              <h4>Full Name:</h4>
-              <H4bold>{credentials.full_name}</H4bold>
+              <H4bold><UserOutlined /> {credentials.full_name} </H4bold>
+              <h4> {credentials.username} </h4>
             </Div1>
+            
           ) : null}
-
-          {credentials.username !== null ? (
+          {/* {credentials.username !== null ? (
             <Div1>
               <h4>Username:</h4>
               <H4bold>{credentials.username}</H4bold>
             </Div1>
-          ) : null}
+          ) : null} */}
 
           {credentials.email_address !== null ? (
             <Div1>
-              <h4>Email Address:</h4>
-              <H4bold>{credentials.email_address}</H4bold>
+            <Emaildiv>
+            <h4><MailOutlined /> {credentials.email_address} </h4>
+            </Emaildiv>
             </Div1>
           ) : null}
 
           {credentials.age !== null ? (
             <Div1>
-              <h4>Age:</h4>
-              <H4bold>{credentials.age}</H4bold>
+              <h4><UserAddOutlined /> {credentials.age} </h4>
             </Div1>
           ) : null}
 
           {credentials.location !== null ? (
             <Div1>
-              <h4>Location:</h4>
-              <H4bold>{credentials.location}</H4bold>
+              <h4><CompassOutlined /> {credentials.location} </h4>
             </Div1>
           ) : null}
 
           {credentials.github_link !== null ? (
             <Div1>
-              <h4>Github Link:</h4>
-              <H4bold> {credentials.github_link} </H4bold>
+              <h4><GithubOutlined /> {credentials.github_link} </h4>
             </Div1>
           ) : null}
 
           {credentials.linkedin_link !== null ? (
             <Div1>
-              <h4>Linkedin Link:</h4>
-              <H4bold>{credentials.github_link}</H4bold>
+              <h4><LinkedinOutlined /> {credentials.github_link} </h4>
             </Div1>
           ) : null}
 
           {credentials.portfolio_link !== null ? (
             <Div1>
-              <h4>Portfolio Link:</h4>
-              <h4Bold>{credentials.portfolio_link}</h4Bold>
+              <h4><ProfileOutlined /> {credentials.portfolio_link} </h4>
             </Div1>
           ) : null}
         </Div>
