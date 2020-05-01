@@ -18,7 +18,7 @@ console.log(selectUserDetails)
     //             // debugger
     //         }
     //     )
-    })
+    }, [])
     return(
         <div>
             Hello
