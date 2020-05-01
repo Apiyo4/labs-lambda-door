@@ -25,8 +25,8 @@ console.log(selectUserDetails)
         </div>
     )
 }
-const mapStateToProps =(state)=>{
-    debugger
+const mapStateToProps =state=>{
+
     return {
         selectUserDetails:state.selectUserDetails 
     }
