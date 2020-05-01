@@ -18,6 +18,7 @@ const H4bold = styled.h4`
 `;
 const H4margin = styled.h4`
   text-align: right;
+  cursor:pointer
 `;
 const DivBorder = styled.div`
   border: 1px solid #ccc;
