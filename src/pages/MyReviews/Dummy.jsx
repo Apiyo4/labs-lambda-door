@@ -27,7 +27,8 @@ const Dummy = ({selectedUsers,selectUserDetails}) =>{
         </div>
     )
 }
-const mapStateToProps =(state)=>{
+const mapStateToProps =state=>{
+
     return {
         selectUserDetails:state.selectUserDetails 
     }

@@ -5,12 +5,14 @@ const initialState ={
     details: {}
 }
 export const selectedUserReducer =(state=initialState, action)=>{
-    switch(action.types){
+    debugger;
+    switch(action.type){
         case types.GET_SELECTED_USER_DETAILS:
             return{
                 ...state,
                 isLoading : true,
             }
+            
         case types.GET_SELECTED_USER_DETAILS_SUCCESS:
             return{
                 ...state,
