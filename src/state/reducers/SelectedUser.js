@@ -1,4 +1,4 @@
-import * as types from '../types';
+import {GET_SELECTED_USER_DETAILS, GET_SELECTED_USER_DETAILS_SUCCESS,GET_SELECTED_USER_DETAILS_FAILURE } from '../types';
 
 const initialState = {
   isLoading: false,
@@ -6,18 +6,18 @@ const initialState = {
 };
 export const selectedUserReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.GET_SELECTED_USER_DETAILS:
+    case GET_SELECTED_USER_DETAILS:
       return {
         ...state,
         isLoading: true,
       };
-    case types.GET_SELECTED_USER_DETAILS_SUCCESS:
+    case GET_SELECTED_USER_DETAILS_SUCCESS:
       return {
         ...state,
         isLoading: false,
         details: action.payload,
       };
-    case types.GET_SELECTED_USER_DETAILS_FAILURE:
+    case GET_SELECTED_USER_DETAILS_FAILURE:
       return {
         ...state,
         isLoading: false,
