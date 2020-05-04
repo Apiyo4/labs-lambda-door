@@ -8,7 +8,7 @@ import { renderWithRedux } from '../../../utils/testingHelpers';
 beforeEach(rtl.cleanup);
 
 describe('Avatar', () => {
-  it('asserts without crashing', () => {
+  it('display the avatar with no problem', () => {
     renderWithRedux(<Avatar />);
   });
 
