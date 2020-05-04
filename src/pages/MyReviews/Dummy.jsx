@@ -4,11 +4,12 @@ import Axios from 'axios';
 import { selectedUsers } from '../../state/actions/selectedusers';
 import { connect } from 'react-redux';
 const Dummy = ({selectedUsers,selectUserDetails}) =>{
-console.log(selectUserDetails)
+
     const url = process.env.REACT_APP_BACKEND_URL + "/users/1";
     useEffect(()=>{
+        console.log(selectUserDetails)
         selectedUsers(2)
-        
+       
     //     Axios.get(url).then(
     //         res =>{
     //             // debugger
@@ -19,6 +20,7 @@ console.log(selectUserDetails)
     //         }
     //     )
     })
+    console.log(selectUserDetails)
     return(
         <div>
             Hello
