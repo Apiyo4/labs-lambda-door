@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { selectedUsers } from '../../state/actions/selectedusers';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { EditOutlined, UserAddOutlined, UserOutlined, MailOutlined, CompassOutlined, FileExcelFilled } from "@ant-design/icons";
+import { GithubOutlined, LinkedinOutlined, ProfileOutlined} from "@ant-design/icons";
+import Userfield from './Userfields';
 
 const Div = styled.div`
   display: flex;
@@ -11,11 +14,32 @@ const Div = styled.div`
   justify-content: space-between;
 `;
 const Div1 = styled.div`
+  flex-direction:column;
   width: 50%;
   margin-bottom: 1%;
 `;
+const Initialdiv =styled.div`
+flex-direction: column;
+width: 100%;
+margin-bottom:2%;
+`;
 const H4bold = styled.h4`
   font-weight: bold;
+  font-size:22px;
+  
+`;
+const H4 = styled.h4`
+  font-size:18px;
+`;
+const H4margin = styled.h4`
+  text-align: right;
+  cursor:pointer
+`;
+const Emaildiv=styled.div`
+height:100%; 
+display:flex; 
+flex-direction:column; 
+justify-content:flex-end;
 `;
 const DivBorder = styled.div`
   border: 1px solid #ccc;
@@ -40,63 +64,39 @@ const OtherUserProfile = ({ credentials,  isLoading, selectedUsers }) => {
         <DivBorder>
         <Div>
         {credentials.full_name !== null ? (
-          <Div1>
-            <h4>Full Name:</h4>
-            <H4bold>{credentials.full_name}</H4bold>
-          </Div1>
-        ) : null}
+            <Initialdiv>
+              <H4bold> {credentials.full_name} </H4bold>
+              <h4> <UserOutlined /> {credentials.username} </h4>
+            </Initialdiv>
+            
+          ) : null}
+          {/* {credentials.username !== null ? (
+            <Div1>
+              <h4>Username:</h4>
+              <H4bold>{credentials.username}</H4bold>
+            </Div1>
+          ) : null} */}
 
-        {credentials.username !== null ? (
-          <Div1>
-            <h4>Username:</h4>
-            <H4bold>{credentials.username}</H4bold>
-          </Div1>
-        ) : null}
+          {credentials.email_address !== null ? (
+            <Div1>
+            <Emaildiv>
+            <h4><MailOutlined /> {credentials.email_address} </h4>
+            </Emaildiv>
+            </Div1>
+          ) : null}
 
-        {credentials.email_address !== null ? (
-          <Div1>
-            <h4>Email Address:</h4>
-            <H4bold>{credentials.email_address}</H4bold>
-          </Div1>
-        ) : null}
+          <Userfield credentials={credentials.age} UserAddOutlined={UserAddOutlined}/>
 
-        {credentials.age !== null ? (
-          <Div1>
-            <h4>Age:</h4>
-            <H4bold>{credentials.age}</H4bold>
-          </Div1>
-        ) : null}
+          <Userfield credentials={credentials.location} UserAddOutlined={CompassOutlined}/>
 
-        {credentials.location !== null ? (
-          <Div1>
-            <h4>Location:</h4>
-            <H4bold>{credentials.location}</H4bold>
-          </Div1>
-        ) : null}
+          <Userfield credentials={credentials.github_link} UserAddOutlined={GithubOutlined}/>
 
-        {credentials.github_link !== null ? (
-          <Div1>
-            <h4>Github Link:</h4>
-            <H4bold> {credentials.github_link} </H4bold>
-          </Div1>
-        ) : null}
-
-        {credentials.linkedin_link !== null ? (
-          <Div1>
-            <h4>Linkedin Link:</h4>
-            <H4bold>{credentials.github_link}</H4bold>
-          </Div1>
-        ) : null}
-
-        {credentials.portfolio_link !== null ? (
-          <Div1>
-            <h4>Portfolio Link:</h4>
-            <h4bold>{credentials.portfolio_link}</h4bold>
-          </Div1>
-        ) : null}
-      </Div>
-  </DivBorder>
-);
+          <Userfield credentials={credentials.linkedin_link} UserAddOutlined={LinkedinOutlined}/>
+          
+          <Userfield credentials={credentials.portfolio_link} UserAddOutlined={ProfileOutlined}/>
+        </Div>
+    </DivBorder>
+  );
 };
 
 const mapStateToProps = state => ({
