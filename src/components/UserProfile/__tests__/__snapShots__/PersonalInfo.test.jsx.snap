@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PersonalInfo renders an input with a name "github_link" 1`] = `
+<body>
+  <div>
+    <github_link />
+  </div>
+</body>
+`;
+
+exports[`PersonalInfo renders an input with a name "linkedin_link" 1`] = `
+<body>
+  <div>
+    <linkedin_link />
+  </div>
+</body>
+`;
+
+exports[`PersonalInfo renders an input with a name "portfolio_link" 1`] = `
+<body>
+  <div>
+    <portfolio_link />
+  </div>
+</body>
+`;
