@@ -7,7 +7,7 @@ import { renderWithRedux } from '../../../utils/testingHelpers';
 
 beforeEach(rtl.cleanup);
 
-describe('Avatar', () => {
+test('Avatar', () => {
   it('display the avatar with no problem', () => {
     renderWithRedux(<Avatar />);
   });
