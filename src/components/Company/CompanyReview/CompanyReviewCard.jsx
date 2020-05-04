@@ -125,7 +125,9 @@ const CompanyReviewCard = ({
             <br />
             <Rate disabled defaultValue={companyReview.ratings} size="small" />
           </div>
-          <ReviewerName>{companyReview.full_name}</ReviewerName>
+          <ReviewerName>
+            {companyReview.full_name}
+            </ReviewerName>
         </StyledCard>
       ))}
     </ReviewCard>
