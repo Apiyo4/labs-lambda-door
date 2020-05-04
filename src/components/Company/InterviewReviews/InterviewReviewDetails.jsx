@@ -2,7 +2,7 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-wrap-multilines */
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Card, Icon, Button, Skeleton } from 'antd';
 import styled from 'styled-components';
@@ -73,7 +73,16 @@ const InterviewReviewDetails = ({
               ''
             )}
           </div>
-          <div className="username">{review.full_name}</div>
+          <div className="username">
+            <Link
+              to={{
+                pathname: `/users/${review.user_id}`,
+                state: { userId: `${review.user_id}` },
+              }}
+            >
+              {review.full_name}
+            </Link>
+          </div>
         </div>
       </StyledCard>
     </>
