@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 import React, { useEffect, useState } from 'react';
 import { Button, Icon, Skeleton, Card } from 'antd';
-import { withRouter, useParams } from 'react-router-dom';
+import { withRouter, useParams, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import ContactReviewer from '../../ContactReviewerModal';
@@ -89,7 +89,7 @@ const SalaryReviewDetails = ({
                   Have questions? &nbsp;&nbsp;
                   <ChatButton
                     toUserID={review.user_id}
-                    toUserName={review.full_name}
+                    toUserName={<Link to='/'>review.full_name</Link>}
                   />
                 </p>
               </>

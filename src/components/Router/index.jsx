@@ -38,6 +38,7 @@ import { HighestRated } from '../UserDashboard/TopRated/HighestRated';
 import Chat from '../Layout/Chat/Chat';
 import { getChats } from '../../state/actions/chat';
 import UserProfile from '../UserProfile';
+import Dummy from '../../pages/MyReviews/Dummy';
 
 const start = async () => {
   const token = localStorage.getItem('token');
@@ -61,6 +62,7 @@ const AppRouter = ({
   },
 }) => {
   return (
+
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
@@ -111,7 +113,8 @@ const AppRouter = ({
           path="/search-results/interview/:id"
           component={DetailedInterviewSearchCard}
         />
-        <DashboardLayout path="/users" component={UserProfile} />
+        <DashboardLayout exact path="/users" component={UserProfile} />
+        <DashboardLayout exact path="/users/:id"  component={Dummy} />
         <DashboardLayout component={NotFound} />
       </Switch>
     </BrowserRouter>
