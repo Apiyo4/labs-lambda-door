@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import UserForm from './UserForm';
 import { connect } from 'react-redux';
+import { selectedUsers } from '../../state/actions/selectedusers';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { EditOutlined, UserAddOutlined, UserOutlined, MailOutlined, CompassOutlined, FileExcelFilled } from "@ant-design/icons";
 import { GithubOutlined, LinkedinOutlined, ProfileOutlined} from "@ant-design/icons";
 import Userfield from './Userfields';
@@ -49,28 +51,17 @@ const DivBorder = styled.div`
   padding-top: 3%;
   padding-bottom: 3%;
 `;
-const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
-  return (
-    <DivBorder>
-      <div>
-        {isClose && (
-          <H4margin>
-            {' '}
-            <span onClick={openForm}><EditOutlined />Edit</span>
-          </H4margin>
-        )}
-        {!isClose && (
-          <div>
-            <H4margin>
-              <span onClick={openForm}>Close</span>
-            </H4margin>
-            <div>
-              <UserForm openForm={openForm} />
-            </div>
-          </div>
-        )}
-      </div>
-      {isClose && (
+const OtherUserProfile = ({ credentials,  isLoading, selectedUsers }) => {
+    const location = useLocation()
+    const [userId, setUserId] =  useState(null)
+   useEffect(() => {
+   setUserId(location.state.userId) 
+
+        selectedUsers(userId);
+    }, [userId]);
+    console.log(userId, "userid")
+    return (
+        <DivBorder>
         <Div>
         {credentials.full_name !== null ? (
             <Initialdiv>
@@ -104,14 +95,14 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
           
           <Userfield credentials={credentials.portfolio_link} UserAddOutlined={ProfileOutlined}/>
         </Div>
-      )}
     </DivBorder>
   );
 };
 
 const mapStateToProps = state => ({
-  credentials: state.authState.credentials,
-  isLoading: state.authState.isLoading,
-});
-
-export default connect(mapStateToProps)(PersonalInfo);
+    credentials: state.selectUserDetails.details,
+    isLoading: state.authState.isLoading,
+  });
+  
+  export default connect(mapStateToProps,{selectedUsers})(OtherUserProfile);
+  

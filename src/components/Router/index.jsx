@@ -12,7 +12,6 @@ import AddReview from '../../pages/AddReview/AddReview';
 import CompanyPage from '../../pages/Company/CompanyPage';
 import ManageReviews from '../../pages/MyReviews/ManageReviews';
 import NotFound from '../../pages/NotFound';
-
 import DetailedSalaryReview from '../MyReviews/Salary/DetailedSalaryReviewCard';
 import DetailedCompanyReview from '../MyReviews/Company/DetailedReviewCard';
 import DetailedInterviewReview from '../MyReviews/Interview/DetailedReviewCard';
@@ -38,7 +37,7 @@ import { HighestRated } from '../UserDashboard/TopRated/HighestRated';
 import Chat from '../Layout/Chat/Chat';
 import { getChats } from '../../state/actions/chat';
 import UserProfile from '../UserProfile';
-import Dummy from '../../pages/MyReviews/Dummy';
+import OtherUserProfile from '../UserProfile/OtherUserProfile';
 
 const start = async () => {
   const token = localStorage.getItem('token');
@@ -114,7 +113,7 @@ const AppRouter = ({
           component={DetailedInterviewSearchCard}
         />
         <DashboardLayout exact path="/users" component={UserProfile} />
-        <DashboardLayout exact path="/users/:id"  component={Dummy} />
+        <DashboardLayout exact path="/users/:id"  component={OtherUserProfile} />
         <DashboardLayout component={NotFound} />
       </Switch>
     </BrowserRouter>

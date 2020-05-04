@@ -8,6 +8,7 @@ exports[`Interests.jsx renders correctly 1`] = `
         No interests yet
       </p>
       <br />
+      <div />
       <span
         class="ant-tag"
         style="background: rgb(255, 255, 255); border-style: dashed;"

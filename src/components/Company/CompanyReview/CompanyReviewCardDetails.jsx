@@ -88,7 +88,7 @@ const CompanyReviewCardDetailed = ({
             )}
           </div>
           <div className="username">
-              <Link to={`/users/${review.user_id}`}>{review.full_name}</Link>
+              <Link to={{pathname:`/users/${review.user_id}`,state:{userId:`${review.user_id}`}}}>{review.full_name}</Link>
             </div>
         </div>
       </StyledCard>
