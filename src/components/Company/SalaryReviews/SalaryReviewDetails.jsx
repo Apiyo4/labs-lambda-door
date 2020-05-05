@@ -89,7 +89,7 @@ const SalaryReviewDetails = ({
                   Have questions? &nbsp;&nbsp;
                   <ChatButton
                     toUserID={review.user_id}
-                    toUserName={<Link to='/'>review.full_name</Link>}
+                    toUserName={<Link to="/">review.full_name</Link>}
                   />
                 </p>
               </>
@@ -100,7 +100,16 @@ const SalaryReviewDetails = ({
           {review.is_anonymous ? (
             <div>Anonymous User</div>
           ) : (
-            <div className="username">{review.full_name}</div>
+            <div className="username">
+              <Link
+                to={{
+                  pathname: `/users/${review.user_id}`,
+                  state: { userId: `${review.user_id}` },
+                }}
+              >
+                {review.full_name}
+              </Link>
+            </div>
           )}
         </div>
       </StyledCard>
