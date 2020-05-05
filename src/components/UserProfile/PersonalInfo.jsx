@@ -18,6 +18,7 @@ import {
 } from '@ant-design/icons';
 import Userfield from './Userfields';
 import { Link } from 'react-router-dom';
+import UserCard from './UserCard';
 
 
 const Div = styled.div`
@@ -67,6 +68,7 @@ const A = styled.a`
   width: 50%;
 `
 const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
+  
   return (
     <DivBorder>
       <div>
@@ -92,83 +94,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
         )}
       </div>
       {isClose && (
-        <Div>
-          {credentials.full_name !== null ? (
-            <Initialdiv>
-              <H4bold> {credentials.full_name} </H4bold>
-              <h4> @{credentials.username} </h4>
-            </Initialdiv>
-          ) : null}
-          {/* {credentials.username !== null ? (
-            <Div1>
-              <h4>Username:</h4>
-              <H4bold>{credentials.username}</H4bold>
-            </Div1>
-          ) : null} */}
-
-          {credentials.email_address !== null ? (
-            <Div1>
-              <Emaildiv>
-                <h4>
-                  <MailOutlined style={{ color: '#bb1333' }} />{' '}
-                  {credentials.email_address}{' '}
-                </h4>
-              </Emaildiv>
-            </Div1>
-          ) : null}
-          {credentials.age?(
-            <Userfield
-              credentials={credentials.age}
-              UserAddOutlined={UserOutlined}
-            />
-
-          ):null
-
-          }
-          
-          {
-            credentials.location?(
-              <Userfield
-                credentials={credentials.location}
-                UserAddOutlined={CompassOutlined}
-              />
-            ): null
-          }
-          {
-            credentials.github_link?(
-              <A href={`${credentials.github_link}`} target='blank'>
-              <Userfield
-                credentials={credentials.github_link}
-                UserAddOutlined={GithubOutlined}
-              />
-              </A>
-            ): null
-          }
-
-         
-          {
-            credentials.linkedin_link?(
-              <A href={`${credentials.linkedin_link}`} target='blank'>
-              <Userfield
-                credentials={credentials.linkedin_link}
-                UserAddOutlined={LinkedinOutlined}
-              />
-              </A>
-            ):null
-          }
-              
-          {
-            credentials.portfolio_link?(
-              <A href={`${credentials.portfolio_link}` } target='blank' >
-              <Userfield
-                credentials={credentials.portfolio_link}
-                UserAddOutlined={ProfileOutlined}
-              />
-              </A>
-            ): null
-          }
-          
-        </Div>
+        <UserCard credentials={credentials}/>
       )}
     </DivBorder>
   );
