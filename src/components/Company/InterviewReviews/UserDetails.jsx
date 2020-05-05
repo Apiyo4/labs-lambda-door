@@ -14,6 +14,7 @@ const UserDetails = ({review}) => {
                 {review.full_name}
             </Link>
         </div>
+        
     )
 }
 export default UserDetails;
