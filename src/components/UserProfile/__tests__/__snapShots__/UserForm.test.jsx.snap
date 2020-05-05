@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserForm asserts that the component renders properly 1`] = `
+<body>
+  <div>
+    <div>
+      <form>
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Full Name:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="full_name"
+          type="text"
+          value=""
+        />
+        <br />
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Username:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="username"
+          type="text"
+          value=""
+        />
+        <br />
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Email:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="email_address"
+          type="email"
+          value=""
+        />
+        <br />
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Age:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="age"
+          type="number"
+          value=""
+        />
+        <br />
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Location:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="location"
+          type="text"
+          value=""
+        />
+        <br />
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Github Link:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="github_link"
+          type="text"
+          value=""
+        />
+        <br />
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Linkedin Link:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="linkedin_link"
+          type="text"
+          value=""
+        />
+        <br />
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Portfolio Link:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="portfolio_link"
+          type="text"
+          value=""
+        />
+        <br />
+        <button
+          class="sc-htpNat llMOo"
+        >
+          Update Profile
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`UserForm renders correctly 1`] = `
+<body>
+  <div>
+    <div>
+      <form>
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Full Name:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="full_name"
+          type="text"
+          value=""
+        />
+        <br />
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Username:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="username"
+          type="text"
+          value=""
+        />
+        <br />
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Email:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="email_address"
+          type="email"
+          value=""
+        />
+        <br />
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Age:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="age"
+          type="number"
+          value=""
+        />
+        <br />
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Location:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="location"
+          type="text"
+          value=""
+        />
+        <br />
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Github Link:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="github_link"
+          type="text"
+          value=""
+        />
+        <br />
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Linkedin Link:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="linkedin_link"
+          type="text"
+          value=""
+        />
+        <br />
+        <h4
+          class="sc-bwzfXH hZEuEv"
+        >
+          Portfolio Link:
+        </h4>
+        <input
+          class="sc-bdVaJa kVTPwc"
+          name="portfolio_link"
+          type="text"
+          value=""
+        />
+        <br />
+        <button
+          class="sc-htpNat llMOo"
+        >
+          Update Profile
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+`;
