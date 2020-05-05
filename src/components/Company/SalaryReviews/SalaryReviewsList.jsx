@@ -54,7 +54,8 @@ const SalaryReviewsList = ({
 
             <h3>{salaryFormatted} /yr</h3>
             <ReviewerName>
-              {elem.is_anonymous ? 'Anonymous User' : elem.full_name}
+              {elem.is_anonymous ? 'Anonymous User' : 
+              elem.full_name}
             </ReviewerName>
           </StyledCard>
         );

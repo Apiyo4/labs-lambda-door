@@ -2,6 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 import UserForm from './UserForm';
 import { connect } from 'react-redux';
+import {
+  EditOutlined,
+  UserAddOutlined,
+  UserOutlined,
+  MailOutlined,
+  CompassOutlined,
+  FileExcelFilled,
+  CloseOutlined,
+} from '@ant-design/icons';
+import {
+  GithubOutlined,
+  LinkedinOutlined,
+  ProfileOutlined,
+} from '@ant-design/icons';
+import Userfield from './Userfields';
+import { Link } from 'react-router-dom';
+
 
 const Div = styled.div`
   display: flex;
@@ -9,14 +26,32 @@ const Div = styled.div`
   justify-content: space-between;
 `;
 const Div1 = styled.div`
+  flex-direction: column;
   width: 50%;
   margin-bottom: 1%;
 `;
+const Initialdiv = styled.div`
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2%;
+`;
 const H4bold = styled.h4`
   font-weight: bold;
+  font-size: 22px;
+  color: #bb1333;
+`;
+const H4 = styled.h4`
+  font-size: 18px;
 `;
 const H4margin = styled.h4`
   text-align: right;
+  cursor: pointer;
+`;
+const Emaildiv = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 `;
 const DivBorder = styled.div`
   border: 1px solid #ccc;
@@ -28,6 +63,9 @@ const DivBorder = styled.div`
   padding-top: 3%;
   padding-bottom: 3%;
 `;
+const A = styled.a`
+  width: 50%;
+`
 const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
   return (
     <DivBorder>
@@ -35,13 +73,17 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
         {isClose && (
           <H4margin>
             {' '}
-            <span onClick={openForm}>Edit </span>
+            <span onClick={openForm}>
+              <EditOutlined />
+              Edit
+            </span>
           </H4margin>
         )}
         {!isClose && (
           <div>
+            
             <H4margin>
-              <span onClick={openForm}>Close</span>
+              <span onClick={openForm}><CloseOutlined/>Close</span>
             </H4margin>
             <div>
               <UserForm openForm={openForm} />
@@ -52,60 +94,80 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
       {isClose && (
         <Div>
           {credentials.full_name !== null ? (
-            <Div1>
-              <h4>Full Name:</h4>
-              <H4bold>{credentials.full_name}</H4bold>
-            </Div1>
+            <Initialdiv>
+              <H4bold> {credentials.full_name} </H4bold>
+              <h4> @{credentials.username} </h4>
+            </Initialdiv>
           ) : null}
-
-          {credentials.username !== null ? (
+          {/* {credentials.username !== null ? (
             <Div1>
               <h4>Username:</h4>
               <H4bold>{credentials.username}</H4bold>
             </Div1>
-          ) : null}
+          ) : null} */}
 
           {credentials.email_address !== null ? (
             <Div1>
-              <h4>Email Address:</h4>
-              <H4bold>{credentials.email_address}</H4bold>
+              <Emaildiv>
+                <h4>
+                  <MailOutlined style={{ color: '#bb1333' }} />{' '}
+                  {credentials.email_address}{' '}
+                </h4>
+              </Emaildiv>
             </Div1>
           ) : null}
+          {credentials.age?(
+            <Userfield
+              credentials={credentials.age}
+              UserAddOutlined={UserOutlined}
+            />
 
-          {credentials.age !== null ? (
-            <Div1>
-              <h4>Age:</h4>
-              <H4bold>{credentials.age}</H4bold>
-            </Div1>
-          ) : null}
+          ):null
 
-          {credentials.location !== null ? (
-            <Div1>
-              <h4>Location:</h4>
-              <H4bold>{credentials.location}</H4bold>
-            </Div1>
-          ) : null}
+          }
+          
+          {
+            credentials.location?(
+              <Userfield
+                credentials={credentials.location}
+                UserAddOutlined={CompassOutlined}
+              />
+            ): null
+          }
+          {
+            credentials.github_link?(
+              <A href={`${credentials.github_link}`} target='blank'>
+              <Userfield
+                credentials={credentials.github_link}
+                UserAddOutlined={GithubOutlined}
+              />
+              </A>
+            ): null
+          }
 
-          {credentials.github_link !== null ? (
-            <Div1>
-              <h4>Github Link:</h4>
-              <H4bold> {credentials.github_link} </H4bold>
-            </Div1>
-          ) : null}
-
-          {credentials.linkedin_link !== null ? (
-            <Div1>
-              <h4>Linkedin Link:</h4>
-              <H4bold>{credentials.github_link}</H4bold>
-            </Div1>
-          ) : null}
-
-          {credentials.portfolio_link !== null ? (
-            <Div1>
-              <h4>Portfolio Link:</h4>
-              <h4bold>{credentials.portfolio_link}</h4bold>
-            </Div1>
-          ) : null}
+         
+          {
+            credentials.linkedin_link?(
+              <A href={`${credentials.linkedin_link}`} target='blank'>
+              <Userfield
+                credentials={credentials.linkedin_link}
+                UserAddOutlined={LinkedinOutlined}
+              />
+              </A>
+            ):null
+          }
+              
+          {
+            credentials.portfolio_link?(
+              <A href={`${credentials.portfolio_link}` } target='blank' >
+              <Userfield
+                credentials={credentials.portfolio_link}
+                UserAddOutlined={ProfileOutlined}
+              />
+              </A>
+            ): null
+          }
+          
         </Div>
       )}
     </DivBorder>

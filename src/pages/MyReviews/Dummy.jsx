@@ -3,37 +3,21 @@ import { useEffect } from 'react';
 import Axios from 'axios';
 import { selectedUsers } from '../../state/actions/selectedusers';
 import { connect } from 'react-redux';
-const Dummy = ({selectedUsers,selectUserDetails}) =>{
-console.log(selectUserDetails)
-    const url = process.env.REACT_APP_BACKEND_URL + "/users/1";
-    useEffect(()=>{
-        selectedUsers(2)
-        
-    //     Axios.get(url).then(
-    //         res =>{
-    //             // debugger
-    //         }
-    //     ).catch(
-    //         err=>{
-    //             // debugger
-    //         }
-    //     )
-    }, [])
-    return(
-        <div>
-            Hello
-        </div>
-    )
-}
-const mapStateToProps =state=>{
-
-    return {
-        selectUserDetails:state.selectUserDetails 
-    }
-}
-export default connect(mapStateToProps,{selectedUsers})(Dummy);
-
-
+const Dummy = ({ selectedUsers, details }) => {
+  console.log(details.username);
+  const url = process.env.REACT_APP_BACKEND_URL + '/users/1';
+  useEffect(() => {
+    selectedUsers(2);
+  }, []);
+  if(!details){return <h1>loading...</h1>}
+  return <div><h1>{details.username}</h1></div>;
+};
+const mapStateToProps = state => {
+    // debugger
+  return {
+    details: state.selectUserDetails,
+  };
+};
 // state
 // { Full Name
 // Email Address
@@ -44,5 +28,3 @@ export default connect(mapStateToProps,{selectedUsers})(Dummy);
 // Github Link
 // portfolio Link
 // }
-
-

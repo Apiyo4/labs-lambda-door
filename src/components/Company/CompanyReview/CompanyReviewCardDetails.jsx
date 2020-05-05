@@ -2,7 +2,7 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-wrap-multilines */
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Rate, Card, Icon, Button, Skeleton } from 'antd';
 import styled from 'styled-components';
@@ -10,6 +10,7 @@ import { getReviewsByReviewId } from '../../../state/actions/reviews';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import ContactReviewer from '../../ContactReviewerModal';
 import ChatButton from '../../Layout/Chat/ChatButton';
+
 
 const CompanyReviewCardDetailed = ({
   props,
@@ -24,6 +25,7 @@ const CompanyReviewCardDetailed = ({
   },
 }) => {
   const reviewId = useParams().id;
+  console.log(reviewId)
   const review =
     companyReview.find(elem => elem.id === Number(reviewId)) ||
     singleCompanyReview;
@@ -85,7 +87,9 @@ const CompanyReviewCardDetailed = ({
               ''
             )}
           </div>
-          <div className="username">{review.full_name}</div>
+          <div className="username">
+              <Link to={{pathname:`/users/${review.user_id}`,state:{userId:`${review.user_id}`}}}>{review.full_name}</Link>
+            </div>
         </div>
       </StyledCard>
     </>

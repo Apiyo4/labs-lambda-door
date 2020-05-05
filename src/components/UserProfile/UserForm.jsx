@@ -75,7 +75,7 @@ const UserForm = ({ credentials, EditAllUserProfile, openForm }) => {
         <br />
         <H4>Email:</H4>
         <Input
-          type="text"
+          type="email"
           name="email_address"
           placeholder={credentials.email_address}
           value={formData.email_address}
@@ -84,7 +84,7 @@ const UserForm = ({ credentials, EditAllUserProfile, openForm }) => {
         <br />
         <H4>Age:</H4>
         <Input
-          type="text"
+          type="number"
           name="age"
           placeholder={credentials.age}
           value={formData.age}
