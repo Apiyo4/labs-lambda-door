@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import ContactReviewer from '../../ContactReviewerModal';
 import { getInterviewReviewsByReviewId } from '../../../state/actions/reviews';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
-import ChatButton from '../../Layout/Chat/ChatButton';
+import ReviewQuestion from '../CompanyReview/ReviewQuestion';
 
 const InterviewReviewDetails = ({
   history,
@@ -57,24 +57,7 @@ const InterviewReviewDetails = ({
       </Button>
       <StyledCard>
         <div>{review.text}</div>
-        <div className="bottom">
-          <div className="contact">
-            {review.is_accepting_questions ? (
-              <>
-                <p>
-                  Have questions? &nbsp;&nbsp;
-                  <ChatButton
-                    toUserID={review.user_id}
-                    toUserName={review.full_name}
-                  />
-                </p>
-              </>
-            ) : (
-              ''
-            )}
-          </div>
-          <div className="username">{review.full_name}</div>
-        </div>
+        <ReviewQuestion review={review} />
       </StyledCard>
     </>
   );

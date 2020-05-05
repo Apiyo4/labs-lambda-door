@@ -1,11 +1,11 @@
 import React from 'react';
 import { AvatarContainer } from './Avatar';
 import PersonalInfo from './PersonalInfo';
-import { Links } from './Links';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { changeIsClose } from '../../state/actions/isClose';
 import Interests from '../Layout/SideNav/Interests.jsx';
+
 
 const Div = styled.div`
   margin-left: 5%;
@@ -27,8 +27,6 @@ const UserProfile = ({ changeIsClose, isClose }) => {
           {isClose.isClose && <Interests />}
         </DivMargin>
         
-
-        {/* {isClose.isClose && <Links />} */}
       </div>
     </Div>
   );

@@ -1,13 +1,14 @@
 /* eslint-disable no-shadow */
 import React, { useEffect, useState } from 'react';
 import { Button, Icon, Skeleton, Card } from 'antd';
-import { withRouter, useParams } from 'react-router-dom';
+import { withRouter, useParams, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import ContactReviewer from '../../ContactReviewerModal';
 import { getSalaryReviewsByCompanyId } from '../../../state/actions/reviews';
 import currencies from '../../../utils/currencies';
 import ChatButton from '../../Layout/Chat/ChatButton';
+import UserDetails from '../InterviewReviews/UserDetails';
 
 let salaryFormatted;
 
@@ -89,7 +90,7 @@ const SalaryReviewDetails = ({
                   Have questions? &nbsp;&nbsp;
                   <ChatButton
                     toUserID={review.user_id}
-                    toUserName={review.full_name}
+                    toUserName={<Link to="/">review.full_name</Link>}
                   />
                 </p>
               </>
@@ -100,7 +101,7 @@ const SalaryReviewDetails = ({
           {review.is_anonymous ? (
             <div>Anonymous User</div>
           ) : (
-            <div className="username">{review.full_name}</div>
+                <UserDetails review={review} />
           )}
         </div>
       </StyledCard>

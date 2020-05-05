@@ -13,8 +13,10 @@ import searchReducer from './search';
 import ratesReducer from './currencyRates';
 import chatReducer from './chat';
 import {isCloseReducer } from './isClose';
+import { selectedUserReducer } from './SelectedUser';
 
 const rootReducer = combineReducers({
+  selectUserDetails: selectedUserReducer,
   reviews: reviewsReducer,
   reviewsError: reviewsError,
   authState: authState,
@@ -31,6 +33,7 @@ const rootReducer = combineReducers({
   currencyRates: ratesReducer,
   chatState: chatReducer,
   isClose: isCloseReducer,
+  
 });
 
 export default rootReducer;

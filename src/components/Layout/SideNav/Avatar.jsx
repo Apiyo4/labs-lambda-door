@@ -92,7 +92,7 @@ const Avatar = ({ userImage, id, editProfile }) => {
 
 const mapStateToProps = state => ({
   id: state.authState.credentials.id,
-  userImage: state.authState.credentials.profile_picture
+  userImage: state.authState.credentials.profile_picture,
 });
 
 export default connect(mapStateToProps, { editProfile })(Avatar);

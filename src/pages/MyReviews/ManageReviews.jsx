@@ -10,6 +10,7 @@ import MySalaryReviewList from '../../components/MyReviews/Salary/MySalaryReview
 import CompanyReviewList from '../../components/MyReviews/Company/CompanyReviewList';
 import InterviewReviewList from '../../components/MyReviews/Interview/InterviewReviewList';
 
+
 const { TabPane } = Tabs;
 
 const ManageReviews = ({ history, location }) => {

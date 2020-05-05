@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { getReviewsByReviewId } from '../../../state/actions/reviews';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import ContactReviewer from '../../ContactReviewerModal';
-import ChatButton from '../../Layout/Chat/ChatButton';
+import ReviewQuestion from './ReviewQuestion';
 
 const CompanyReviewCardDetailed = ({
   props,
@@ -24,6 +24,7 @@ const CompanyReviewCardDetailed = ({
   },
 }) => {
   const reviewId = useParams().id;
+  console.log(reviewId)
   const review =
     companyReview.find(elem => elem.id === Number(reviewId)) ||
     singleCompanyReview;
@@ -69,24 +70,7 @@ const CompanyReviewCardDetailed = ({
             <Rate disabled defaultValue={review.ratings} size="small" />
           ) : null}
         </div>
-        <div className="bottom">
-          <div className="contact">
-            {review.is_accepting_questions ? (
-              <>
-                <p>
-                  Have questions? &nbsp;&nbsp;
-                  <ChatButton
-                    toUserID={review.user_id}
-                    toUserName={review.full_name}
-                  />
-                </p>
-              </>
-            ) : (
-              ''
-            )}
-          </div>
-          <div className="username">{review.full_name}</div>
-        </div>
+          <ReviewQuestion review={review} />
       </StyledCard>
     </>
   );

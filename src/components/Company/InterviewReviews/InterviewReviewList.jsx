@@ -95,7 +95,11 @@ const InterviewReviewList = ({
               <span>{interviewReview.text}</span>
             )}
           </p>
-          <ReviewerName>{interviewReview.full_name}</ReviewerName>
+          <ReviewerName> <Link to={`/users/interviewReview.user_id`}>
+            {interviewReview.full_name}
+          </Link>
+            
+            </ReviewerName>
         </StyledCard>
       ))}
     </ReviewCard>
