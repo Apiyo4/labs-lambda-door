@@ -11,6 +11,7 @@ import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import ContactReviewer from '../../ContactReviewerModal';
 import ChatButton from '../../Layout/Chat/ChatButton';
 import UserDetails from '../InterviewReviews/UserDetails';
+import ReviewQuestion from './ReviewQuestion';
 
 const CompanyReviewCardDetailed = ({
   props,
@@ -71,24 +72,7 @@ const CompanyReviewCardDetailed = ({
             <Rate disabled defaultValue={review.ratings} size="small" />
           ) : null}
         </div>
-        <div className="bottom">
-          <div className="contact">
-            {review.is_accepting_questions ? (
-              <>
-                <p>
-                  Have questions? &nbsp;&nbsp;
-                  <ChatButton
-                    toUserID={review.user_id}
-                    toUserName={review.full_name}
-                  />
-                </p>
-              </>
-            ) : (
-              ''
-            )}
-          </div>
-          <UserDetails review={review}/>
-        </div>
+          <ReviewQuestion review={review} />
       </StyledCard>
     </>
   );

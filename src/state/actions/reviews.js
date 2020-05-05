@@ -450,7 +450,8 @@ export const updateInterviewReview = update => async dispatch => {
 // GET CURRENCY RATES 
 export const getCurrencyRates = () => async dispatch => {
   const exchangeApi = `https://api.exchangeratesapi.io/latest?base=USD`;
-
+  const typeSuccess = types.GET_CURRENCY_RATES_SUCCESS;
+  const typeFailure = types.GET_CURRENCY_RATES_FAILURE;
   dispatch({
     type: types.GET_CURRENCY_RATES,
   })
@@ -458,12 +459,12 @@ export const getCurrencyRates = () => async dispatch => {
   try {
     const response = await axios.get(exchangeApi);
     dispatch({
-      type: types.GET_CURRENCY_RATES_SUCCESS,
+      type: typeSuccess,
       payload: response.data,
     })
   } catch(error) {
     dispatch({
-      type: types.GET_CURRENCY_RATES_FAILURE,
+      type: typeFailure ,
       payload: error,
     })
   }
