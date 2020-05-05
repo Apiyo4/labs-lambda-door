@@ -99,8 +99,7 @@ const UserCard =({credentials})=>{
                   </A>
                 );
             })
-        ):null
-            
+        ):null  
         }
       </Div>
     );
