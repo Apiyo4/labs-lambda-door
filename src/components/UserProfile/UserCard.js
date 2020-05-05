@@ -43,7 +43,16 @@ const A = styled.a`
 `;
 
 const UserCard =({credentials})=>{
-    
+    // const arr = [
+    //   credentials.full_name,
+    //   credentials.username,
+    //   credentials.email_address,
+    //   credentials.age,
+    //   credentials.location,
+    //   credentials.github_link,
+    //   credentials.linkedin_link,
+    //   credentials.portfolio_link,
+    // ];
     return (
       <Div>
         {credentials.full_name !== null ? (
