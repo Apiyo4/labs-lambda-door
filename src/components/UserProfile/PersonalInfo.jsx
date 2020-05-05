@@ -9,6 +9,7 @@ import {
   MailOutlined,
   CompassOutlined,
   FileExcelFilled,
+  CloseOutlined,
 } from '@ant-design/icons';
 import {
   GithubOutlined,
@@ -16,6 +17,8 @@ import {
   ProfileOutlined,
 } from '@ant-design/icons';
 import Userfield from './Userfields';
+import { Link } from 'react-router-dom';
+
 
 const Div = styled.div`
   display: flex;
@@ -60,6 +63,9 @@ const DivBorder = styled.div`
   padding-top: 3%;
   padding-bottom: 3%;
 `;
+const A = styled.a`
+  width: 50%;
+`
 const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
   return (
     <DivBorder>
@@ -75,8 +81,9 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
         )}
         {!isClose && (
           <div>
+            
             <H4margin>
-              <span onClick={openForm}>Close</span>
+              <span onClick={openForm}><CloseOutlined/>Close</span>
             </H4margin>
             <div>
               <UserForm openForm={openForm} />
@@ -109,31 +116,58 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
               </Emaildiv>
             </Div1>
           ) : null}
+          {credentials.age?(
+            <Userfield
+              credentials={credentials.age}
+              UserAddOutlined={UserOutlined}
+            />
 
-          <Userfield
-            credentials={credentials.age}
-            UserAddOutlined={UserOutlined}
-          />
+          ):null
 
-          <Userfield
-            credentials={credentials.location}
-            UserAddOutlined={CompassOutlined}
-          />
+          }
+          
+          {
+            credentials.location?(
+              <Userfield
+                credentials={credentials.location}
+                UserAddOutlined={CompassOutlined}
+              />
+            ): null
+          }
+          {
+            credentials.github_link?(
+              <A href={`${credentials.github_link}`} target='blank'>
+              <Userfield
+                credentials={credentials.github_link}
+                UserAddOutlined={GithubOutlined}
+              />
+              </A>
+            ): null
+          }
 
-          <Userfield
-            credentials={credentials.github_link}
-            UserAddOutlined={GithubOutlined}
-          />
-
-          <Userfield
-            credentials={credentials.linkedin_link}
-            UserAddOutlined={LinkedinOutlined}
-          />
-
-          <Userfield
-            credentials={credentials.portfolio_link}
-            UserAddOutlined={ProfileOutlined}
-          />
+         
+          {
+            credentials.linkedin_link?(
+              <A href={`${credentials.linkedin_link}`} target='blank'>
+              <Userfield
+                credentials={credentials.linkedin_link}
+                UserAddOutlined={LinkedinOutlined}
+              />
+              </A>
+            ):null
+          }
+              
+          {
+            credentials.portfolio_link?(
+              <A href={`${credentials.portfolio_link}` } target='blank' >
+              <Userfield
+                credentials={credentials.portfolio_link}
+                UserAddOutlined={ProfileOutlined}
+              />
+              </A>
+            ): null
+          }
+          
         </Div>
       )}
     </DivBorder>

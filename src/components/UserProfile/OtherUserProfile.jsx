@@ -90,6 +90,9 @@ const StyledContainer = styled.div`
     }
   }
 `;
+const A= styled.a`
+  width: 50%;
+`
 const OtherUserProfile = ({ credentials, isLoading, selectedUsers }) => {
   const location = useLocation();
   const [userId, setUserId] = useState(null);
@@ -152,26 +155,32 @@ const OtherUserProfile = ({ credentials, isLoading, selectedUsers }) => {
         ):null}
 
          { credentials.github_link ? (
+              <A href={`${credentials.github_link}`} target='blank'>
               <Userfield
                 credentials={credentials.github_link}
                 UserAddOutlined={GithubOutlined}
               />
+              </A>
          ):null
          } 
         {
           credentials.linkedin_link? (
+                <A href={`${credentials.linkedin_link}`} target='blank'>
                 <Userfield
                   credentials={credentials.linkedin_link}
                   UserAddOutlined={LinkedinOutlined}
                 />
+                </A>
           ) :null
         }
         {
           credentials.portfolio_link?(
+                <A href={`${credentials.portfolio_link}`}>
                 <Userfield
                   credentials={credentials.portfolio_link}
                   UserAddOutlined={ProfileOutlined}
                 />
+                </A>
           ):null
         }
 
