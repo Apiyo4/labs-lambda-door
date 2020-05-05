@@ -38,6 +38,7 @@ const Initialdiv = styled.div`
 const H4bold = styled.h4`
   font-weight: bold;
   font-size: 22px;
+  color: #bb1333;
 `;
 const H4 = styled.h4`
   font-size: 18px;
@@ -123,10 +124,7 @@ const OtherUserProfile = ({ credentials, isLoading, selectedUsers }) => {
           {credentials.full_name !== null ? (
             <Initialdiv>
               <H4bold> {credentials.full_name} </H4bold>
-              <h4>
-                {' '}
-                <UserOutlined /> {credentials.username}{' '}
-              </h4>
+              <h4> @{credentials.username} </h4>
             </Initialdiv>
           ) : null}
 
@@ -134,7 +132,8 @@ const OtherUserProfile = ({ credentials, isLoading, selectedUsers }) => {
             <Div1>
               <Emaildiv>
                 <h4>
-                  <MailOutlined /> {credentials.email_address}{' '}
+                  <MailOutlined style={{ color: '#bb1333' }} />{' '}
+                  {credentials.email_address}{' '}
                 </h4>
               </Emaildiv>
             </Div1>

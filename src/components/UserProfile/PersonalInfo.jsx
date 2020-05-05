@@ -2,8 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import UserForm from './UserForm';
 import { connect } from 'react-redux';
-import { EditOutlined, UserAddOutlined, UserOutlined, MailOutlined, CompassOutlined, FileExcelFilled } from "@ant-design/icons";
-import { GithubOutlined, LinkedinOutlined, ProfileOutlined} from "@ant-design/icons";
+import {
+  EditOutlined,
+  UserAddOutlined,
+  UserOutlined,
+  MailOutlined,
+  CompassOutlined,
+  FileExcelFilled,
+} from '@ant-design/icons';
+import {
+  GithubOutlined,
+  LinkedinOutlined,
+  ProfileOutlined,
+} from '@ant-design/icons';
 import Userfield from './Userfields';
 
 const Div = styled.div`
@@ -12,32 +23,32 @@ const Div = styled.div`
   justify-content: space-between;
 `;
 const Div1 = styled.div`
-  flex-direction:column;
+  flex-direction: column;
   width: 50%;
   margin-bottom: 1%;
 `;
-const Initialdiv =styled.div`
-flex-direction: column;
-width: 100%;
-margin-bottom:2%;
+const Initialdiv = styled.div`
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2%;
 `;
 const H4bold = styled.h4`
   font-weight: bold;
-  font-size:22px;
-  
+  font-size: 22px;
+  color: #bb1333;
 `;
 const H4 = styled.h4`
-  font-size:18px;
+  font-size: 18px;
 `;
 const H4margin = styled.h4`
   text-align: right;
-  cursor:pointer
+  cursor: pointer;
 `;
-const Emaildiv=styled.div`
-height:100%; 
-display:flex; 
-flex-direction:column; 
-justify-content:flex-end;
+const Emaildiv = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 `;
 const DivBorder = styled.div`
   border: 1px solid #ccc;
@@ -56,7 +67,10 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
         {isClose && (
           <H4margin>
             {' '}
-            <span onClick={openForm}><EditOutlined />Edit</span>
+            <span onClick={openForm}>
+              <EditOutlined />
+              Edit
+            </span>
           </H4margin>
         )}
         {!isClose && (
@@ -72,12 +86,11 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
       </div>
       {isClose && (
         <Div>
-        {credentials.full_name !== null ? (
+          {credentials.full_name !== null ? (
             <Initialdiv>
               <H4bold> {credentials.full_name} </H4bold>
-              <h4> <UserOutlined /> {credentials.username} </h4>
+              <h4> @{credentials.username} </h4>
             </Initialdiv>
-            
           ) : null}
           {/* {credentials.username !== null ? (
             <Div1>
@@ -88,21 +101,39 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
 
           {credentials.email_address !== null ? (
             <Div1>
-            <Emaildiv>
-            <h4><MailOutlined /> {credentials.email_address} </h4>
-            </Emaildiv>
+              <Emaildiv>
+                <h4>
+                  <MailOutlined style={{ color: '#bb1333' }} />{' '}
+                  {credentials.email_address}{' '}
+                </h4>
+              </Emaildiv>
             </Div1>
           ) : null}
 
-          <Userfield credentials={credentials.age} UserAddOutlined={UserAddOutlined}/>
+          <Userfield
+            credentials={credentials.age}
+            UserAddOutlined={UserOutlined}
+          />
 
-          <Userfield credentials={credentials.location} UserAddOutlined={CompassOutlined}/>
+          <Userfield
+            credentials={credentials.location}
+            UserAddOutlined={CompassOutlined}
+          />
 
-          <Userfield credentials={credentials.github_link} UserAddOutlined={GithubOutlined}/>
+          <Userfield
+            credentials={credentials.github_link}
+            UserAddOutlined={GithubOutlined}
+          />
 
-          <Userfield credentials={credentials.linkedin_link} UserAddOutlined={LinkedinOutlined}/>
-          
-          <Userfield credentials={credentials.portfolio_link} UserAddOutlined={ProfileOutlined}/>
+          <Userfield
+            credentials={credentials.linkedin_link}
+            UserAddOutlined={LinkedinOutlined}
+          />
+
+          <Userfield
+            credentials={credentials.portfolio_link}
+            UserAddOutlined={ProfileOutlined}
+          />
         </Div>
       )}
     </DivBorder>
