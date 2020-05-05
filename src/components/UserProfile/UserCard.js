@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   UserOutlined,
   MailOutlined,
@@ -43,16 +43,24 @@ const A = styled.a`
 `;
 
 const UserCard =({credentials})=>{
-    // const arr = [
-    //   credentials.full_name,
-    //   credentials.username,
-    //   credentials.email_address,
-    //   credentials.age,
-    //   credentials.location,
-    //   credentials.github_link,
-    //   credentials.linkedin_link,
-    //   credentials.portfolio_link,
-    // ];
+    const [linksArr, setLinksArr] = useState([])
+    useEffect(() => {
+      setLinksArr([
+        { name: [credentials.github_link, GithubOutlined] },
+        { name: [credentials.linkedin_link, LinkedinOutlined] },
+        { name: [credentials.portfolio_link, ProfileOutlined] },
+      ]);
+      // const linksArr = [
+      //   { github: [credentials.github_link, GithubOutlined] },
+      //   { linkedin_link: [credentials.linkedin_link, LinkedinOutlined] },
+      //   { portfolio: [credentials.portfolio_link, ProfileOutlined] },
+      // ];
+    }, [
+      credentials.portfolio_link,
+      credentials.linkedin_link,
+      credentials.portfolio_link
+    ]);
+
     return (
       <Div>
         {credentials.full_name !== null ? (
@@ -91,6 +99,22 @@ const UserCard =({credentials})=>{
             UserAddOutlined={CompassOutlined}
           />
         ) : null}
+        { linksArr? (
+            linksArr.map(item=>{
+                return (
+                  <A href={`${item.name[0]}`} target="blank">
+                    <Userfield
+                      credentials={item.name[0]}
+                      UserAddOutlined={item.name[1]}
+                    />
+                  </A>
+                );
+            })
+        ):null
+            
+        }
+
+{/*         
         {credentials.github_link ? (
           <A href={`${credentials.github_link}`} target="blank">
             <Userfield
@@ -116,7 +140,7 @@ const UserCard =({credentials})=>{
               UserAddOutlined={ProfileOutlined}
             />
           </A>
-        ) : null}
+        ) : null} */}
       </Div>
     );
 }

@@ -8,6 +8,7 @@ import ContactReviewer from '../../ContactReviewerModal';
 import { getSalaryReviewsByCompanyId } from '../../../state/actions/reviews';
 import currencies from '../../../utils/currencies';
 import ChatButton from '../../Layout/Chat/ChatButton';
+import UserDetails from '../InterviewReviews/UserDetails';
 
 let salaryFormatted;
 
@@ -100,16 +101,7 @@ const SalaryReviewDetails = ({
           {review.is_anonymous ? (
             <div>Anonymous User</div>
           ) : (
-            <div className="username">
-              <Link
-                to={{
-                  pathname: `/users/${review.user_id}`,
-                  state: { userId: `${review.user_id}` },
-                }}
-              >
-                {review.full_name}
-              </Link>
-            </div>
+                <UserDetails review={review} />
           )}
         </div>
       </StyledCard>

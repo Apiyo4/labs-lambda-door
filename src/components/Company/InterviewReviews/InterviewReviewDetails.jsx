@@ -10,6 +10,7 @@ import ContactReviewer from '../../ContactReviewerModal';
 import { getInterviewReviewsByReviewId } from '../../../state/actions/reviews';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import ChatButton from '../../Layout/Chat/ChatButton';
+import UserDetails from './UserDetails';
 
 const InterviewReviewDetails = ({
   history,
@@ -73,16 +74,7 @@ const InterviewReviewDetails = ({
               ''
             )}
           </div>
-          <div className="username">
-            <Link
-              to={{
-                pathname: `/users/${review.user_id}`,
-                state: { userId: `${review.user_id}` },
-              }}
-            >
-              {review.full_name}
-            </Link>
-          </div>
+            <UserDetails review={review}/>
         </div>
       </StyledCard>
     </>
