@@ -10,13 +10,13 @@ import {
 import UserCard from './UserCard';
 
 
-
 const H4margin = styled.h4`
   text-align: right;
   cursor: pointer;
 `;
 
 const DivBorder = styled.div`
+
   border: 1px solid #ccc;
   margin: auto;
   margin-top: 5%;
