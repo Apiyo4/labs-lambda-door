@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { changeIsClose } from '../../state/actions/isClose';
 import Interests from '../Layout/SideNav/Interests.jsx';
 
+
 const Div = styled.div`
   margin-left: 5%;
   margin-right: 5%;

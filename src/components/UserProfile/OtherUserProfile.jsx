@@ -8,6 +8,7 @@ import { EditOutlined, UserAddOutlined, UserOutlined, MailOutlined, CompassOutli
 import { GithubOutlined, LinkedinOutlined, ProfileOutlined} from "@ant-design/icons";
 import Userfield from './Userfields';
 
+// import { AvatarContainer } from './Avatar';
 const Div = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -60,6 +61,7 @@ const OtherUserProfile = ({ credentials,  isLoading, selectedUsers }) => {
         selectedUsers(userId);
     }, [userId]);
     console.log(userId, "userid")
+
     return (
         <DivBorder>
         <Div>
@@ -84,16 +86,6 @@ const OtherUserProfile = ({ credentials,  isLoading, selectedUsers }) => {
             </Emaildiv>
             </Div1>
           ) : null}
-
-          <Userfield credentials={credentials.age} UserAddOutlined={UserAddOutlined}/>
-
-          <Userfield credentials={credentials.location} UserAddOutlined={CompassOutlined}/>
-
-          <Userfield credentials={credentials.github_link} UserAddOutlined={GithubOutlined}/>
-
-          <Userfield credentials={credentials.linkedin_link} UserAddOutlined={LinkedinOutlined}/>
-          
-          <Userfield credentials={credentials.portfolio_link} UserAddOutlined={ProfileOutlined}/>
         </Div>
     </DivBorder>
   );
