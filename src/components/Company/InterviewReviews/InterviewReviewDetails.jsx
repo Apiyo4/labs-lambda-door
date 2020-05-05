@@ -59,7 +59,7 @@ const InterviewReviewDetails = ({
       </Button>
       <StyledCard>
         <div>{review.text}</div>
-        <ReviewQuestion review={review}
+        <ReviewQuestion review={review} />
       </StyledCard>
     </>
   );
