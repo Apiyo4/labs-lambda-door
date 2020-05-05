@@ -82,6 +82,17 @@ const StyledContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+`;
+const A= styled.a`
+  width: 50%;
 `
 const OtherUserProfile = ({ credentials, isLoading, selectedUsers }) => {
   const location = useLocation();
@@ -114,13 +125,14 @@ const OtherUserProfile = ({ credentials, isLoading, selectedUsers }) => {
       </ImageDiv>
       <DivBorder>
         <Div>
-          {credentials.full_name !== null ? (
+          {credentials.full_name ? (
             <Initialdiv>
               <H4bold> {credentials.full_name} </H4bold>
               <h4> @{credentials.username} </h4>
             </Initialdiv>
           ) : null}
 
+          {credentials.email_address ? (
             <Div1>
               <Emaildiv>
                 <h4>
@@ -130,31 +142,49 @@ const OtherUserProfile = ({ credentials, isLoading, selectedUsers }) => {
               </Emaildiv>
             </Div1>
           ) : null}
+        {credentials.age ?(
+              <Userfield
+                credentials={credentials.age}
+                UserAddOutlined={UserAddOutlined}
+              />
+        ) : null  }
+        {credentials.location ?(
+              <Userfield
+                credentials={credentials.location}
+                UserAddOutlined={CompassOutlined}
+              />
+        ):null}
 
-          <Userfield
-            credentials={credentials.age}
-            UserAddOutlined={UserAddOutlined}
-          />
+         { credentials.github_link ? (
+              <A href={`${credentials.github_link}`} target='blank'>
+              <Userfield
+                credentials={credentials.github_link}
+                UserAddOutlined={GithubOutlined}
+              />
+              </A>
+         ):null
+         } 
+        {
+          credentials.linkedin_link? (
+                <A href={`${credentials.linkedin_link}`} target='blank'>
+                <Userfield
+                  credentials={credentials.linkedin_link}
+                  UserAddOutlined={LinkedinOutlined}
+                />
+                </A>
+          ) :null
+        }
+        {
+          credentials.portfolio_link?(
+                <A href={`${credentials.portfolio_link}`}>
+                <Userfield
+                  credentials={credentials.portfolio_link}
+                  UserAddOutlined={ProfileOutlined}
+                />
+                </A>
+          ):null
+        }
 
-          <Userfield
-            credentials={credentials.location}
-            UserAddOutlined={CompassOutlined}
-          />
-
-          <Userfield
-            credentials={credentials.github_link}
-            UserAddOutlined={GithubOutlined}
-          />
-
-          <Userfield
-            credentials={credentials.linkedin_link}
-            UserAddOutlined={LinkedinOutlined}
-          />
-
-          <Userfield
-            credentials={credentials.portfolio_link}
-            UserAddOutlined={ProfileOutlined}
-          />
         </Div>
       </DivBorder>
     </>

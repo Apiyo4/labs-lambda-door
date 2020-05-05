@@ -95,7 +95,10 @@ const InterviewReviewList = ({
               <span>{interviewReview.text}</span>
             )}
           </p>
-          <ReviewerName> <Link to={{pathname:`/users/${interviewReview.user_id}`}}>{interviewReview.full_name}</Link>
+          <ReviewerName> <Link to={`/users/interviewReview.user_id`}>
+            {interviewReview.full_name}
+          </Link>
+            
             </ReviewerName>
         </StyledCard>
       ))}
