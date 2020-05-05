@@ -50,11 +50,6 @@ const UserCard =({credentials})=>{
         { name: [credentials.linkedin_link, LinkedinOutlined] },
         { name: [credentials.portfolio_link, ProfileOutlined] },
       ]);
-      // const linksArr = [
-      //   { github: [credentials.github_link, GithubOutlined] },
-      //   { linkedin_link: [credentials.linkedin_link, LinkedinOutlined] },
-      //   { portfolio: [credentials.portfolio_link, ProfileOutlined] },
-      // ];
     }, [
       credentials.portfolio_link,
       credentials.linkedin_link,
@@ -69,12 +64,6 @@ const UserCard =({credentials})=>{
             <h4> @{credentials.username} </h4>
           </Initialdiv>
         ) : null}
-        {/* {credentials.username !== null ? (
-            <Div1>
-              <h4>Username:</h4>
-              <H4bold>{credentials.username}</H4bold>
-            </Div1>
-          ) : null} */}
 
         {credentials.email_address !== null ? (
           <Div1>
@@ -102,7 +91,7 @@ const UserCard =({credentials})=>{
         { linksArr? (
             linksArr.map(item=>{
                 return (
-                  <A href={`${item.name[0]}`} target="blank">
+                  <A key={item.name[0]} href={`${item.name[0]}`} target="blank">
                     <Userfield
                       credentials={item.name[0]}
                       UserAddOutlined={item.name[1]}
@@ -113,34 +102,6 @@ const UserCard =({credentials})=>{
         ):null
             
         }
-
-{/*         
-        {credentials.github_link ? (
-          <A href={`${credentials.github_link}`} target="blank">
-            <Userfield
-              credentials={credentials.github_link}
-              UserAddOutlined={GithubOutlined}
-            />
-          </A>
-        ) : null}
-
-        {credentials.linkedin_link ? (
-          <A href={`${credentials.linkedin_link}`} target="blank">
-            <Userfield
-              credentials={credentials.linkedin_link}
-              UserAddOutlined={LinkedinOutlined}
-            />
-          </A>
-        ) : null}
-
-        {credentials.portfolio_link ? (
-          <A href={`${credentials.portfolio_link}`} target="blank">
-            <Userfield
-              credentials={credentials.portfolio_link}
-              UserAddOutlined={ProfileOutlined}
-            />
-          </A>
-        ) : null} */}
       </Div>
     );
 }

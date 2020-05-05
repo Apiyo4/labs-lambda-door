@@ -5,57 +5,9 @@ import { Spin } from 'antd';
 import { selectedUsers } from '../../state/actions/selectedusers';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import {
-  EditOutlined,
-  UserAddOutlined,
-  UserOutlined,
-  MailOutlined,
-  CompassOutlined,
-  FileExcelFilled,
-} from '@ant-design/icons';
-import {
-  GithubOutlined,
-  LinkedinOutlined,
-  ProfileOutlined,
-} from '@ant-design/icons';
-import Userfield from './Userfields';
+
 import UserCard from './UserCard';
 
-
-// import { AvatarContainer } from './Avatar';
-const Div = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-`;
-const Div1 = styled.div`
-  flex-direction: column;
-  width: 50%;
-  margin-bottom: 1%;
-`;
-const Initialdiv = styled.div`
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 2%;
-`;
-const H4bold = styled.h4`
-  font-weight: bold;
-  font-size: 22px;
-  color: #bb1333;
-`;
-const H4 = styled.h4`
-  font-size: 18px;
-`;
-const H4margin = styled.h4`
-  text-align: right;
-  cursor: pointer;
-`;
-const Emaildiv = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-`;
 const DivBorder = styled.div`
   border: 1px solid #ccc;
   margin: auto;
@@ -93,9 +45,6 @@ const StyledContainer = styled.div`
     }
   }
 `;
-const A= styled.a`
-  width: 50%;
-`
 const OtherUserProfile = ({ credentials, isLoading, selectedUsers }) => {
   const location = useLocation();
   const [userId, setUserId] = useState(null);

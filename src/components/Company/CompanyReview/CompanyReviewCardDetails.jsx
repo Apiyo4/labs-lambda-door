@@ -2,15 +2,13 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-wrap-multilines */
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Rate, Card, Icon, Button, Skeleton } from 'antd';
 import styled from 'styled-components';
 import { getReviewsByReviewId } from '../../../state/actions/reviews';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import ContactReviewer from '../../ContactReviewerModal';
-import ChatButton from '../../Layout/Chat/ChatButton';
-import UserDetails from '../InterviewReviews/UserDetails';
 import ReviewQuestion from './ReviewQuestion';
 
 const CompanyReviewCardDetailed = ({
