@@ -119,7 +119,7 @@ const Interests = ({
         >
           <Icon type="plus" /> Edit Preferred Role/s
         </Tag>
-          <P>It has been estimated that choosing your preferred roles can guarantee you a job of your interest. Why not try it out"</P>
+          <P>Choosing your preferred role will personalise your experience.</P>
         </div>
       )}
     </div>
