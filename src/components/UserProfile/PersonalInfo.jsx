@@ -37,7 +37,7 @@ const PersonalInfo = ({ openForm, isClose, credentials, isLoading }) => {
             {' '}
             <span onClick={openForm}>
               <EditOutlined />
-              Edit
+              Edit Profile
             </span>
           </H4margin>
         )}

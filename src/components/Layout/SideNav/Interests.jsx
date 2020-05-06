@@ -13,6 +13,9 @@ const Div =  styled.div`
  margin: 2%;
 
 `
+const P = styled.p`
+  padding-top: 2%;
+`
 
 const Interests = ({
   authState: {
@@ -109,12 +112,15 @@ const Interests = ({
         </>
       )}
       {!inputVisible && (
+        <div> 
         <Tag
           onClick={showInput}
           style={{ background: '#fff', borderStyle: 'dashed' }}
         >
           <Icon type="plus" /> Edit Preferred Role/s
         </Tag>
+          <P>It has been estimated that choosing your preferred roles can guarantee you a job of your interest. Why not try it out"</P>
+        </div>
       )}
     </div>
   );
