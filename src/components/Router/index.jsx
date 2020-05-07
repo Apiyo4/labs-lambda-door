@@ -39,6 +39,7 @@ import { getChats } from '../../state/actions/chat';
 import UserProfile from '../UserProfile';
 import OtherUserProfile from '../UserProfile/OtherUserProfile';
 
+
 const start = async () => {
   const token = localStorage.getItem('token');
   if (token) {
