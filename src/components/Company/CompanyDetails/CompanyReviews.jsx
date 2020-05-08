@@ -43,6 +43,9 @@ p {
     margin: 0 auto;
     
 }
+h2 {
+    font-size: 2rem;
+}
 `;
 
 export const CompanyReviews = () => {
@@ -52,7 +55,7 @@ export const CompanyReviews = () => {
                 <h2>Reviews</h2>
             </div>
             <Div1>
-                <p>Josiah</p>
+            <h2>Josiah</h2>
                 <br></br>
                 <p className="reviews">
                     Corywise is a greate company, we usually get there health care services.
