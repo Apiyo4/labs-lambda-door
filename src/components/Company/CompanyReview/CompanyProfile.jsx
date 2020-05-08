@@ -5,7 +5,6 @@ import { Rate, Spin } from 'antd';
 
 const DivStyle = styled.div`
 display: flex;
-margin-left: 5%;
 justify-content: space-between;
 margin-right:5%;
 

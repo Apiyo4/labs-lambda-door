@@ -46,7 +46,11 @@ exports[`InterviewReviewDetails renders correctly 1`] = `
           />
           <div
             class="username"
-          />
+          >
+            <a
+              href="/users/undefined"
+            />
+          </div>
         </div>
       </div>
     </div>
