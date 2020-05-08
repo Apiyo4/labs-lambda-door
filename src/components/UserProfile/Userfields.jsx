@@ -7,8 +7,10 @@ const Div1 = styled.div`
   margin-bottom: 1%;
 `;
 
+//
+
 const Userfield = ({ credentials, UserAddOutlined }) => {
-  return (credentials !== null) ? (
+  return credentials !== null ? (
     <Div1>
       <h4>
         <UserAddOutlined style={{ color: '#bb1333' }} /> {credentials}{' '}

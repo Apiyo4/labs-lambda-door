@@ -2,15 +2,14 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-wrap-multilines */
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Rate, Card, Icon, Button, Skeleton } from 'antd';
 import styled from 'styled-components';
 import { getReviewsByReviewId } from '../../../state/actions/reviews';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import ContactReviewer from '../../ContactReviewerModal';
-import ChatButton from '../../Layout/Chat/ChatButton';
-
+import ReviewQuestion from './ReviewQuestion';
 
 const CompanyReviewCardDetailed = ({
   props,
@@ -71,26 +70,7 @@ const CompanyReviewCardDetailed = ({
             <Rate disabled defaultValue={review.ratings} size="small" />
           ) : null}
         </div>
-        <div className="bottom">
-          <div className="contact">
-            {review.is_accepting_questions ? (
-              <>
-                <p>
-                  Have questions? &nbsp;&nbsp;
-                  <ChatButton
-                    toUserID={review.user_id}
-                    toUserName={review.full_name}
-                  />
-                </p>
-              </>
-            ) : (
-              ''
-            )}
-          </div>
-          <div className="username">
-              <Link to={{pathname:`/users/${review.user_id}`,state:{userId:`${review.user_id}`}}}>{review.full_name}</Link>
-            </div>
-        </div>
+          <ReviewQuestion review={review} />
       </StyledCard>
     </>
   );

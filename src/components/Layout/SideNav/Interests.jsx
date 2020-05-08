@@ -13,6 +13,9 @@ const Div =  styled.div`
  margin: 2%;
 
 `
+const P = styled.p`
+  padding-top: 2%;
+`
 
 const Interests = ({
   authState: {
@@ -67,7 +70,7 @@ const Interests = ({
   return (
     <div>
       {!userInterests.interests.length ? (
-        <p>No interests yet</p>
+        <p>No preferred roles selected</p>
       ) : (
           <>
             {!inputVisible &&
@@ -98,7 +101,7 @@ const Interests = ({
         <>
           <Dropdown overlay={menu} trigger={['click']}>
             <button type="button">
-              Interests <Icon type="down" />
+              Preferred Role/s <Icon type="down" />
             </button>
           </Dropdown>
           <Icon
@@ -109,12 +112,15 @@ const Interests = ({
         </>
       )}
       {!inputVisible && (
+        <div> 
         <Tag
           onClick={showInput}
           style={{ background: '#fff', borderStyle: 'dashed' }}
         >
-          <Icon type="plus" /> Edit Interests
+          <Icon type="plus" /> Edit Preferred Role/s
         </Tag>
+          <P>Choosing your preferred role will personalise your experience.</P>
+        </div>
       )}
     </div>
   );

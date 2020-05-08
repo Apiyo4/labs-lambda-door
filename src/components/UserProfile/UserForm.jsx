@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { EditAllUserProfile } from '../../state/actions/user';
 
 const Input = styled.input`
