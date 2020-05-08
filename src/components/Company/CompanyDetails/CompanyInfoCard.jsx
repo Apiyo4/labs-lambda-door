@@ -2,6 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import CompanyProfile from '../CompanyReview/CompanyProfile';
+import { connect } from 'react-redux';
+import { getCompanies } from '../../../state/actions/companies';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { getAvgSalaries } from '../../../state/actions/avgSalaries';
+import {Spin } from 'antd';
 
 const StyledDiv = styled.div`
   h2 {
@@ -27,18 +34,41 @@ const StyledDiv = styled.div`
   }
 `;
 
-export const CompanyInfoCard = () => {
+export const CompanyInfoCard = ({ companies, avgSalaries, getCompanies, getAvgSalaries}) => {
+  const companiesArr = companies.companies;
+  const companyId = useParams().id;
+  const [company, setCompany] =  useState({})
+  useEffect(()=>{
+    getCompanies()
+    getAvgSalaries(companyId)
+    if(companies){
+      setCompany(companiesArr.find(element => parseInt(companyId)=== element.id))
+    }
+  }, [])
+
+ 
+  if(!companies && !avgSalaries){
+    return <h1><Spin /></h1>
+    ;
+  }
   return (
     <StyledDiv>
-      <div className="textInfo">
-        <h2>DoNotPay Inc - </h2>
-      </div>
-      <div className="location">
-        <h2>Nigeria</h2>
-      </div>
-      <CompanyProfile />
+      {company && avgSalaries ? (<div>
+        <div className="textInfo">
+          <h2>{company.name}- </h2>
+        </div>
+        <div className="location">
+          <h2>{company.location}</h2>
+        </div>
+        <CompanyProfile company={company} avgSalaries={avgSalaries.avgSalaries[0]} />
+      </div>) : null
+      
+      }
     </StyledDiv>
   );
 };
+const mapStateToProps = state=>{
+  return {companies: state.companies, avgSalaries: state.avgSalaries};
+}
 
-export default CompanyInfoCard;
+export default connect(mapStateToProps, { getCompanies, getAvgSalaries})(CompanyInfoCard);
