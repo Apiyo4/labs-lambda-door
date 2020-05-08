@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
+import CompanyProfile from '../CompanyReview/CompanyProfile';
 
 const StyledDiv = styled.div`
   h2 {
@@ -35,6 +36,7 @@ export const CompanyInfoCard = () => {
       <div className="location">
         <h2>Nigeria</h2>
       </div>
+      <CompanyProfile />
     </StyledDiv>
   );
 };
