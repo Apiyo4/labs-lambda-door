@@ -13,7 +13,7 @@ import CompanyCard from '../../components/Company/CompanyDetails/CompanyCard';
 import CompanyReviewCard from '../../components/Company/CompanyReview/CompanyReviewCard';
 import InterviewReviewList from '../../components/Company/InterviewReviews/InterviewReviewList';
 import SalaryReviewsList from '../../components/Company/SalaryReviews/SalaryReviewsList';
-
+import CompanyInfoCard from '../../components/Company/CompanyDetails/CompanyInfoCard';
 
 const { TabPane } = Tabs;
 const CompanyPage = ({
@@ -55,7 +55,8 @@ const CompanyPage = ({
       </Button>
       <Tabs defaultActiveKey={String(location.state)}>
         <TabPane tab="Company Info" key="0">
-          <CompanyCard companies={companies} />
+          {/* <CompanyCard companies={companies} /> */}
+          <CompanyInfoCard />
         </TabPane>
         <TabPane tab="Company Reviews" key="1">
           <CompanyReviewCard />
