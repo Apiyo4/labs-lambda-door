@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Rate } from 'antd';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 
 const StyledDiv = styled.div`
+max-width: 800px;
+padding: 50px;
 h2 {
-    font-size: 1rem;
+    font-size: 1,5rem;
   }
   @media ${mobilePortrait} {
     padding: 0 !important;
@@ -41,7 +44,6 @@ p {
     
 }
 `;
-
 
 export const CompanyReviews = () => {
     return(
