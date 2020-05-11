@@ -44,13 +44,14 @@ export const CompanyInfoCard = ({ companies, avgSalaries, getCompanies, getAvgSa
     if(companies){
       setCompany(companiesArr.find(element => parseInt(companyId)=== element.id))
     }
-  }, [])
+  }, [companyId])
 
  
   if(!companies && !avgSalaries){
     return <h1><Spin /></h1>
     ;
   }
+  
   return (
     <StyledDiv>
       {company && avgSalaries ? (<div>

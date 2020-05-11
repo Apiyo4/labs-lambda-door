@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Rate, Spin } from 'antd';
-
-
+import { Rate } from 'antd';
+import {  Link, withRouter } from 'react-router-dom';
+import { Empty, Button } from 'antd';
+const Div = styled.div`
+    margin-left: -65%;
+`
 const DivStyle = styled.div`
 display: flex;
 justify-content: space-between;
@@ -29,7 +32,27 @@ const CompanyProfile =({company, avgSalaries})=> {
     
     
     if(!avgSalaries){
-        return <Spin />
+        return(
+            <Div>
+             <Empty
+            image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
+            imageStyle={{
+                height: 60,
+            }}
+            description={
+                <span className="text">
+                    Oops!! <br />
+            Company info not posted
+          </span>
+            }
+        >
+            <Link to={{ pathname: '/add-review', state: 0 }}>
+                <Button>Post a Review</Button>
+            </Link>
+        </Empty>
+            </Div>
+        )
+        
     }
     console.log("not working", avgSalaries.currency)
     return(
@@ -64,4 +87,4 @@ const CompanyProfile =({company, avgSalaries})=> {
 }
 
 
-export default CompanyProfile
+export default withRouter(CompanyProfile);
