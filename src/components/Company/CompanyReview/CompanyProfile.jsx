@@ -3,9 +3,7 @@ import styled from 'styled-components'
 import { Rate } from 'antd';
 import {  Link, withRouter } from 'react-router-dom';
 import { Empty, Button } from 'antd';
-const Div = styled.div`
-    margin-left: -65%;
-`
+
 const DivStyle = styled.div`
 display: flex;
 

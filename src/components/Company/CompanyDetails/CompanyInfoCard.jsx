@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { getCompanies } from '../../../state/actions/companies';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
 import { getAvgSalaries } from '../../../state/actions/avgSalaries';
 import {Spin } from 'antd';
 
