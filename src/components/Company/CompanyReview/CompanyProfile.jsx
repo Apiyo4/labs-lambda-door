@@ -8,11 +8,14 @@ const Div = styled.div`
 `
 const DivStyle = styled.div`
 display: flex;
+
 justify-content: space-between;
 margin-right:5%;
 flex-direction: row;
+display:-webkit-flex;
 `
 const Div1 = styled.div`
+width:40%;
 border: 1px solid #ccc;
 padding-left: 20px;
 padding-top: 20px;
@@ -25,6 +28,7 @@ padding-left: 20px;
 padding-top: 20px;
 padding-bottom: 20px;
 padding-right: 20px;
+width: 55%;
 `
 const CompanyProfile =({company, avgSalaries})=> {
     
@@ -54,8 +58,8 @@ const CompanyProfile =({company, avgSalaries})=> {
     }
    
     return(
-        <DivStyle>
-            { <div>
+        <div>
+            {<DivStyle>
                 <Div1> {avgSalaries.currency} <h2>{avgSalaries.avg}</h2>
                     <p>Average salary</p>
                     <Rate
@@ -72,11 +76,11 @@ const CompanyProfile =({company, avgSalaries})=> {
                     <p>{company.description}
                     </p>
                 </Div2>
-            </div>
+            </DivStyle>
 
             }
             
-            </DivStyle>
+            </div>
 
         
 
