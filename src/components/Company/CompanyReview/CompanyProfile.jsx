@@ -12,7 +12,7 @@ display: flex;
 justify-content: space-between;
 margin-right:5%;
 flex-direction: row;
-display:-webkit-flex;
+
 `
 const Div1 = styled.div`
 width:40%;
