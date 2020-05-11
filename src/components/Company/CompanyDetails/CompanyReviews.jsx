@@ -5,13 +5,13 @@ import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 const StyledDiv = styled.div`
 max-width: 800px;
 padding: 40px;
+
 h2 {
     font-size: 1,5rem;
   }
   @media ${mobilePortrait} {
     padding: 0 !important;
   }
-
   @media ${tabletPortrait} {
     padding: 0 !important;
     width: 98%;
@@ -19,7 +19,6 @@ h2 {
   @media ${mobilePortrait} {
     flex-direction: column;
   }
-
 `;
 
 const Div1 = styled.div`
@@ -36,16 +35,14 @@ color: #000000;
 .company-reviews{
     margin-top: 1rem;
 }
-p {
-    display:flex;
-    font-size: 16px;
-    margin: 0 auto;
-    
-    
-    
-}
 h2 {
     font-size: 2rem;
+}
+
+.reviews {
+ p{
+     font-size: 16px;
+ }
 }
 `;
 
@@ -57,7 +54,6 @@ export const CompanyReviews = () => {
             </div>
             <Div1>
             <h2>Josiah</h2>
-                <br></br>
                 <p className="reviews">
                     Corywise is a greate company, we usually get there health care services.
                     Excellent culture and pleasant environment to work for.
