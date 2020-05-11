@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Rate } from 'antd';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 
 const StyledDiv = styled.div`
 max-width: 800px;
-padding: 50px;
+padding: 40px;
 h2 {
     font-size: 1,5rem;
   }
@@ -24,13 +23,14 @@ h2 {
 `;
 
 const Div1 = styled.div`
-flex-flow: 2px;
-border: 1px solid black;
-padding:30px;
-margin-right:20px;
-width:900px;
-left:57px;
-top:400px;
+display: inline-block;
+border: 1px solid #ccc;
+padding-left: 20px;
+padding-top: 20px;
+padding-bottom: 40px;
+padding-right: 20px;
+margin: 0 auto;
+width:800px;
 color: #000000;
 
 .company-reviews{
@@ -38,9 +38,10 @@ color: #000000;
 }
 p {
     display:flex;
-    font-size: 1rem;
-    margin-top: 1rem;
+    font-size: 16px;
     margin: 0 auto;
+    
+    
     
 }
 h2 {
