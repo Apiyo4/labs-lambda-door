@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Rate } from 'antd';
-import {  Link, withRouter } from 'react-router-dom';
-import { Empty, Button } from 'antd';
+import {  withRouter } from 'react-router-dom';
+import { Empty} from 'antd';
+import { CompanyProfileInfo } from './CompanyProfileInfo';
 
 const DivStyle = styled.div`
 display: flex;
@@ -28,6 +29,9 @@ padding-bottom: 20px;
 padding-right: 20px;
 width: 55%;
 `
+const Div3 =  styled.div`
+    margin-left: -45%;
+`
 const CompanyProfile =({company, avgSalaries})=> {
     
     
@@ -35,30 +39,33 @@ const CompanyProfile =({company, avgSalaries})=> {
         return(
             <DivStyle>
                 <Div1>
-                    <Empty
-                        image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
-                        imageStyle={{
-                            height: 60,
-                        }}
-                        description={
-                            <div>
-                                <h3>Average salary</h3>
+                    <Div3>
+                        <Empty
+                            image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
+                            imageStyle={{
+                                height: 60,
+                            }}
+                            description={
                                 <span className="text">
                                     Oops!! <br />
-            Salary info not available
+            Average salary info not available
           </span>
-                            </div>
-                        }
-                    >
-                        <Link to={{ pathname: '/add-review', state: 0 }}>
-                            <Button>Post a Review</Button>
-                        </Link>
-                    </Empty>
+                            }
+                        >
+                        </Empty>
+                    </Div3>
+                    
+                    <Rate
+                        disabled
+                        allowHalf
+                        defaultValue={Math.round(company.average_rating * 2) / 2}
+                    />
+                    <span> ({Math.round(company.average_rating * 10) / 10})</span>
+
+                    <p>Average Rating?</p>
                 </Div1>
                 <Div2>
-                    <h2>Company Bio</h2>
-                    <p>{company.description}
-                    </p>
+                    <CompanyProfileInfo company={company} />
                 </Div2>
              
             </DivStyle>
@@ -81,9 +88,7 @@ const CompanyProfile =({company, avgSalaries})=> {
                     <p>Average Rating?</p>
                 </Div1>
                 <Div2>
-                    <h2>Company Bio</h2>
-                    <p>{company.description}
-                    </p>
+                    <CompanyProfileInfo company={company} />
                 </Div2>
             </DivStyle>
 
