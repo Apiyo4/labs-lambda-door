@@ -10,10 +10,9 @@ const DivStyle = styled.div`
 display: flex;
 justify-content: space-between;
 margin-right:5%;
-
+flex-direction: row;
 `
 const Div1 = styled.div`
-width: 40%;
 border: 1px solid #ccc;
 padding-left: 20px;
 padding-top: 20px;
@@ -21,7 +20,6 @@ padding-bottom: 20px;
 padding-right: 20px;
 `
 const Div2 =styled.div`
-width: 55%;
 border: 1px solid #ccc;
 padding-left: 20px;
 padding-top: 20px;
@@ -54,7 +52,7 @@ const CompanyProfile =({company, avgSalaries})=> {
         )
         
     }
-    console.log("not working", avgSalaries.currency)
+   
     return(
         <DivStyle>
             { <div>

@@ -37,13 +37,9 @@ const StyledDiv = styled.div`
 export const CompanyInfoCard = ({ companies, avgSalaries, getCompanies, getAvgSalaries}) => {
   const companiesArr = companies.companies;
   const companyId = useParams().id;
-  const [company, setCompany] =  useState({})
   useEffect(()=>{
     getCompanies()
     getAvgSalaries(companyId)
-    if(companies){
-      setCompany(companiesArr.find(element => parseInt(companyId)=== element.id))
-    }
   }, [companyId])
 
  
@@ -51,10 +47,11 @@ export const CompanyInfoCard = ({ companies, avgSalaries, getCompanies, getAvgSa
     return <h1><Spin /></h1>
     ;
   }
-  
+  const company = companiesArr.find(element => parseInt(companyId) === element.id);
   return (
     <StyledDiv>
-      {company && avgSalaries ? (<div>
+      {company && avgSalaries ? (
+      <div>
         <div className="textInfo">
           <h2>{company.name}- </h2>
         </div>
