@@ -14,7 +14,7 @@ import CompanyReviewCard from '../../components/Company/CompanyReview/CompanyRev
 import InterviewReviewList from '../../components/Company/InterviewReviews/InterviewReviewList';
 import SalaryReviewsList from '../../components/Company/SalaryReviews/SalaryReviewsList';
 import CompanyInfoCard from '../../components/Company/CompanyDetails/CompanyInfoCard';
-import CompanyReviews from '../../components/Company/CompanyDetails/CompanyReviews'
+
 const { TabPane } = Tabs;
 const CompanyPage = ({
   getCompanies,
@@ -57,7 +57,6 @@ const CompanyPage = ({
         <TabPane tab="Company Info" key="0">
           {/* <CompanyCard companies={companies} /> */}
           <CompanyInfoCard />
-          <CompanyReviews />
         </TabPane>
         <TabPane tab="Company Reviews" key="1">
           <CompanyReviewCard />
