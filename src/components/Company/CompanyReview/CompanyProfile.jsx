@@ -35,24 +35,35 @@ const CompanyProfile =({company, avgSalaries})=> {
     
     if(!avgSalaries){
         return(
-            <Div>
-             <Empty
-            image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
-            imageStyle={{
-                height: 60,
-            }}
-            description={
-                <span className="text">
-                    Oops!! <br />
-            Company info not posted
+            <DivStyle>
+                <Div1>
+                    <Empty
+                        image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
+                        imageStyle={{
+                            height: 60,
+                        }}
+                        description={
+                            <div>
+                                <h3>Average salary</h3>
+                                <span className="text">
+                                    Oops!! <br />
+            Salary info not available
           </span>
-            }
-        >
-            <Link to={{ pathname: '/add-review', state: 0 }}>
-                <Button>Post a Review</Button>
-            </Link>
-        </Empty>
-            </Div>
+                            </div>
+                        }
+                    >
+                        <Link to={{ pathname: '/add-review', state: 0 }}>
+                            <Button>Post a Review</Button>
+                        </Link>
+                    </Empty>
+                </Div1>
+                <Div2>
+                    <h2>Company Bio</h2>
+                    <p>{company.description}
+                    </p>
+                </Div2>
+             
+            </DivStyle>
         )
         
     }
