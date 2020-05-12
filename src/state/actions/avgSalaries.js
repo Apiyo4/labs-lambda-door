@@ -10,6 +10,7 @@ export const getAvgSalaries = id => async dispatch => {
     const response = await axios.get(`
       ${process.env.REACT_APP_BACKEND_URL}/salaryreviews/avg/${id}
     `);
+   
 
     dispatch({
       type: types.GET_AVG_SALARIES_SUCCESS,

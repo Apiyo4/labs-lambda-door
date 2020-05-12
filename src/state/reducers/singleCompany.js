@@ -8,7 +8,6 @@ const initialState = {
     interviewReview: [],
   },
 };
-
 const companyReviewsReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_SINGLE_COMPANY_REVIEWS:

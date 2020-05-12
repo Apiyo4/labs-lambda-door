@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
+import { Empty } from 'antd';
+import { CompanyReviewInfo } from './CompanyReviewInfo';
+
 
 const StyledDiv = styled.div`
 max-width: 800px;
@@ -19,6 +22,9 @@ h2 {
   @media ${mobilePortrait} {
     flex-direction: column;
   }
+`;
+const Div3 = styled.div`
+padding-top: 5%;
 `;
 
 const Div1 = styled.div`
@@ -46,17 +52,35 @@ h2 {
 }
 `;
 
-export const CompanyReviews = () => {
+export const CompanyReviews = ({ singleCompanyReviews}) => {
+   
+    const reviewInfo = singleCompanyReviews.reviews.interviewReview[0];
+    console.log(reviewInfo)
+    if (!reviewInfo){
+        return <Div3>
+            <CompanyReviewInfo />
+            <Empty
+                image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
+                imageStyle={{
+                    height: 80,
+                }}
+                description={
+                    <span className="text">
+                        Oops!! <br />
+            No review found yet, perhaps none has been given.
+          </span>
+                }
+            >
+            </Empty>
+        </Div3>
+    }
     return(
         <StyledDiv>
-            <div className = "company-reviews">
-                <h2>Reviews</h2>
-            </div>
+            <CompanyReviewInfo />
             <Div1>
-            <h2>Josiah</h2>
+                <h2>{reviewInfo.full_name}</h2>
                 <p className="reviews">
-                    Corywise is a greate company, we usually get there health care services.
-                    Excellent culture and pleasant environment to work for.
+                    {reviewInfo.text}
                 </p>
             </Div1>
         </StyledDiv>

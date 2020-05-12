@@ -30,7 +30,6 @@ export const getCompanyReviews = id => async dispatch => {
     });
   }
 };
-
 export const getReviewsByCompanyId = id => async dispatch => {
   dispatch({
     type: types.GET_SINGLE_COMPANY_REVIEWS,
