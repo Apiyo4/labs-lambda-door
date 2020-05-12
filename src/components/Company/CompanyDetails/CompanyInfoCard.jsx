@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
-import CompanyReviews from './CompanyReviews';
+import { CompanyReviews } from './CompanyReviews';
 
 const StyledDiv = styled.div`
   h2 {
@@ -26,6 +26,7 @@ const StyledDiv = styled.div`
     display: inline-block;
   }
 `;
+
 
 export const CompanyInfoCard = () => {
   return (

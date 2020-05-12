@@ -63,5 +63,5 @@ export const CompanyReviews = () => {
     )
 }
 
-export default CompanyReviews;
+// export default CompanyReviews;
 
