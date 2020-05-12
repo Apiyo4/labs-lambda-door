@@ -87,5 +87,5 @@ export const CompanyReviews = ({ singleCompanyReviews}) => {
     )
 }
 
-export default CompanyReviews;
+// export default CompanyReviews;
 

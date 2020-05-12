@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
+import { CompanyReviews } from './CompanyReviews';
 import CompanyProfile from '../CompanyReview/CompanyProfile';
 import { connect } from 'react-redux';
 import { getCompanies } from '../../../state/actions/companies';
@@ -9,9 +10,7 @@ import { useParams } from 'react-router-dom';
 import { getAvgSalaries } from '../../../state/actions/avgSalaries';
 import {Spin } from 'antd';
 
-import CompanyReviews from './CompanyReviews';
 import { getReviewsByCompanyId } from '../../../state/actions/reviews';
-
 
 const StyledDiv = styled.div`
   h2 {
