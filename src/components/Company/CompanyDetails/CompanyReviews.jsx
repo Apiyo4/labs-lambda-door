@@ -60,7 +60,7 @@ export const CompanyReviews = ({ singleCompanyReviews}) => {
         return <Div3>
             <CompanyReviewInfo />
             <Empty
-                image="https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
+                image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
                 imageStyle={{
                     height: 80,
                 }}
