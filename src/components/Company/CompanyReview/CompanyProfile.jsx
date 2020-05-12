@@ -1,16 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Rate, Spin } from 'antd';
-
+import { Rate } from 'antd';
+import {  withRouter } from 'react-router-dom';
+import { Empty} from 'antd';
+import { CompanyProfileInfo } from './CompanyProfileInfo';
 
 const DivStyle = styled.div`
 display: flex;
+
 justify-content: space-between;
 margin-right:5%;
+flex-direction: row;
 
 `
 const Div1 = styled.div`
-width: 40%;
+width:40%;
 border: 1px solid #ccc;
 padding-left: 20px;
 padding-top: 20px;
@@ -18,34 +22,79 @@ padding-bottom: 20px;
 padding-right: 20px;
 `
 const Div2 =styled.div`
-width: 55%;
 border: 1px solid #ccc;
 padding-left: 20px;
 padding-top: 20px;
 padding-bottom: 20px;
 padding-right: 20px;
+width: 55%;
 `
-const CompanyProfile =()=> {
-    return(
-        <DivStyle>
-            <Div1> <h2>$76,000</h2>
-            <p>Average salary</p>
-               <Rate
-                  disabled
-                  allowHalf
-                  defaultValue={10 / 2}
-                />
-            <p>Average Rating?</p>
-            </Div1>
-        <Div2>
-            <h2>Company Bio</h2>
-            <p>Cowrywise helps Nigerians
-                save and invest money Online. We are
-                a secure savings and investment
-                platform to grow your wealth
-                 </p>
-        </Div2>
+const Div3 =  styled.div`
+    margin-left: -45%;
+`
+const CompanyProfile =({company, avgSalaries})=> {
+    
+    
+    if(!avgSalaries){
+        return(
+            <DivStyle>
+                <Div1>
+                    <Div3>
+                        <Empty
+                            image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
+                            imageStyle={{
+                                height: 60,
+                            }}
+                            description={
+                                <span className="text">
+                                    Oops!! <br />
+            Average salary info not available
+          </span>
+                            }
+                        >
+                        </Empty>
+                    </Div3>
+                    
+                    <Rate
+                        disabled
+                        allowHalf
+                        defaultValue={Math.round(company.average_rating * 2) / 2}
+                    />
+                    <span> ({Math.round(company.average_rating * 10) / 10})</span>
+
+                    <p>Average Rating?</p>
+                </Div1>
+                <Div2>
+                    <CompanyProfileInfo company={company} />
+                </Div2>
+             
             </DivStyle>
+        )
+        
+    }
+   
+    return(
+        <div>
+            {<DivStyle>
+                <Div1> {avgSalaries.currency} <h2>{avgSalaries.avg}</h2>
+                    <p>Average salary</p>
+                    <Rate
+                        disabled
+                        allowHalf
+                        defaultValue={Math.round(company.average_rating * 2) / 2}
+                    />
+                    <span> ({Math.round(company.average_rating * 10) / 10})</span>
+
+                    <p>Average Rating?</p>
+                </Div1>
+                <Div2>
+                    <CompanyProfileInfo company={company} />
+                </Div2>
+            </DivStyle>
+
+            }
+            
+            </div>
 
         
 
@@ -54,4 +103,4 @@ const CompanyProfile =()=> {
 }
 
 
-export default CompanyProfile
+export default withRouter(CompanyProfile);

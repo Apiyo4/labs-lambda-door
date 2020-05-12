@@ -3,6 +3,7 @@ import * as types from '../types';
 
 const initialState = { isLoading: false, companies: [] };
 
+
 export const companiesReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_COMPANIES:
@@ -11,7 +12,6 @@ export const companiesReducer = (state = initialState, action) => {
         ...state,
         isLoading: true,
       };
-
     case types.GET_COMPANIES_SUCCESS:
       return {
         ...state,

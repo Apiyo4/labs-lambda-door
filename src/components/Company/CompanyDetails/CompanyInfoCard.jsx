@@ -2,6 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import CompanyProfile from '../CompanyReview/CompanyProfile';
+import { connect } from 'react-redux';
+import { getCompanies } from '../../../state/actions/companies';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { getAvgSalaries } from '../../../state/actions/avgSalaries';
+import {Spin } from 'antd';
+
+import CompanyReviews from './CompanyReviews';
+import { getReviewsByCompanyId } from '../../../state/actions/reviews';
+
 
 const StyledDiv = styled.div`
   h2 {
@@ -27,18 +37,42 @@ const StyledDiv = styled.div`
   }
 `;
 
-export const CompanyInfoCard = () => {
+export const CompanyInfoCard = ({ companies, singleCompanyReviews, avgSalaries, getCompanies, getAvgSalaries, getReviewsByCompanyId}) => {
+  const companiesArr = companies.companies;
+  const companyId = useParams().id;
+  useEffect(()=>{
+    getCompanies()
+    getAvgSalaries(companyId)
+    getReviewsByCompanyId(companyId)
+  }, [companyId])
+
+ 
+  if (!companies && !avgSalaries && !singleCompanyReviews){
+    return <h1><Spin /></h1>
+    ;
+  }
+  const company = companiesArr.find(element => parseInt(companyId) === element.id);
   return (
     <StyledDiv>
-      <div className="textInfo">
-        <h2>DoNotPay Inc - </h2>
-      </div>
-      <div className="location">
-        <h2>Nigeria</h2>
-      </div>
-      <CompanyProfile />
+      {(company && avgSalaries && singleCompanyReviews) ? (
+      <div>
+        <div className="textInfo">
+          <h2>{company.name}- </h2>
+        </div>
+        <div className="location">
+          <h2>{company.location}</h2>
+        </div>
+        <CompanyProfile company={company} avgSalaries={avgSalaries.avgSalaries[0]} />
+      </div>) : null
+      
+      }
+
+      <CompanyReviews singleCompanyReviews={singleCompanyReviews}/>
     </StyledDiv>
   );
 };
+const mapStateToProps = state=>{
+  return {companies: state.companies, avgSalaries: state.avgSalaries, singleCompanyReviews: state.singleCompanyReviews};
+}
 
-export default CompanyInfoCard;
+export default connect(mapStateToProps, { getCompanies, getAvgSalaries, getReviewsByCompanyId})(CompanyInfoCard);
