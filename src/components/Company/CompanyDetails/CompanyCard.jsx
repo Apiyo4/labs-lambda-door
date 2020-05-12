@@ -4,14 +4,12 @@ import { Rate, Spin } from 'antd';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import CompanySalaryChart from './CompanySalaryChart';
-
 const StyledDiv = styled.div`
   max-width: 800px;
   padding: 50px !important;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-
   h2 {
     font-size: 2rem;
     margin-bottom: 4px;
@@ -19,12 +17,10 @@ const StyledDiv = styled.div`
   @media ${mobilePortrait} {
     padding: 0 !important;
   }
-
   @media ${tabletPortrait} {
     padding: 0 !important;
     width: 98%;
   }
-
   .location-rating {
     display: flex;
     justify-content: space-between;
@@ -46,21 +42,17 @@ const StyledDiv = styled.div`
   span {
     font-size: 1rem;
   }
-
   .text-info {
     margin-right: 20px;
   }
-
   .visual-info {
     margin-top: 50px;
-
     @media ${mobilePortrait} {
       flex-direction: column;
       align-items: flex-start;
     }
   }
 `;
-
 export const CompanyCard = props => {
   const { companies } = props;
   const companyId = useParams().id;
@@ -93,7 +85,6 @@ export const CompanyCard = props => {
             </p>
             <p className="description">{company.description}</p>
           </div>
-
           <div className="visual-info">
             <CompanySalaryChart />
           </div>
@@ -102,5 +93,4 @@ export const CompanyCard = props => {
     </StyledDiv>
   );
 };
-
 export default CompanyCard;

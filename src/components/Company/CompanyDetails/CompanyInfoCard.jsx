@@ -38,6 +38,7 @@ export const CompanyInfoCard = () => {
         <h2>Nigeria</h2>
       </div>
       <CompanyReviews />
+
     </StyledDiv>
   );
 };
