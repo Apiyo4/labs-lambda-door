@@ -9,6 +9,10 @@ import { useParams } from 'react-router-dom';
 import { getAvgSalaries } from '../../../state/actions/avgSalaries';
 import {Spin } from 'antd';
 
+import CompanyReviews from './CompanyReviews';
+import { getReviewsByCompanyId } from '../../../state/actions/reviews';
+
+
 const StyledDiv = styled.div`
   h2 {
     font-size: 2rem;
@@ -33,23 +37,24 @@ const StyledDiv = styled.div`
   }
 `;
 
-export const CompanyInfoCard = ({ companies, avgSalaries, getCompanies, getAvgSalaries}) => {
+export const CompanyInfoCard = ({ companies, singleCompanyReviews, avgSalaries, getCompanies, getAvgSalaries, getReviewsByCompanyId}) => {
   const companiesArr = companies.companies;
   const companyId = useParams().id;
   useEffect(()=>{
     getCompanies()
     getAvgSalaries(companyId)
+    getReviewsByCompanyId(companyId)
   }, [companyId])
 
  
-  if(!companies && !avgSalaries){
+  if (!companies && !avgSalaries && !singleCompanyReviews){
     return <h1><Spin /></h1>
     ;
   }
   const company = companiesArr.find(element => parseInt(companyId) === element.id);
   return (
     <StyledDiv>
-      {company && avgSalaries ? (
+      {(company && avgSalaries && singleCompanyReviews) ? (
       <div>
         <div className="textInfo">
           <h2>{company.name}- </h2>
@@ -61,11 +66,13 @@ export const CompanyInfoCard = ({ companies, avgSalaries, getCompanies, getAvgSa
       </div>) : null
       
       }
+
+      <CompanyReviews singleCompanyReviews={singleCompanyReviews}/>
     </StyledDiv>
   );
 };
 const mapStateToProps = state=>{
-  return {companies: state.companies, avgSalaries: state.avgSalaries};
+  return {companies: state.companies, avgSalaries: state.avgSalaries, singleCompanyReviews: state.singleCompanyReviews};
 }
 
-export default connect(mapStateToProps, { getCompanies, getAvgSalaries})(CompanyInfoCard);
+export default connect(mapStateToProps, { getCompanies, getAvgSalaries, getReviewsByCompanyId})(CompanyInfoCard);
