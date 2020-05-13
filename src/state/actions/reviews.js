@@ -346,6 +346,7 @@ export const getInterviewReviewsByReviewId = id => async dispatch => {
 
 
 export const getInterviewReviews = id => async dispatch => {
+  debugger
   dispatch({
     type: types.GET_INTERVIEW_REVIEWS,
   });

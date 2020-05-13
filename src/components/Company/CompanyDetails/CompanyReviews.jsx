@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import { Empty } from 'antd';
@@ -53,15 +53,18 @@ h2 {
 }
 `;
 
-const CompanyReviews = ({ reviews, userId, singleCompanyReviews, getInterviewReviews
+const CompanyReviews = ({ reviews, singleCompanyReviews, getInterviewReviews
 }) => {
-   
+ const userId = localStorage.getItem("userId");
+ 
     const reviewInfo = singleCompanyReviews.reviews.interviewReview[0];
+    useEffect(() => {
+        console.log(userId)
+        getInterviewReviews(userId)
     
-    // useEffect(()=>{
-    //     getInterviewReviews(userId)
-    // }, [userId])
-    if (!reviewInfo){
+    }, [userId])
+
+    if (!reviewInfo) {
         return <Div3>
             <CompanyReviewInfo />
             <Empty
@@ -79,26 +82,44 @@ const CompanyReviews = ({ reviews, userId, singleCompanyReviews, getInterviewRev
             </Empty>
         </Div3>
     }
+    const reviewObj = { ...reviews }
+    const reviewArr = [...reviewObj.reviews.interview]
+    const revObj = {...reviewArr[0]}
     
-    console.log(userId)
-    return(
+    return (
         <StyledDiv>
             <CompanyReviewInfo />
             <Div1>
-                <h2>{reviewInfo.full_name}</h2>
+                <h3>{reviewInfo.full_name}</h3>
                 <p className="reviews">
                     {reviewInfo.text}
                 </p>
+
+            </Div1>
+            <Div1>
+                <h2>Interview Process</h2>
+                {(revObj) ?
+
+                    <div>
+
+                        <h3>{reviewInfo.full_name}</h3>
+                        <p className="reviews">
+                            {revObj.text}
+                        </p> 
+                        </div>
+                    :
+                    null
+                }
             </Div1>
         </StyledDiv>
     )
 }
-const mapStateToProps= (state)=>{
+const mapStateToProps = (state) => {
     return {
         reviews: state.reviews
     }
 }
-export default connect(mapStateToProps,{
+export default connect(mapStateToProps, {
     getInterviewReviews
 })(CompanyReviews);
 

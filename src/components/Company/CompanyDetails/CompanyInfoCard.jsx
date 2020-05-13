@@ -50,7 +50,15 @@ export const CompanyInfoCard = ({ companies, singleCompanyReviews, avgSalaries, 
     ;
   }
   const company = companiesArr.find(element => parseInt(companyId) === element.id);
-  const user = singleCompanyReviews.reviews.interviewReview[0]
+  const user = singleCompanyReviews.reviews.interviewReview
+  const newObj = [...user]
+  
+  const userIdObj = {...newObj[0]};
+  const userId = userIdObj.user_id;
+  console.log(userId)
+  if(userId){
+    localStorage.setItem('userId', userId);
+  }
   // const userId = singleCompanyReviews.reviews.interviewReview[0].user_id;
   return (
     <StyledDiv>
@@ -66,8 +74,8 @@ export const CompanyInfoCard = ({ companies, singleCompanyReviews, avgSalaries, 
       </div>) : null
       
       }
-
-      <CompanyReviews singleCompanyReviews={singleCompanyReviews} userId={user} />
+      {userId && <CompanyReviews singleCompanyReviews={singleCompanyReviews} /> }
+      
     </StyledDiv>
   );
 };
