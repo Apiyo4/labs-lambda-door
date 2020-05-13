@@ -24,7 +24,6 @@ const CompanyReviewCardDetailed = ({
   },
 }) => {
   const reviewId = useParams().id;
-  console.log(reviewId)
   const review =
     companyReview.find(elem => elem.id === Number(reviewId)) ||
     singleCompanyReview;
@@ -70,7 +69,7 @@ const CompanyReviewCardDetailed = ({
             <Rate disabled defaultValue={review.ratings} size="small" />
           ) : null}
         </div>
-          <ReviewQuestion review={review} />
+        <ReviewQuestion review={review} />
       </StyledCard>
     </>
   );
