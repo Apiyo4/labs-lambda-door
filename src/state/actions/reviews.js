@@ -306,6 +306,7 @@ export const getInterviewReviewsByCompanyId = id => async dispatch => {
       }
     );
 
+
     dispatch({
       type: types.GET_SINGLE_COMPANY_INTERVIEW_REVIEWS_SUCCESS,
       payload: data,
@@ -421,6 +422,7 @@ export const updateInterviewReview = update => async dispatch => {
   dispatch({
     type: types.UPDATE_INTERVIEW_REVIEW,
   });
+  
 
   try {
     const { data } = await axios.patch(

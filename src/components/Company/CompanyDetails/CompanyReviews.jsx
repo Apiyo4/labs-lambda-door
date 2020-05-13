@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import { Empty } from 'antd';
 import { CompanyReviewInfo } from './CompanyReviewInfo';
-
+import { getInterviewReviews } from '../../../state/actions/reviews';
+import { connect } from 'react-redux';
 
 const StyledDiv = styled.div`
 max-width: 800px;
@@ -52,10 +53,14 @@ h2 {
 }
 `;
 
-export const CompanyReviews = ({ singleCompanyReviews}) => {
+const CompanyReviews = ({ reviews, userId, singleCompanyReviews, getInterviewReviews
+}) => {
    
     const reviewInfo = singleCompanyReviews.reviews.interviewReview[0];
-    console.log(reviewInfo)
+    
+    // useEffect(()=>{
+    //     getInterviewReviews(userId)
+    // }, [userId])
     if (!reviewInfo){
         return <Div3>
             <CompanyReviewInfo />
@@ -74,6 +79,8 @@ export const CompanyReviews = ({ singleCompanyReviews}) => {
             </Empty>
         </Div3>
     }
+    
+    console.log(userId)
     return(
         <StyledDiv>
             <CompanyReviewInfo />
@@ -86,6 +93,12 @@ export const CompanyReviews = ({ singleCompanyReviews}) => {
         </StyledDiv>
     )
 }
-
-// export default CompanyReviews;
+const mapStateToProps= (state)=>{
+    return {
+        reviews: state.reviews
+    }
+}
+export default connect(mapStateToProps,{
+    getInterviewReviews
+})(CompanyReviews);
 

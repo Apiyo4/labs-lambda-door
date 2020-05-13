@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
-import { CompanyReviews } from './CompanyReviews';
+import  CompanyReviews  from './CompanyReviews';
 import CompanyProfile from '../CompanyReview/CompanyProfile';
 import { connect } from 'react-redux';
 import { getCompanies } from '../../../state/actions/companies';
@@ -9,8 +9,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAvgSalaries } from '../../../state/actions/avgSalaries';
 import {Spin } from 'antd';
-
-import { getReviewsByCompanyId } from '../../../state/actions/reviews';
+import { getReviewsByCompanyId, getInterviewReviews } from '../../../state/actions/reviews';
 
 const StyledDiv = styled.div`
   h2 {
@@ -36,7 +35,7 @@ const StyledDiv = styled.div`
   }
 `;
 
-export const CompanyInfoCard = ({ companies, singleCompanyReviews, avgSalaries, getCompanies, getAvgSalaries, getReviewsByCompanyId}) => {
+export const CompanyInfoCard = ({ companies, singleCompanyReviews, avgSalaries, getCompanies, getAvgSalaries, getReviewsByCompanyId, getInterviewReviews}) => {
   const companiesArr = companies.companies;
   const companyId = useParams().id;
   useEffect(()=>{
@@ -51,6 +50,8 @@ export const CompanyInfoCard = ({ companies, singleCompanyReviews, avgSalaries, 
     ;
   }
   const company = companiesArr.find(element => parseInt(companyId) === element.id);
+  const user = singleCompanyReviews.reviews.interviewReview[0]
+  // const userId = singleCompanyReviews.reviews.interviewReview[0].user_id;
   return (
     <StyledDiv>
       {(company && avgSalaries && singleCompanyReviews) ? (
@@ -66,7 +67,7 @@ export const CompanyInfoCard = ({ companies, singleCompanyReviews, avgSalaries, 
       
       }
 
-      <CompanyReviews singleCompanyReviews={singleCompanyReviews}/>
+      <CompanyReviews singleCompanyReviews={singleCompanyReviews} userId={user} />
     </StyledDiv>
   );
 };
@@ -74,4 +75,4 @@ const mapStateToProps = state=>{
   return {companies: state.companies, avgSalaries: state.avgSalaries, singleCompanyReviews: state.singleCompanyReviews};
 }
 
-export default connect(mapStateToProps, { getCompanies, getAvgSalaries, getReviewsByCompanyId})(CompanyInfoCard);
+export default connect(mapStateToProps, { getCompanies, getAvgSalaries, getReviewsByCompanyId, getInterviewReviews})(CompanyInfoCard);
