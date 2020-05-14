@@ -56,6 +56,9 @@ export const CompanyInfoCard = ({
     getReviewsByCompanyId(companyId);
   }, [companyId]);
 
+  const companyReview = reviews.companyReview;
+  const interviewReview = reviews.interviewReview;
+
   if (!companies && !avgSalaries && !reviews) {
     return (
       <h1>
@@ -66,20 +69,7 @@ export const CompanyInfoCard = ({
   const company = companiesArr.find(
     element => parseInt(companyId) === element.id
   );
-  const user = reviews.interviewReview;
-  const newObj = [...user];
 
-  const userIdObj = { ...newObj[0] };
-  const userId = userIdObj.user_id;
-  if (reviews.companyReview.length) {
-    console.log('companyreview', reviews.interviewReview);
-  } else {
-    return null;
-  }
-  if (userId) {
-    localStorage.setItem('userId', userId);
-  }
-  // const userId = singleCompanyReviews.reviews.interviewReview[0].user_id;
   return (
     <StyledDiv>
       {company && avgSalaries && reviews ? (
@@ -97,9 +87,9 @@ export const CompanyInfoCard = ({
         </div>
       ) : null}
       <h2>Review</h2>
-      {userId && <CompanyReviews reviews={reviews.companyReview} />}
+      {companyReview && <CompanyReviews reviews={companyReview} />}
       <h2>Interview Process</h2>
-      {userId && <CompanyReviews reviews={reviews.interviewReview} />}
+      {interviewReview && <CompanyReviews reviews={interviewReview} />}
     </StyledDiv>
   );
 };

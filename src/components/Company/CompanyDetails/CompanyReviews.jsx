@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import { Empty } from 'antd';
-import { getInterviewReviews } from '../../../state/actions/reviews';
-import { connect } from 'react-redux';
 
 const StyledDiv = styled.div`
   max-width: 800px;
@@ -52,14 +50,8 @@ const Div1 = styled.div`
   }
 `;
 
-const CompanyReviews = ({ reviews, getInterviewReviews }) => {
-  const userId = localStorage.getItem('userId');
-
+const CompanyReviews = ({ reviews }) => {
   const reviewInfo = reviews[0];
-  console.log('reviewInfo', reviewInfo);
-  useEffect(() => {
-    getInterviewReviews(userId);
-  }, [userId]);
 
   if (!reviews) {
     return (
@@ -94,11 +86,5 @@ const CompanyReviews = ({ reviews, getInterviewReviews }) => {
     </StyledDiv>
   );
 };
-const mapStateToProps = state => {
-  return {
-    reviews: state.reviews,
-  };
-};
-export default connect(mapStateToProps, {
-  getInterviewReviews,
-})(CompanyReviews);
+
+export default CompanyReviews;
