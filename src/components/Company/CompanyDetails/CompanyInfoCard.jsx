@@ -40,7 +40,7 @@ const StyledDiv = styled.div`
 
 export const CompanyInfoCard = ({
   companies,
-  // singleCompanyReviews,
+  singleCompanyReviews,
   avgSalaries,
   getCompanies,
   getAvgSalaries,
@@ -72,7 +72,7 @@ export const CompanyInfoCard = ({
   const userIdObj = { ...newObj[0] };
   const userId = userIdObj.user_id;
   if (reviews.companyReview.length) {
-    console.log(reviews.companyReview[0].review);
+    console.log('companyreview', reviews.interviewReview);
   } else {
     return null;
   }
@@ -96,7 +96,10 @@ export const CompanyInfoCard = ({
           />
         </div>
       ) : null}
-      {userId && <CompanyReviews singleCompanyReviews={reviews} />}
+      <h2>Review</h2>
+      {userId && <CompanyReviews reviews={reviews.companyReview} />}
+      <h2>Interview Process</h2>
+      {userId && <CompanyReviews reviews={reviews.interviewReview} />}
     </StyledDiv>
   );
 };
