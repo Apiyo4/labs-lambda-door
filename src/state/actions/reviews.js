@@ -4,7 +4,6 @@ import openNotification from '../../utils/openNotification';
 import failureNotification from '../../utils/failureNotification';
 import ActionButton from 'antd/lib/modal/ActionButton';
 
-
 // COMPANY REVIEWS
 export const getCompanyReviews = id => async dispatch => {
   dispatch({
@@ -160,7 +159,6 @@ export const updateCompanyReview = update => async dispatch => {
   }
 };
 
-
 // SALARY REVIEWS
 export const getSalaryReviews = id => async dispatch => {
   dispatch({
@@ -291,7 +289,6 @@ export const updateSalaryReview = update => async dispatch => {
   }
 };
 
-
 // INTERVIEW REVIEWS
 export const getInterviewReviewsByCompanyId = id => async dispatch => {
   dispatch({
@@ -342,7 +339,6 @@ export const getInterviewReviewsByReviewId = id => async dispatch => {
     });
   }
 };
-
 
 export const getInterviewReviews = id => async dispatch => {
   dispatch({
@@ -445,26 +441,25 @@ export const updateInterviewReview = update => async dispatch => {
   }
 };
 
-
-// GET CURRENCY RATES 
+// GET CURRENCY RATES
 export const getCurrencyRates = () => async dispatch => {
   const exchangeApi = `https://api.exchangeratesapi.io/latest?base=USD`;
   const typeSuccess = types.GET_CURRENCY_RATES_SUCCESS;
   const typeFailure = types.GET_CURRENCY_RATES_FAILURE;
   dispatch({
     type: types.GET_CURRENCY_RATES,
-  })
+  });
 
   try {
     const response = await axios.get(exchangeApi);
     dispatch({
       type: typeSuccess,
       payload: response.data,
-    })
-  } catch(error) {
+    });
+  } catch (error) {
     dispatch({
-      type: typeFailure ,
+      type: typeFailure,
       payload: error,
-    })
+    });
   }
 };
