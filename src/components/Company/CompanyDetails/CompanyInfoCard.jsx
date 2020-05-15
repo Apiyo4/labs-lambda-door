@@ -86,10 +86,14 @@ export const CompanyInfoCard = ({
           />
         </div>
       ) : null}
+      <div>
       <h2>Review</h2>
       {companyReview && <CompanyReviews reviews={companyReview} />}
+      </div>
+      <div>
       <h2>Interview Process</h2>
       {interviewReview && <CompanyReviews reviews={interviewReview} />}
+      </div>
     </StyledDiv>
   );
 };
