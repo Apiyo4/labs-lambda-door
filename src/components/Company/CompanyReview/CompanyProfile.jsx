@@ -12,6 +12,7 @@ width: 85%;
 line-height: 1.5;
 
 
+
 justify-content: space-between;
 margin-right:5%;
 flex-direction: row;`
@@ -44,7 +45,7 @@ cursor: pointer;
 }`
 
 const Div3 =  styled.div`
-    margin-left: -45%;
+    /* margin-left: -45%; */
     text-align: center;`
     
 
