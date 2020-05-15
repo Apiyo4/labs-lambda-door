@@ -10,9 +10,8 @@ display: flex;
 
 justify-content: space-between;
 margin-right:5%;
-flex-direction: row;
+flex-direction: row;`
 
-`
 const Div1 = styled.div`
 width:40%;
 border: 1px solid #ccc;
@@ -20,7 +19,11 @@ padding-left: 20px;
 padding-top: 20px;
 padding-bottom: 20px;
 padding-right: 20px;
-`
+cursor: pointer;
+&:hover {
+    border: 1px solid #bb1333;
+}`
+
 const Div2 =styled.div`
 border: 1px solid #ccc;
 padding-left: 20px;
@@ -28,10 +31,14 @@ padding-top: 20px;
 padding-bottom: 20px;
 padding-right: 20px;
 width: 55%;
-`
+cursor: pointer;
+&:hover {
+    border: 1px solid #bb1333;
+}`
+
 const Div3 =  styled.div`
-    margin-left: -45%;
-`
+    margin-left: -45%;`
+
 const CompanyProfile =({company, avgSalaries})=> {
     
     
@@ -62,7 +69,7 @@ const CompanyProfile =({company, avgSalaries})=> {
                     />
                     <span> ({Math.round(company.average_rating * 10) / 10})</span>
 
-                    <p>Average Rating?</p>
+                    <p>Average Rating</p>
                 </Div1>
                 <Div2>
                     <CompanyProfileInfo company={company} />
