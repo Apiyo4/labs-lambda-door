@@ -38,7 +38,12 @@ const StyledDiv = styled.div`
     display: inline-block;
   }
 `;
-
+const H4= styled.a`
+cursor: pointer;
+`;
+const H3 = styled.a`
+cursor:pointer;
+`
 export const CompanyInfoCard = ({history,
   companies,
   singleCompanyReviews,
@@ -90,11 +95,17 @@ export const CompanyInfoCard = ({history,
       <div>
       <h2>Review</h2>
       {companyReview && <CompanyReviews reviews={companyReview} id={companyId} />}
-      <p onClick={() => history.push("/review-card") }>See more</p> 
-
+      <H4>
+      <a href onClick={() => history.push("/review-card") }>
+        See more</a> 
+        </H4>
       <h2>Interview Process</h2>
       {interviewReview && <CompanyReviews reviews={interviewReview} />}
-      <p onClick={() => history.push("/review-card/interview")}>See more</p> 
+      <H3>
+      <a href onClick={() => history.push("/review-card/interview")}>
+        See more</a> 
+        </H3>
+      </div>
     </StyledDiv>
   );
 };
