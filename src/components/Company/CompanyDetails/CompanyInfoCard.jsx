@@ -102,8 +102,8 @@ export const CompanyInfoCard = ({history,
       <h2>Interview Process</h2>
       {interviewReview && <CompanyReviews reviews={interviewReview} />}
       <H3>
-      <a href onClick={() => history.push("/review-card/interview")}>
-        See more</a> 
+      <href onClick={() => history.Replace("/review-card/interview")}>
+        See more</href> 
         </H3>
       </div>
     </StyledDiv>
