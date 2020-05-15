@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import { Empty } from 'antd';
+import 'antd/dist/antd.css';
+import {Tooltip} from 'antd';
+import moment from 'moment';
 
 const StyledDiv = styled.div`
   max-width: 800px;
@@ -35,6 +38,12 @@ const Div1 = styled.div`
   margin: 0 auto;
   width: 800px;
   color: #000000;
+
+  span{
+    font-size: 12px;
+    padding-right : 8px;
+    cursor: pointer;
+  }
 
   .company-reviews {
     margin-top: 1rem;
@@ -78,7 +87,9 @@ const CompanyReviews = ({ reviews, title }) => {
       {reviewInfo && (
         <Div1>
           <h2>{title}</h2>
-          <h3>{reviewInfo.full_name}</h3>
+          <h3>{reviewInfo.full_name} {""}<Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
+             <span>{moment().fromNow()}</span>
+            </Tooltip></h3>
           <p className="reviews">
             {reviewInfo.text ? reviewInfo.text : reviewInfo.review}
           </p>
