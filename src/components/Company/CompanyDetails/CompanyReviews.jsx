@@ -86,6 +86,12 @@ const CompanyReviews = ({ reviews, title }) => {
     <StyledDiv>
       {reviewInfo && (
         <Div1>
+          {/* {if(reviews.companyReview){
+            return (
+              <h1>Reviews</h1>
+            )
+          } else if(interview)
+          } */}
           <h2>{title}</h2>
           <h3>{reviewInfo.full_name} {""}<Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
              <span>{moment().fromNow()}</span>
