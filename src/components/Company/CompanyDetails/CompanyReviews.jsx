@@ -71,8 +71,7 @@ const CompanyReviews = ({ reviews }) => {
       </Div3>
     );
   }
-  console.log(reviewInfo);
-
+  
   return (
     <StyledDiv>
       {reviewInfo && (

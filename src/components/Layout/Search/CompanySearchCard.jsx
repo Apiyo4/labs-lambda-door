@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Card } from 'antd';
 
+
 const CompanySearchCard = ({ history, name, location, website, type, id }) => {
   return (
     <StyledCard onClick={() => history.push(`/company-page/${id}`)}>

@@ -31,6 +31,7 @@ const SearchResults = ({ search: { isSearching, searchResults }, history }) => {
         </h3>
       ) : null}
 
+
       <CardContainer>
         {!isSearching && (!searchResults[0] || !searchResults[0].length) ? (
           <div>No results found.</div>

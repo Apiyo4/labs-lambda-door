@@ -38,6 +38,8 @@ import Chat from '../Layout/Chat/Chat';
 import { getChats } from '../../state/actions/chat';
 import UserProfile from '../UserProfile';
 import OtherUserProfile from '../UserProfile/OtherUserProfile';
+import CompanyReviewCard from '../Company/CompanyReview/CompanyReviewCard';
+import InterviewReviewList from '../Company/InterviewReviews/InterviewReviewList';
 
 
 const start = async () => {
@@ -115,6 +117,8 @@ const AppRouter = ({
         />
         <DashboardLayout exact path="/users" component={UserProfile} />
         <DashboardLayout exact path="/users/:id"  component={OtherUserProfile} />
+        <DashboardLayout exact path="/review-card" component={CompanyReviewCard} />
+        <DashboardLayout exact path= "/review-card/interview" component={InterviewReviewList} />
         <DashboardLayout component={NotFound} />
       </Switch>
     </BrowserRouter>

@@ -10,6 +10,7 @@ import {
   getSalaryReviewsByCompanyId,
 } from '../../state/actions/reviews';
 import CompanyCard from '../../components/Company/CompanyDetails/CompanyCard';
+
 import CompanyReviewCard from '../../components/Company/CompanyReview/CompanyReviewCard';
 import InterviewReviewList from '../../components/Company/InterviewReviews/InterviewReviewList';
 import SalaryReviewsList from '../../components/Company/SalaryReviews/SalaryReviewsList';
