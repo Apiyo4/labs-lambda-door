@@ -15,6 +15,7 @@ import {
 } from '../../../state/actions/reviews';
 
 const StyledDiv = styled.div`
+ width:95%;
   h2 {
     font-size: 2rem;
   }

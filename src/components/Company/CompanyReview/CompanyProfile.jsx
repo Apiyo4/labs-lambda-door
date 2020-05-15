@@ -7,18 +7,22 @@ import { CompanyProfileInfo } from './CompanyProfileInfo';
 
 const DivStyle = styled.div`
 display: flex;
+margin: 20px;
+width: 85%;
+
 
 justify-content: space-between;
 margin-right:5%;
 flex-direction: row;`
 
 const Div1 = styled.div`
-width:40%;
+width:30%;
 border: 1px solid #ccc;
-padding-left: 20px;
+padding-left: 30px;
 padding-top: 20px;
-padding-bottom: 20px;
-padding-right: 20px;
+padding-bottom: 10px;
+padding-right: 30px;
+margin: 20px;
 cursor: pointer;
 &:hover {
     border: 1px solid #bb1333;
@@ -26,10 +30,11 @@ cursor: pointer;
 
 const Div2 =styled.div`
 border: 1px solid #ccc;
-padding-left: 20px;
+padding-left: 30px;
 padding-top: 20px;
 padding-bottom: 20px;
-padding-right: 20px;
+padding-right: 30px;
+margin: 20px;
 width: 55%;
 cursor: pointer;
 &:hover {

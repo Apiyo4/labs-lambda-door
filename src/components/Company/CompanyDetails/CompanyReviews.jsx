@@ -9,6 +9,8 @@ import moment from 'moment';
 const StyledDiv = styled.div`
   max-width: 800px;
   padding: 40px;
+  width: 90%;
+  padding: 20px;
 
   h2 {
     font-size: 1, 5rem;
