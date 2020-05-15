@@ -13,7 +13,7 @@ import {
   getReviewsByCompanyId,
   getInterviewReviews,
 } from '../../../state/actions/reviews';
-
+import { CompanyCards } from './CompanyCards';
 
 const StyledDiv = styled.div`
   h2 {
@@ -101,9 +101,8 @@ export const CompanyInfoCard = ({history,
         </H4>
       <h2>Interview Process</h2>
       {interviewReview && <CompanyReviews reviews={interviewReview} />}
-      <H3>
-      <href onClick={() => history.Replace("/review-card/interview")}>
-        See more</href> 
+      <H3> 
+        <CompanyCards history={history} />
         </H3>
       </div>
     </StyledDiv>
