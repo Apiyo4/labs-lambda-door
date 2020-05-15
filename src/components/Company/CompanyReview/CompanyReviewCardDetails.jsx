@@ -52,7 +52,8 @@ const CompanyReviewCardDetailed = ({
           border: '1px solid #BB1333',
           color: '#BB1333',
         }}
-        onClick={() => history.push(`/company-page/${review.company_id}`)}
+        // onClick={() => history.push(`/company-page/${review.company_id}`)}
+          onClick={() => history.goBack()}
       >
         <Icon type="left" />
         Back to Reviews

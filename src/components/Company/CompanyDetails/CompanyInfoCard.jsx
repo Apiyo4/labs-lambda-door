@@ -6,13 +6,14 @@ import CompanyProfile from '../CompanyReview/CompanyProfile';
 import { connect } from 'react-redux';
 import { getCompanies } from '../../../state/actions/companies';
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, withRouter } from 'react-router-dom';
 import { getAvgSalaries } from '../../../state/actions/avgSalaries';
 import { Spin } from 'antd';
 import {
   getReviewsByCompanyId,
   getInterviewReviews,
 } from '../../../state/actions/reviews';
+
 
 const StyledDiv = styled.div`
   h2 {
@@ -38,7 +39,7 @@ const StyledDiv = styled.div`
   }
 `;
 
-export const CompanyInfoCard = ({
+export const CompanyInfoCard = ({history,
   companies,
   singleCompanyReviews,
   avgSalaries,
@@ -69,7 +70,7 @@ export const CompanyInfoCard = ({
   const company = companiesArr.find(
     element => parseInt(companyId) === element.id
   );
-
+    
   return (
     <StyledDiv>
       {company && avgSalaries && reviews ? (
@@ -87,9 +88,12 @@ export const CompanyInfoCard = ({
         </div>
       ) : null}
       <h2>Review</h2>
-      {companyReview && <CompanyReviews reviews={companyReview} />}
+      {companyReview && <CompanyReviews reviews={companyReview} id={companyId} />}
+      <p onClick={() => history.push("/review-card") }>See more</p> 
+
       <h2>Interview Process</h2>
       {interviewReview && <CompanyReviews reviews={interviewReview} />}
+      <p onClick={() => history.push("/review-card/interview")}>See more</p> 
     </StyledDiv>
   );
 };
@@ -101,9 +105,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {
+export default withRouter(connect(mapStateToProps, {
   getCompanies,
   getAvgSalaries,
   getReviewsByCompanyId,
   getInterviewReviews,
-})(CompanyInfoCard);
+})(CompanyInfoCard));
