@@ -50,7 +50,7 @@ const Div1 = styled.div`
   }
 `;
 
-const CompanyReviews = ({ reviews }) => {
+const CompanyReviews = ({ reviews, title }) => {
   const reviewInfo = reviews[0];
 
   if (!reviews) {
@@ -77,6 +77,7 @@ const CompanyReviews = ({ reviews }) => {
     <StyledDiv>
       {reviewInfo && (
         <Div1>
+          <h2>{title}</h2>
           <h3>{reviewInfo.full_name}</h3>
           <p className="reviews">
             {reviewInfo.text ? reviewInfo.text : reviewInfo.review}
