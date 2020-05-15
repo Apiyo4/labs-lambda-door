@@ -9,6 +9,7 @@ const DivStyle = styled.div`
 display: flex;
 margin: 20px;
 width: 85%;
+line-height: 1.5;
 
 
 justify-content: space-between;
@@ -17,6 +18,7 @@ flex-direction: row;`
 
 const Div1 = styled.div`
 width:30%;
+text-align: center;
 border: 1px solid #ccc;
 padding-left: 30px;
 padding-top: 20px;
@@ -42,7 +44,9 @@ cursor: pointer;
 }`
 
 const Div3 =  styled.div`
-    margin-left: -45%;`
+    margin-left: -45%;
+    text-align: center;`
+    
 
 const CompanyProfile =({company, avgSalaries})=> {
     

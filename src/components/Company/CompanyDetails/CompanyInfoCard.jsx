@@ -16,6 +16,7 @@ import {
 
 const StyledDiv = styled.div`
  width:95%;
+ 
   h2 {
     font-size: 2rem;
   }

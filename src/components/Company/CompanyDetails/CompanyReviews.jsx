@@ -11,6 +11,8 @@ const StyledDiv = styled.div`
   padding: 40px;
   width: 90%;
   padding: 20px;
+  margin: 20px;
+  line-height: 1.5;
 
   h2 {
     font-size: 1, 5rem;
@@ -35,8 +37,8 @@ const Div1 = styled.div`
   border: 1px solid #ccc;
   padding-left: 20px;
   padding-top: 20px;
-  padding-bottom: 40px;
-  padding-right: 20px;
+  padding-bottom: 30px;
+  padding-right: 30px;
   margin: 0 auto;
   width: 800px;
   color: #000000;
