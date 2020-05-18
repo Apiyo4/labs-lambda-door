@@ -13,7 +13,7 @@ import {
   getReviewsByCompanyId,
   getInterviewReviews,
 } from '../../../state/actions/reviews';
-
+import { CompanyCards } from './CompanyCards';
 
 const StyledDiv = styled.div`
   h2 {
@@ -38,7 +38,12 @@ const StyledDiv = styled.div`
     display: inline-block;
   }
 `;
-
+const H4= styled.a`
+cursor: pointer;
+`;
+const H3 = styled.a`
+cursor:pointer;
+`
 export const CompanyInfoCard = ({history,
   companies,
   singleCompanyReviews,
@@ -88,12 +93,14 @@ export const CompanyInfoCard = ({history,
           />
         </div>
       ) : null}
+      <div>
       <h2>Review</h2>
       {companyReview && <CompanyReviews reviews={companyReview} id={companyId} />}
       <p onClick={() => history.push({ pathname: `/company-page/${companyId}/review`, state: { fromCompanyInfo: true } })}>See more</p> 
       <h2>Interview Process</h2>
       {interviewReview && <CompanyReviews reviews={interviewReview} />}
       <p onClick={() => history.push({ pathname: `/company-page/${companyId}/interview`, state: { fromCompanyInfo: true } })}>See more</p>
+ </div>
     </StyledDiv>
   );
 };

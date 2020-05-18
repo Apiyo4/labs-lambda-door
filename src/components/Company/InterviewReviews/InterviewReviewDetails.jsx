@@ -55,7 +55,7 @@ const InterviewReviewDetails = ({
         onClick={() => history.goBack()}
       >
         <Icon type="left" />
-        Back to Reviews
+        Back 
       </Button>
       <StyledCard>
         <div>{review.text}</div>
