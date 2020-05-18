@@ -38,6 +38,7 @@ const CompanyReviewCardDetailed = ({
   return (
     <div>
       <BackButton />
+      
       {    
       
     !review ? (

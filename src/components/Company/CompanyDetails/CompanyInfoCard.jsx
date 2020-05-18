@@ -16,6 +16,8 @@ import {
 import { CompanyCards } from './CompanyCards';
 
 const StyledDiv = styled.div`
+ width:95%;
+ 
   h2 {
     font-size: 2rem;
   }
@@ -38,7 +40,7 @@ const StyledDiv = styled.div`
     display: inline-block;
   }
 `;
-const H4= styled.a`
+const Pcursor= styled.p`
 cursor: pointer;
 `;
 const H3 = styled.a`
@@ -93,14 +95,16 @@ export const CompanyInfoCard = ({history,
           />
         </div>
       ) : null}
+
       <div>
       <h2>Review</h2>
-      {companyReview && <CompanyReviews reviews={companyReview} id={companyId} />}
-      <p onClick={() => history.push({ pathname: `/company-page/${companyId}/review`, state: { fromCompanyInfo: true } })}>See more</p> 
+      {companyReview && <CompanyReviews reviews={companyReview} id={companyId} title={'Reviews'} />}
+        <Pcursor onClick={() => history.push({ pathname: `/company-page/${companyId}/review`, state: { fromCompanyInfo: true } })}>See more</Pcursor> 
       <h2>Interview Process</h2>
-      {interviewReview && <CompanyReviews reviews={interviewReview} />}
-      <p onClick={() => history.push({ pathname: `/company-page/${companyId}/interview`, state: { fromCompanyInfo: true } })}>See more</p>
+      {interviewReview && <CompanyReviews reviews={interviewReview} title={'Interview Process'}/>}
+        <Pcursor onClick={() => history.push({ pathname: `/company-page/${companyId}/interview`, state: { fromCompanyInfo: true } })}>See more</Pcursor>
  </div>
+
     </StyledDiv>
   );
 };
