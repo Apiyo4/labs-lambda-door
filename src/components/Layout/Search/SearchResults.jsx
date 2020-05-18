@@ -2,27 +2,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Spin, Button, Icon } from 'antd';
+import { Spin } from 'antd';
 import styled from 'styled-components';
 import CompanySearchCard from './CompanySearchCard';
 import SalarySearchCard from './SalarySearchCard';
 import InterviewSearchCard from './InterviewSearchCard';
-import {mobilePortrait} from '../../../styles/theme.styles';
+// import {mobilePortrait} from '../../../styles/theme.styles';
+import BackButton from '../../Company/CompanyDetails/BackButton';
 
 const SearchResults = ({ search: { isSearching, searchResults }, history }) => {
   return (
     <Container>
-      <Button
-        style={{
-          marginBottom: '30px',
-          border: '1px solid #BB1333',
-          color: '#BB1333',
-        }}
-        onClick={() => history.goBack()}
-      >
-        <Icon type="left" />
-        Back
-      </Button>
+      <BackButton />
       {searchResults[2] ? (
         <h3 className="searchResultsP">
           Showing results for &quot;

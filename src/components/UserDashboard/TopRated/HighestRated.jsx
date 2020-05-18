@@ -3,12 +3,12 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
-import { Button, Icon } from 'antd';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import TopRatedList from './TopRatedList';
 
 import { getTopRatedReviews } from '../../../state/actions/topRatedReviews';
+import BackButton from '../../Company/CompanyDetails/BackButton';
 
 export const HighestRated = ({ LoginUser, SetAuthenticated, history }) => {
   useEffect(() => {
@@ -21,17 +21,7 @@ export const HighestRated = ({ LoginUser, SetAuthenticated, history }) => {
 
   return (
     <StyledContainer>
-      <Button
-        style={{
-          marginBottom: '30px',
-          border: '1px solid #BB1333',
-          color: '#BB1333',
-        }}
-        onClick={() => history.goBack()}
-      >
-        <Icon type="left" />
-        Back
-      </Button>
+      <BackButton />
       <div className="top-layout">
         <div>
           <h2 style={{ color: 'dodgerblue' }}>Top Rated Companies</h2>

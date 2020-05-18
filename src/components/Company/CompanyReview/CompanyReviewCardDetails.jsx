@@ -4,12 +4,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Rate, Card, Icon, Button, Skeleton } from 'antd';
+import { Rate, Card, Skeleton } from 'antd';
 import styled from 'styled-components';
 import { getReviewsByReviewId } from '../../../state/actions/reviews';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import ContactReviewer from '../../ContactReviewerModal';
 import ReviewQuestion from './ReviewQuestion';
+import BackButton from '../CompanyDetails/BackButton';
 
 const CompanyReviewCardDetailed = ({
   props,
@@ -36,17 +37,7 @@ const CompanyReviewCardDetailed = ({
   }, []);
   return (
     <div>
-      <Button
-        style={{
-          marginBottom: '30px',
-          border: '1px solid #BB1333',
-          color: '#BB1333',
-        }}
-        onClick={() => history.goBack()}
-      >
-        <Icon type="left" />
-        Back 
-      </Button>
+      <BackButton />
       {    
       
     !review ? (

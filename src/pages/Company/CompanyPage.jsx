@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { Tabs, Button, Icon } from 'antd';
+import { Tabs} from 'antd';
 import { getCompanies } from '../../state/actions/companies';
 import {
   getInterviewReviewsByCompanyId,
@@ -15,6 +15,7 @@ import CompanyReviewCard from '../../components/Company/CompanyReview/CompanyRev
 import InterviewReviewList from '../../components/Company/InterviewReviews/InterviewReviewList';
 import SalaryReviewsList from '../../components/Company/SalaryReviews/SalaryReviewsList';
 import CompanyInfoCard from '../../components/Company/CompanyDetails/CompanyInfoCard';
+import BackButton from '../../components/Company/CompanyDetails/BackButton';
 
 const { TabPane } = Tabs;
 const CompanyPage = ({
@@ -43,17 +44,7 @@ const CompanyPage = ({
 
   return (
     <div>
-      <Button
-        style={{
-          marginBottom: '30px',
-          border: '1px solid #BB1333',
-          color: '#BB1333',
-        }}
-        onClick={() => history.goBack()}
-      >
-        <Icon type="left" />
-        Back
-      </Button>
+      <BackButton />
       <Tabs defaultActiveKey={String(location.state)}>
         <TabPane tab="Company Info" key="0">
           {/* <CompanyCard companies={companies} /> */}
