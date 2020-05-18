@@ -2,9 +2,9 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-wrap-multilines */
 import React, { useEffect, useState } from 'react';
-import { useParams, withRouter, Link } from 'react-router-dom';
+import { useParams, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Rate, Card, Empty, Button, Icon } from 'antd';
+import { Rate, Card } from 'antd';
 import styled from 'styled-components';
 import { getReviewsByCompanyId } from '../../../state/actions/reviews';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';

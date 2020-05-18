@@ -1,5 +1,5 @@
 /* eslint-disable import/no-named-as-default */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { decode } from 'jsonwebtoken';
 import { connect } from 'react-redux';
@@ -34,7 +34,7 @@ import SearchResults from '../Layout/Search/SearchResults';
 import DetailedSalarySearchCard from '../Layout/Search/DetailedSalarySearchCard';
 import DetailedInterviewSearchCard from '../Layout/Search/DetailedInterviewSearchCard';
 import { HighestRated } from '../UserDashboard/TopRated/HighestRated';
-import Chat from '../Layout/Chat/Chat';
+// import Chat from '../Layout/Chat/Chat';
 import { getChats } from '../../state/actions/chat';
 import UserProfile from '../UserProfile';
 import OtherUserProfile from '../UserProfile/OtherUserProfile';

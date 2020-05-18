@@ -5,7 +5,7 @@
 import React, {useState, useEffect} from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Card, Empty, Button, Icon } from 'antd';
+import { Card } from 'antd';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import { EmptyComponent } from '../CompanyDetails/Empty';
