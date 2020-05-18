@@ -73,6 +73,7 @@ export const CompanyInfoCard = ({history,
     
   return (
     <StyledDiv>
+      
       {company && avgSalaries && reviews ? (
         <div>
           <div className="textInfo">
@@ -89,14 +90,14 @@ export const CompanyInfoCard = ({history,
       ) : null}
       <h2>Review</h2>
       {companyReview && <CompanyReviews reviews={companyReview} id={companyId} />}
-      <p onClick={() => history.push("/review-card") }>See more</p> 
-
+      <p onClick={() => history.push({ pathname: `/company-page/${companyId}/review`, state: { fromCompanyInfo: true } })}>See more</p> 
       <h2>Interview Process</h2>
       {interviewReview && <CompanyReviews reviews={interviewReview} />}
-      <p onClick={() => history.push("/review-card/interview")}>See more</p> 
+      <p onClick={() => history.push({ pathname: `/company-page/${companyId}/interview`, state: { fromCompanyInfo: true } })}>See more</p>
     </StyledDiv>
   );
 };
+
 const mapStateToProps = state => {
   return {
     companies: state.companies,

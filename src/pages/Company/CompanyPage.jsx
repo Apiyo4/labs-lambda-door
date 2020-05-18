@@ -71,6 +71,7 @@ const CompanyPage = ({
       </Tabs>
     </div>
   );
+  
 };
 export default connect(state => state, {
   getCompanies,

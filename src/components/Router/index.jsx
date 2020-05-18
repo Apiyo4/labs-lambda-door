@@ -71,7 +71,8 @@ const AppRouter = ({
         <DashboardLayout path="/dashboard" component={UserDashboard} />
         <DashboardLayout path="/highest" component={HighestRated} />
         <DashboardLayout path="/add-review" component={AddReview} />
-        <DashboardLayout path="/company-page/:id" component={CompanyPage} />
+        <DashboardLayout exact path="/company-page/:id" component={CompanyPage} />
+        
         <DashboardLayout path="/reviews" exact component={ManageReviews} />
         <DashboardLayout
           path="/reviews/interview/:id"
@@ -117,8 +118,8 @@ const AppRouter = ({
         />
         <DashboardLayout exact path="/users" component={UserProfile} />
         <DashboardLayout exact path="/users/:id"  component={OtherUserProfile} />
-        <DashboardLayout exact path="/review-card" component={CompanyReviewCard} />
-        <DashboardLayout exact path= "/review-card/interview" component={InterviewReviewList} />
+        <DashboardLayout path="/company-page/:id/review" component={CompanyReviewCard} />
+        <DashboardLayout path="/company-page/:id/interview" component={InterviewReviewList} />
         <DashboardLayout component={NotFound} />
       </Switch>
     </BrowserRouter>

@@ -34,7 +34,22 @@ const CompanyReviewCardDetailed = ({
       getReviewsByReviewId(reviewId);
     }
   }, []);
-  return !review ? (
+  return (
+    <div>
+      <Button
+        style={{
+          marginBottom: '30px',
+          border: '1px solid #BB1333',
+          color: '#BB1333',
+        }}
+        onClick={() => history.goBack()}
+      >
+        <Icon type="left" />
+        Back 
+      </Button>
+      {    
+      
+    !review ? (
     <Skeleton />
   ) : (
     <>
@@ -46,18 +61,7 @@ const CompanyReviewCardDetailed = ({
         email={review.email_address}
       />
 
-      <Button
-        style={{
-          marginBottom: '30px',
-          border: '1px solid #BB1333',
-          color: '#BB1333',
-        }}
-        // onClick={() => history.push(`/company-page/${review.company_id}`)}
-          onClick={() => history.goBack()}
-      >
-        <Icon type="left" />
-        Back to Reviews
-      </Button>
+      
       <StyledCard>
         <h2 className="company-name">{review.name}</h2>
         <p>
@@ -73,7 +77,11 @@ const CompanyReviewCardDetailed = ({
         <ReviewQuestion review={review} />
       </StyledCard>
     </>
-  );
+  )
+   }
+    </div>
+  )
+ 
 };
 
 const StyledCard = styled(Card)`

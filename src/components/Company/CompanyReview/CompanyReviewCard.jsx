@@ -1,13 +1,14 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-wrap-multilines */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Rate, Card, Empty, Button } from 'antd';
+import { Rate, Card, Empty, Button, Icon } from 'antd';
 import styled from 'styled-components';
 import { getReviewsByCompanyId } from '../../../state/actions/reviews';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
+
 
 const ReviewCard = styled.div`
   display: flex;
@@ -81,12 +82,38 @@ const CompanyReviewCard = ({
     reviews: { companyReview },
   },
 }) => {
+  const [fromCompanyInfo, setFromCompanyInfo] = useState(false);
+  const showBackButton = history.location.state;
+  useEffect(()=>{
+    if (showBackButton) {
+      setFromCompanyInfo(showBackButton.fromCompanyInfo)
+    }
+  }, [])
+  
+  console.log(showBackButton)
   const companyId = useParams().id;
   useEffect(() => {
     getReviewsByCompanyId(companyId);
   }, []);
-  return companyReview.length === 0 ? (
+  return (<div>
+    { fromCompanyInfo ?
+    <Button
+      style={{
+        marginBottom: '30px',
+        border: '1px solid #BB1333',
+        color: '#BB1333',
+      }}
+      onClick={() => history.goBack()}
+    >
+      <Icon type="left" />
+        Back
+        </Button>: null
+}
+        {
+    companyReview.length === 0 ? (
+    <div>
     <StyledEmpty>
+      
       <Empty
         image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
         imageStyle={{
@@ -103,10 +130,16 @@ const CompanyReviewCard = ({
         </Link>
       </Empty>
     </StyledEmpty>
+    </div>
   ) : (
+    <div>
+
     <ReviewCard>
+          
       {companyReview.map(companyReview => (
+        
         <StyledCard
+          
           key={companyReview.id}
           onClick={() => history.push(`/companyReviews/${companyReview.id}`)}
         >
@@ -131,7 +164,10 @@ const CompanyReviewCard = ({
         </StyledCard>
       ))}
     </ReviewCard>
-  );
+      </div>
+  )
+            }
+  </div>)
 };
 export default withRouter(
   connect(state => state, {

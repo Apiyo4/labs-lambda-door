@@ -11,6 +11,7 @@ import { getInterviewReviewsByReviewId } from '../../../state/actions/reviews';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import ReviewQuestion from '../CompanyReview/ReviewQuestion';
 
+
 const InterviewReviewDetails = ({
   history,
   getInterviewReviewsByReviewId,
@@ -50,7 +51,8 @@ const InterviewReviewDetails = ({
           border: '1px solid #BB1333',
           color: '#BB1333',
         }}
-        onClick={() => history.push(`/company-page/${review.company_id}`)}
+        // onClick={() => history.push(`/company-page/${review.company_id}`)}
+        onClick={() => history.goBack()}
       >
         <Icon type="left" />
         Back to Reviews

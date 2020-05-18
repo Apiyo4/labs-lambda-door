@@ -2,12 +2,13 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-wrap-multilines */
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Card, Empty, Button } from 'antd';
+import { Card, Empty, Button, Icon } from 'antd';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
+
 
 const ReviewCard = styled.div`
   display: flex;
@@ -58,7 +59,30 @@ const InterviewReviewList = ({
     reviews: { interviewReview },
   },
 }) => {
-  return interviewReview.length === 0 ? (
+  const [fromCompanyInfo, setFromCompanyInfo] = useState(false);
+  const showBackButton = history.location.state;
+  useEffect(() => {
+    if (showBackButton) {
+      setFromCompanyInfo(showBackButton.fromCompanyInfo)
+    }
+  }, [])
+  return (
+     <div>
+      {fromCompanyInfo ?
+        <Button
+          style={{
+            marginBottom: '30px',
+            border: '1px solid #BB1333',
+            color: '#BB1333',
+          }}
+          onClick={() => history.goBack()}
+        >
+          <Icon type="left" />
+        Back
+        </Button> : null
+      }
+       {
+    interviewReview.length === 0 ? (
     <StyledEmpty>
       <Empty
         image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
@@ -103,6 +127,9 @@ const InterviewReviewList = ({
         </StyledCard>
       ))}
     </ReviewCard>
-  );
+  )
+            }
+    </div>
+  )
 };
 export default withRouter(connect(state => state)(InterviewReviewList));
