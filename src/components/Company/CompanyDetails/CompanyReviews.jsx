@@ -2,10 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import { Empty } from 'antd';
+import 'antd/dist/antd.css';
+import {Tooltip} from 'antd';
+import moment from 'moment';
 
 const StyledDiv = styled.div`
   max-width: 800px;
   padding: 40px;
+  width: 90%;
+  padding: 20px;
+  margin: 20px;
+  line-height: 1.5;
 
   h2 {
     font-size: 1, 5rem;
@@ -30,11 +37,17 @@ const Div1 = styled.div`
   border: 1px solid #ccc;
   padding-left: 20px;
   padding-top: 20px;
-  padding-bottom: 40px;
-  padding-right: 20px;
+  padding-bottom: 30px;
+  padding-right: 30px;
   margin: 0 auto;
   width: 800px;
   color: #000000;
+
+  span{
+    font-size: 12px;
+    padding-right : 8px;
+    cursor: pointer;
+  }
 
   .company-reviews {
     margin-top: 1rem;
@@ -50,7 +63,7 @@ const Div1 = styled.div`
   }
 `;
 
-const CompanyReviews = ({ reviews }) => {
+const CompanyReviews = ({ reviews, title }) => {
   const reviewInfo = reviews[0];
 
   if (!reviews) {
@@ -77,7 +90,16 @@ const CompanyReviews = ({ reviews }) => {
     <StyledDiv>
       {reviewInfo && (
         <Div1>
-          <h3>{reviewInfo.full_name}</h3>
+          {/* {if(reviews.companyReview){
+            return (
+              <h1>Reviews</h1>
+            )
+          } else if(interview)
+          } */}
+          <h2>{title}</h2>
+          <h3>{reviewInfo.full_name} {""}<Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
+             <span>{moment().fromNow()}</span>
+            </Tooltip></h3>
           <p className="reviews">
             {reviewInfo.text ? reviewInfo.text : reviewInfo.review}
           </p>

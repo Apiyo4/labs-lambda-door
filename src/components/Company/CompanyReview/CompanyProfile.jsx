@@ -7,31 +7,48 @@ import { CompanyProfileInfo } from './CompanyProfileInfo';
 
 const DivStyle = styled.div`
 display: flex;
+margin: 20px;
+width: 85%;
+line-height: 1.5;
+
+
 
 justify-content: space-between;
 margin-right:5%;
-flex-direction: row;
+flex-direction: row;`
 
-`
 const Div1 = styled.div`
-width:40%;
+width:30%;
+text-align: center;
 border: 1px solid #ccc;
-padding-left: 20px;
+padding-left: 30px;
 padding-top: 20px;
-padding-bottom: 20px;
-padding-right: 20px;
-`
+padding-bottom: 10px;
+padding-right: 30px;
+margin: 20px;
+cursor: pointer;
+&:hover {
+    border: 1px solid #bb1333;
+}`
+
 const Div2 =styled.div`
 border: 1px solid #ccc;
-padding-left: 20px;
+padding-left: 30px;
 padding-top: 20px;
 padding-bottom: 20px;
-padding-right: 20px;
+padding-right: 30px;
+margin: 20px;
 width: 55%;
-`
+cursor: pointer;
+&:hover {
+    border: 1px solid #bb1333;
+}`
+
 const Div3 =  styled.div`
-    margin-left: -45%;
-`
+    /* margin-left: -45%; */
+    text-align: center;`
+    
+
 const CompanyProfile =({company, avgSalaries})=> {
     
     
@@ -62,7 +79,7 @@ const CompanyProfile =({company, avgSalaries})=> {
                     />
                     <span> ({Math.round(company.average_rating * 10) / 10})</span>
 
-                    <p>Average Rating?</p>
+                    <p>Average Rating</p>
                 </Div1>
                 <Div2>
                     <CompanyProfileInfo company={company} />

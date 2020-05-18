@@ -15,6 +15,8 @@ import {
 } from '../../../state/actions/reviews';
 
 const StyledDiv = styled.div`
+ width:95%;
+ 
   h2 {
     font-size: 2rem;
   }
@@ -86,10 +88,10 @@ export const CompanyInfoCard = ({
           />
         </div>
       ) : null}
-      <h2>Review</h2>
-      {companyReview && <CompanyReviews reviews={companyReview} />}
-      <h2>Interview Process</h2>
-      {interviewReview && <CompanyReviews reviews={interviewReview} />}
+      {/* <h2>Review</h2> */}
+      {companyReview && <CompanyReviews reviews={companyReview} title = {'Reviews'}/>}
+      {/* <h2>Interview Process</h2> */}
+      {interviewReview && <CompanyReviews reviews={interviewReview} title = {'Interview Process'} />}
     </StyledDiv>
   );
 };
