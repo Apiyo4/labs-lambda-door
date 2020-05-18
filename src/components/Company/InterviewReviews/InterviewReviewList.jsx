@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 import { Card, Empty, Button, Icon } from 'antd';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
+import { EmptyComponent } from '../CompanyDetails/Empty';
+import BackButton from '../CompanyDetails/BackButton';
 
 
 const ReviewCard = styled.div`
@@ -69,36 +71,13 @@ const InterviewReviewList = ({
   return (
      <div>
       {fromCompanyInfo ?
-        <Button
-          style={{
-            marginBottom: '30px',
-            border: '1px solid #BB1333',
-            color: '#BB1333',
-          }}
-          onClick={() => history.goBack()}
-        >
-          <Icon type="left" />
-        Back
-        </Button> : null
+        <BackButton />
+        : null
       }
        {
     interviewReview.length === 0 ? (
     <StyledEmpty>
-      <Empty
-        image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
-        imageStyle={{
-          height: 60,
-        }}
-        description={
-          <span className="text">
-            No review found yet, perhaps none has been given.
-          </span>
-        }
-      >
-        <Link to={{ pathname: '/add-review', state: 2 }}>
-          <Button>Post a Review</Button>
-        </Link>
-      </Empty>
+            <EmptyComponent />
     </StyledEmpty>
   ) : (
     <ReviewCard>
