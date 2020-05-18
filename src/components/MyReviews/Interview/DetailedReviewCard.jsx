@@ -62,6 +62,7 @@ export const DetailedReviewCard = ({
   };
 
   return !review ? (
+
     <Skeleton />
   ) : (
     <>
@@ -74,7 +75,7 @@ export const DetailedReviewCard = ({
         onClick={() => history.push(`/reviews/`)}
       >
         <Icon type="left" />
-        Back to Reviews
+        Back
       </Button>
       <StyledReview>
         <div className="title-div">

@@ -2,12 +2,15 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-wrap-multilines */
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Card, Empty, Button } from 'antd';
+import { Card } from 'antd';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
+import { EmptyComponent } from '../CompanyDetails/Empty';
+import BackButton from '../CompanyDetails/BackButton';
+
 
 const ReviewCard = styled.div`
   display: flex;
@@ -58,23 +61,23 @@ const InterviewReviewList = ({
     reviews: { interviewReview },
   },
 }) => {
-  return interviewReview.length === 0 ? (
+  const [fromCompanyInfo, setFromCompanyInfo] = useState(false);
+  const showBackButton = history.location.state;
+  useEffect(() => {
+    if (showBackButton) {
+      setFromCompanyInfo(showBackButton.fromCompanyInfo)
+    }
+  }, [])
+  return (
+     <div>
+      {fromCompanyInfo ?
+        <BackButton />
+        : null
+      }
+       {
+    interviewReview.length === 0 ? (
     <StyledEmpty>
-      <Empty
-        image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
-        imageStyle={{
-          height: 60,
-        }}
-        description={
-          <span className="text">
-            No review found yet, perhaps none has been given.
-          </span>
-        }
-      >
-        <Link to={{ pathname: '/add-review', state: 2 }}>
-          <Button>Post a Review</Button>
-        </Link>
-      </Empty>
+            <EmptyComponent />
     </StyledEmpty>
   ) : (
     <ReviewCard>
@@ -103,6 +106,9 @@ const InterviewReviewList = ({
         </StyledCard>
       ))}
     </ReviewCard>
-  );
+  )
+            }
+    </div>
+  )
 };
 export default withRouter(connect(state => state)(InterviewReviewList));

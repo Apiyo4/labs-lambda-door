@@ -6,13 +6,14 @@ import CompanyProfile from '../CompanyReview/CompanyProfile';
 import { connect } from 'react-redux';
 import { getCompanies } from '../../../state/actions/companies';
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, withRouter } from 'react-router-dom';
 import { getAvgSalaries } from '../../../state/actions/avgSalaries';
 import { Spin } from 'antd';
 import {
   getReviewsByCompanyId,
   getInterviewReviews,
 } from '../../../state/actions/reviews';
+import { CompanyCards } from './CompanyCards';
 
 const StyledDiv = styled.div`
  width:95%;
@@ -39,8 +40,13 @@ const StyledDiv = styled.div`
     display: inline-block;
   }
 `;
-
-export const CompanyInfoCard = ({
+const Pcursor= styled.p`
+cursor: pointer;
+`;
+const H3 = styled.a`
+cursor:pointer;
+`
+export const CompanyInfoCard = ({history,
   companies,
   singleCompanyReviews,
   avgSalaries,
@@ -71,9 +77,10 @@ export const CompanyInfoCard = ({
   const company = companiesArr.find(
     element => parseInt(companyId) === element.id
   );
-
+    
   return (
     <StyledDiv>
+      
       {company && avgSalaries && reviews ? (
         <div>
           <div className="textInfo">
@@ -88,13 +95,20 @@ export const CompanyInfoCard = ({
           />
         </div>
       ) : null}
-      {/* <h2>Review</h2> */}
-      {companyReview && <CompanyReviews reviews={companyReview} title = {'Reviews'}/>}
-      {/* <h2>Interview Process</h2> */}
-      {interviewReview && <CompanyReviews reviews={interviewReview} title = {'Interview Process'} />}
+
+      <div>
+      <h2>Review</h2>
+      {companyReview && <CompanyReviews reviews={companyReview} id={companyId} title={'Reviews'} />}
+        <Pcursor onClick={() => history.push({ pathname: `/company-page/${companyId}/review`, state: { fromCompanyInfo: true } })}>See more</Pcursor> 
+      <h2>Interview Process</h2>
+      {interviewReview && <CompanyReviews reviews={interviewReview} title={'Interview Process'}/>}
+        <Pcursor onClick={() => history.push({ pathname: `/company-page/${companyId}/interview`, state: { fromCompanyInfo: true } })}>See more</Pcursor>
+ </div>
+
     </StyledDiv>
   );
 };
+
 const mapStateToProps = state => {
   return {
     companies: state.companies,
@@ -103,9 +117,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {
+export default withRouter(connect(mapStateToProps, {
   getCompanies,
   getAvgSalaries,
   getReviewsByCompanyId,
   getInterviewReviews,
-})(CompanyInfoCard);
+})(CompanyInfoCard));

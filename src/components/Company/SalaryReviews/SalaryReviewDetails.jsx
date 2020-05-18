@@ -1,6 +1,6 @@
 /* eslint-disable no-shadow */
 import React, { useEffect, useState } from 'react';
-import { Button, Icon, Skeleton, Card } from 'antd';
+import { Skeleton, Card } from 'antd';
 import { withRouter, useParams, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -9,6 +9,7 @@ import { getSalaryReviewsByCompanyId } from '../../../state/actions/reviews';
 import currencies from '../../../utils/currencies';
 import ChatButton from '../../Layout/Chat/ChatButton';
 import UserDetails from '../InterviewReviews/UserDetails';
+import BackButton from '../CompanyDetails/BackButton';
 
 let salaryFormatted;
 
@@ -48,17 +49,7 @@ const SalaryReviewDetails = ({
         setOpen={setOpen}
         email={review.email_address}
       />
-      <Button
-        style={{
-          marginBottom: '30px',
-          border: '1px solid #BB1333',
-          color: '#BB1333',
-        }}
-        onClick={() => history.goBack()}
-      >
-        <Icon type="left" />
-        Back
-      </Button>
+      <BackButton />
       <StyledCard>
         <div className="title-div">
           <h1>{review.name}</h1>

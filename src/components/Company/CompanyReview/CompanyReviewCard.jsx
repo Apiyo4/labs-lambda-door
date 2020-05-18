@@ -1,13 +1,16 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-wrap-multilines */
-import React, { useEffect } from 'react';
-import { useParams, withRouter, Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Rate, Card, Empty, Button } from 'antd';
+import { Rate, Card } from 'antd';
 import styled from 'styled-components';
 import { getReviewsByCompanyId } from '../../../state/actions/reviews';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
+import { EmptyComponent } from '../CompanyDetails/Empty';
+import BackButton from '../CompanyDetails/BackButton';
+
 
 const ReviewCard = styled.div`
   display: flex;
@@ -81,32 +84,40 @@ const CompanyReviewCard = ({
     reviews: { companyReview },
   },
 }) => {
+  const [fromCompanyInfo, setFromCompanyInfo] = useState(false);
+  const showBackButton = history.location.state;
+  useEffect(()=>{
+    if (showBackButton) {
+      setFromCompanyInfo(showBackButton.fromCompanyInfo)
+    }
+  }, [])
+  
+  console.log(showBackButton)
   const companyId = useParams().id;
   useEffect(() => {
     getReviewsByCompanyId(companyId);
   }, []);
-  return companyReview.length === 0 ? (
+  return (<div>
+    { fromCompanyInfo ?
+      <BackButton />
+    : null
+}
+        {
+    companyReview.length === 0 ? (
+    <div>
     <StyledEmpty>
-      <Empty
-        image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
-        imageStyle={{
-          height: 60,
-        }}
-        description={
-          <span className="text">
-            No review found yet, perhaps none has been given.
-          </span>
-        }
-      >
-        <Link to={{ pathname: '/add-review', state: 0 }}>
-          <Button>Post a Review</Button>
-        </Link>
-      </Empty>
+            <EmptyComponent />
     </StyledEmpty>
+    </div>
   ) : (
+    <div>
+
     <ReviewCard>
+          
       {companyReview.map(companyReview => (
+        
         <StyledCard
+          
           key={companyReview.id}
           onClick={() => history.push(`/companyReviews/${companyReview.id}`)}
         >
@@ -131,7 +142,10 @@ const CompanyReviewCard = ({
         </StyledCard>
       ))}
     </ReviewCard>
-  );
+      </div>
+  )
+            }
+  </div>)
 };
 export default withRouter(
   connect(state => state, {
