@@ -79,7 +79,7 @@ const CompanyProfile =({company, avgSalaries})=> {
                         allowHalf
                         defaultValue={Math.round(company.average_rating * 2) / 2}
                     />
-                    <span> ({Math.round(company.average_rating * 10) / 10})</span>
+                    {/* <span> ({Math.round(company.average_rating * 10) / 10})</span> */}
 
                     <p>Average Rating</p>
                 </Div1>
