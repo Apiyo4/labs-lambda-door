@@ -96,9 +96,7 @@ const CompanyReviews = ({ reviews, title }) => {
           } else if(interview)
           } */}
           <h2>{title}</h2>
-          <h3>{reviewInfo.full_name} {""}<Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-             <span>{moment().fromNow()}</span>
-            </Tooltip></h3>
+          <h3>{reviewInfo.full_name} {""}</h3>
           <p className="reviews">
             {reviewInfo.text ? reviewInfo.text : reviewInfo.review}
           </p>
