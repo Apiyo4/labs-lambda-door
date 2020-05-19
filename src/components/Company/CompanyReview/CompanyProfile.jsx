@@ -27,7 +27,7 @@ padding-top: 20px;
 padding-bottom: 10px;
 padding-right: 30px;
 margin: 20px;
-cursor: pointer;
+cursor: auto;
 &:hover {
     border: 1px solid #bb1333;
 }`
@@ -41,7 +41,7 @@ padding-bottom: 20px;
 padding-right: 30px;
 margin: 20px;
 width: 55%;
-cursor: pointer;
+cursor: auto;
 &:hover {
     border: 1px solid #bb1333;
 }`
