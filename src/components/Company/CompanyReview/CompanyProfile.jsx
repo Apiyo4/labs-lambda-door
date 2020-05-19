@@ -20,6 +20,7 @@ flex-direction: row;`
 const Div1 = styled.div`
 width:30%;
 text-align: center;
+border-radius:10px;
 border: 1px solid #ccc;
 padding-left: 30px;
 padding-top: 20px;
@@ -34,6 +35,7 @@ cursor: pointer;
 const Div2 =styled.div`
 border: 1px solid #ccc;
 padding-left: 30px;
+border-radius:10px;
 padding-top: 20px;
 padding-bottom: 20px;
 padding-right: 30px;

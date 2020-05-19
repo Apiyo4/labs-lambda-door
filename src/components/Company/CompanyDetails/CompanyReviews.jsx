@@ -33,6 +33,7 @@ const Div3 = styled.div`
 const Div1 = styled.div`
   display: inline-block;
   border: 1px solid #ccc;
+  border-radius:10px;
   padding-left: 20px;
   padding-top: 20px;
   padding-bottom: 30px;
