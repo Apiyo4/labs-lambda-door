@@ -2,9 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import { Empty } from 'antd';
-import 'antd/dist/antd.css';
-import {Tooltip} from 'antd';
-import moment from 'moment';
+
 
 const StyledDiv = styled.div`
   max-width: 800px;
