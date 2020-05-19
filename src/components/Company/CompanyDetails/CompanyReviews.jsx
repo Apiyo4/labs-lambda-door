@@ -52,6 +52,7 @@ const Div1 = styled.div`
   }
   h2 {
     font-size: 2rem;
+    color: #bb1333;
   }
 
   .reviews {
