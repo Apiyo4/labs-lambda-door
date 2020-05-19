@@ -67,7 +67,7 @@ const CompanyProfile =({company, avgSalaries})=> {
                             description={
                                 <span className="text">
                                     Oops!! <br />
-            Average salary info not available
+            Average salary info not available, click the button at the top right to leave a review.
           </span>
                             }
                         >
