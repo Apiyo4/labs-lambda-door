@@ -93,7 +93,7 @@ const CompanyProfile =({company, avgSalaries})=> {
     return(
         <div>
             {<DivStyle>
-                <Div1> {avgSalaries.currency} <h2>{avgSalaries.avg}</h2>
+                <Div1> {avgSalaries.currency} <h2>{avgSalaries.avg.toFixed(2)}</h2>
                     <p>Average salary</p>
                     <Rate
                         disabled
