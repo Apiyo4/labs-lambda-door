@@ -102,7 +102,7 @@ const CompanyProfile =({company, avgSalaries})=> {
                     />
                     <span> ({Math.round(company.average_rating * 10) / 10})</span>
 
-                    <p>Average Rating?</p>
+                    <p>Average Rating</p>
                 </Div1>
                 <Div2>
                     <CompanyProfileInfo company={company} />
