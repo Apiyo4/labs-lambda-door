@@ -42,6 +42,7 @@ const StyledDiv = styled.div`
 `;
 const Pcursor= styled.p`
 cursor: pointer;
+margin-left: 40px;
 `;
 const H3 = styled.a`
 cursor:pointer;
