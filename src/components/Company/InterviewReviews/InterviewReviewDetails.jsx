@@ -11,7 +11,6 @@ import { getInterviewReviewsByReviewId } from '../../../state/actions/reviews';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import ReviewQuestion from '../CompanyReview/ReviewQuestion';
 
-
 const InterviewReviewDetails = ({
   history,
   getInterviewReviewsByReviewId,
