@@ -80,7 +80,6 @@ export const CompanyInfoCard = ({history,
     
   return (
     <StyledDiv>
-      
       {company && avgSalaries && reviews ? (
         <div>
           <div className="textInfo">

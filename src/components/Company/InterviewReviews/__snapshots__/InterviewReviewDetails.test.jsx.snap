@@ -28,7 +28,7 @@ exports[`InterviewReviewDetails renders correctly 1`] = `
         </svg>
       </i>
       <span>
-        Back to Reviews
+        Back
       </span>
     </button>
     <div

@@ -3,45 +3,47 @@
 exports[`InterviewReviewList renders correctly 1`] = `
 <body>
   <div>
-    <div
-      class="sc-bwzfXH fBQjsC"
-    >
+    <div>
       <div
-        class="ant-empty"
+        class="sc-bwzfXH fBQjsC"
       >
         <div
-          class="ant-empty-image"
-          style="height: 60px;"
+          class="ant-empty"
         >
-          <img
-            alt="empty"
-            src="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
-          />
-        </div>
-        <p
-          class="ant-empty-description"
-        >
-          <span
-            class="text"
+          <div
+            class="ant-empty-image"
+            style="height: 60px;"
           >
-            No review found yet, perhaps none has been given.
-          </span>
-        </p>
-        <div
-          class="ant-empty-footer"
-        >
-          <a
-            href="/add-review"
+            <img
+              alt="empty"
+              src="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
+            />
+          </div>
+          <p
+            class="ant-empty-description"
           >
-            <button
-              class="ant-btn"
-              type="button"
+            <span
+              class="text"
             >
-              <span>
-                Post a Review
-              </span>
-            </button>
-          </a>
+              No review found yet, perhaps none has been given.
+            </span>
+          </p>
+          <div
+            class="ant-empty-footer"
+          >
+            <a
+              href="/add-review"
+            >
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  Post a Review
+                </span>
+              </button>
+            </a>
+          </div>
         </div>
       </div>
     </div>
