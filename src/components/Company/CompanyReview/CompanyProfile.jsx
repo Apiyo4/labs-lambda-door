@@ -50,7 +50,7 @@ const Div3 =  styled.div`
     
 
 const CompanyProfile =({company, avgSalaries})=> {
-    
+    console.log(company, avgSalaries)
     
     if(!avgSalaries){
         return(
