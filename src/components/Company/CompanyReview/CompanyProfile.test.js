@@ -33,4 +33,14 @@ describe('Company Profile', ()=>{
           ).baseElement).toMatchSnapshot();
     }
     )
+    test('displays company bio', () => {
+     const {getByText} =  renderWithRedux(
+        <CompanyProfile company={company} avgSalaries={avgSalaries} />
+      );
+      const companyBio = getByText(
+        /Paystack helps businesses in Africa get paid by anyone, anywhere in the world/i
+      );
+      
+      expect(companyBio).toBeTruthy();
+    });
 })
