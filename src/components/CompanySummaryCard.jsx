@@ -36,6 +36,7 @@ export default function CompanySummaryCard(props) {
           <h3 style={{ color: color }}>{name}</h3>
           <StyledP>{text}</StyledP>
         </div>
+        
         <CardBottom>
           <div>
             {rating && (
