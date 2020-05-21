@@ -16,8 +16,8 @@ import {
 import { CompanyCards } from './CompanyCards';
 
 const StyledDiv = styled.div`
- width:95%;
- 
+  width: 95%;
+
   h2 {
     font-size: 2rem;
   }
@@ -40,14 +40,15 @@ const StyledDiv = styled.div`
     display: inline-block;
   }
 `;
-const Pcursor= styled.p`
-cursor: pointer;
-margin-left: 40px;
+const Pcursor = styled.p`
+  cursor: pointer;
+  margin-left: 40px;
 `;
 const H3 = styled.a`
-cursor:pointer;
-`
-export const CompanyInfoCard = ({history,
+  cursor: pointer;
+`;
+export const CompanyInfoCard = ({
+  history,
   companies,
   singleCompanyReviews,
   avgSalaries,
@@ -78,13 +79,6 @@ export const CompanyInfoCard = ({history,
   const company = companiesArr.find(
     element => parseInt(companyId) === element.id
   );
-    
-  // renderReviewOrInterview function is written to replace {/* {(companyReview === true) ? <CompanyCards/> : null } */} being used twice to make the code DRY.
-  function renderReviewOrInterview(){
-    return (
-    (companyReview === true) ? <CompanyCards/> : null 
-    );
-  }
 
   return (
     <StyledDiv>
@@ -104,14 +98,45 @@ export const CompanyInfoCard = ({history,
       ) : null}
 
       <div>
-      {/* <h2>Review</h2> */}
-      {companyReview && <CompanyReviews reviews={companyReview} id={companyId} title={'Reviews'} />}
-        <Pcursor onClick={() => history.push({ pathname: `/company-page/${companyId}/review`, state: { fromCompanyInfo: true } })}> {renderReviewOrInterview()}</Pcursor> 
-      {/* <h2>Interview Process</h2> */}
-      {interviewReview && <CompanyReviews reviews={interviewReview} title={'Interview Process'}/>}
-      <Pcursor onClick={() => history.push({ pathname: `/company-page/${companyId}/interview`, state: { fromCompanyInfo: true } })}>{renderReviewOrInterview()}</Pcursor>
- </div>
+        {/* <h2>Review</h2> */}
+        {companyReview && (
+          <CompanyReviews
+            reviews={companyReview}
+            id={companyId}
+            title={'Reviews'}
+          />
+        )}
+        <Pcursor
+          onClick={() =>
+            history.push({
+              pathname: `/company-page/${companyId}/review`,
+              state: { fromCompanyInfo: true },
+            })
+          }
+        >
+          {companyReview === true ? <CompanyCards /> : null}
+          See More
+        </Pcursor>
 
+        {/* <h2>Interview Process</h2> */}
+        {interviewReview && (
+          <CompanyReviews
+            reviews={interviewReview}
+            title={'Interview Process'}
+          />
+        )}
+        <Pcursor
+          onClick={() =>
+            history.push({
+              pathname: `/company-page/${companyId}/interview`,
+              state: { fromCompanyInfo: true },
+            })
+          }
+        >
+          {interviewReview === true ? <CompanyCards /> : null}
+          See More
+        </Pcursor>
+      </div>
     </StyledDiv>
   );
 };
@@ -124,9 +149,11 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, {
-  getCompanies,
-  getAvgSalaries,
-  getReviewsByCompanyId,
-  getInterviewReviews,
-})(CompanyInfoCard));
+export default withRouter(
+  connect(mapStateToProps, {
+    getCompanies,
+    getAvgSalaries,
+    getReviewsByCompanyId,
+    getInterviewReviews,
+  })(CompanyInfoCard)
+);
