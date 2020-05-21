@@ -20,13 +20,14 @@ flex-direction: row;`
 const Div1 = styled.div`
 width:30%;
 text-align: center;
+border-radius:10px;
 border: 1px solid #ccc;
 padding-left: 30px;
 padding-top: 20px;
 padding-bottom: 10px;
 padding-right: 30px;
 margin: 20px;
-cursor: pointer;
+cursor: auto;
 &:hover {
     border: 1px solid #bb1333;
 }`
@@ -34,12 +35,13 @@ cursor: pointer;
 const Div2 =styled.div`
 border: 1px solid #ccc;
 padding-left: 30px;
+border-radius:10px;
 padding-top: 20px;
 padding-bottom: 20px;
 padding-right: 30px;
 margin: 20px;
 width: 55%;
-cursor: pointer;
+cursor: auto;
 &:hover {
     border: 1px solid #bb1333;
 }`
@@ -50,7 +52,7 @@ const Div3 =  styled.div`
     
 
 const CompanyProfile =({company, avgSalaries})=> {
-    
+    console.log(company, avgSalaries)
     
     if(!avgSalaries){
         return(
@@ -65,7 +67,7 @@ const CompanyProfile =({company, avgSalaries})=> {
                             description={
                                 <span className="text">
                                     Oops!! <br />
-            Average salary info not available
+            Average salary info not available, click the button at the top right to leave a review.
           </span>
                             }
                         >
@@ -77,7 +79,7 @@ const CompanyProfile =({company, avgSalaries})=> {
                         allowHalf
                         defaultValue={Math.round(company.average_rating * 2) / 2}
                     />
-                    <span> ({Math.round(company.average_rating * 10) / 10})</span>
+                    {/* <span> ({Math.round(company.average_rating * 10) / 10})</span> */}
 
                     <p>Average Rating</p>
                 </Div1>
@@ -93,16 +95,16 @@ const CompanyProfile =({company, avgSalaries})=> {
     return(
         <div>
             {<DivStyle>
-                <Div1> {avgSalaries.currency} <h2>{avgSalaries.avg}</h2>
+                <Div1> {avgSalaries.currency} <h2>{avgSalaries.avg.toFixed(2)}</h2>
                     <p>Average salary</p>
                     <Rate
                         disabled
                         allowHalf
                         defaultValue={Math.round(company.average_rating * 2) / 2}
                     />
-                    <span> ({Math.round(company.average_rating * 10) / 10})</span>
+                    {/* <span> ({Math.round(company.average_rating * 10) / 10})</span> */}
 
-                    <p>Average Rating?</p>
+                    <p>Average Rating</p>
                 </Div1>
                 <Div2>
                     <CompanyProfileInfo company={company} />

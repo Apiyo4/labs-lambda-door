@@ -96,6 +96,7 @@ const CompanyReviewCard = ({
     }
   }, [])
   
+  
   console.log(showBackButton)
   const companyId = useParams().id;
   useEffect(() => {

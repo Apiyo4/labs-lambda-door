@@ -54,6 +54,7 @@ const CompanyReviewCardDetailed = ({
       />
 
       
+      
       <StyledCard>
         <h2 className="company-name">{review.name}</h2>
         <p>

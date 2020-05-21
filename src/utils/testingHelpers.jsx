@@ -49,3 +49,4 @@ export const renderWithRedux = (
     history,
   };
 };
+

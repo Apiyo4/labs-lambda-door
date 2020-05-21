@@ -2,9 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import { Empty } from 'antd';
-import 'antd/dist/antd.css';
-import {Tooltip} from 'antd';
-import moment from 'moment';
+
 
 const StyledDiv = styled.div`
   max-width: 800px;
@@ -35,6 +33,7 @@ const Div3 = styled.div`
 const Div1 = styled.div`
   display: inline-block;
   border: 1px solid #ccc;
+  border-radius:10px;
   padding-left: 20px;
   padding-top: 20px;
   padding-bottom: 30px;
@@ -54,6 +53,7 @@ const Div1 = styled.div`
   }
   h2 {
     font-size: 2rem;
+    color: #bb1333;
   }
 
   .reviews {
@@ -96,9 +96,7 @@ const CompanyReviews = ({ reviews, title }) => {
           } else if(interview)
           } */}
           <h2>{title}</h2>
-          <h3>{reviewInfo.full_name} {""}<Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-             <span>{moment().fromNow()}</span>
-            </Tooltip></h3>
+          <h3>{reviewInfo.full_name} {""}</h3>
           <p className="reviews">
             {reviewInfo.text ? reviewInfo.text : reviewInfo.review}
           </p>
