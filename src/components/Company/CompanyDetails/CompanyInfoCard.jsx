@@ -78,13 +78,6 @@ export const CompanyInfoCard = ({history,
   const company = companiesArr.find(
     element => parseInt(companyId) === element.id
   );
-  
-  // renderReviewOrInterview function is written to replace {/* {(companyReview === true) ? <CompanyCards/> : null } */} being used twice to make the code DRY.
-  function renderReviewOrInterview(){
-    return (
-    (companyReview === true) ? <CompanyCards/> : null 
-    );
-  }
 
   return (
     <StyledDiv>
@@ -108,13 +101,15 @@ export const CompanyInfoCard = ({history,
       {/* <h2>Review</h2> */}
       {companyReview && <CompanyReviews reviews={companyReview} id={companyId} title={'Reviews'} />}
         <Pcursor onClick={() => history.push({ pathname: `/company-page/${companyId}/review`, state: { fromCompanyInfo: true } })}>
-          {renderReviewOrInterview()}    
-          </Pcursor> 
+        {(companyReview === true) ? <CompanyCards/> : null }
+        See More
+</Pcursor> 
 
       {/* <h2>Interview Process</h2> */}
       {interviewReview && <CompanyReviews reviews={interviewReview} title={'Interview Process'}/>}
       <Pcursor onClick={() => history.push({ pathname: `/company-page/${companyId}/interview`, state: { fromCompanyInfo: true } })}> 
-      {renderReviewOrInterview()}    
+      {(interviewReview === true) ? <CompanyCards/> : null }
+      See More
       </Pcursor>
  </div>
 
