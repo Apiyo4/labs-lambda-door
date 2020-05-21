@@ -55,6 +55,10 @@ const ReviewerName = styled.div`
   text-align: right;
 `;
 
+const H1 = styled.h1`
+text-align:center;
+font-size: 2rem;
+`;
 const InterviewReviewList = ({
   history,
   singleCompanyReviews: {
@@ -71,7 +75,10 @@ const InterviewReviewList = ({
   return (
      <div>
       {fromCompanyInfo ?
+      <div>
         <BackButton />
+        <H1>Interview Review</H1>
+        </div>
         : null
       }
        {

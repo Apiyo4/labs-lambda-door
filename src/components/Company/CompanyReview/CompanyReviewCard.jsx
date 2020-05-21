@@ -77,6 +77,10 @@ const ReviewerName = styled.div`
   padding: 1rem 0;
 `;
 
+const H1 = styled.h1`
+text-align:center;
+font-size: 2rem;
+`;
 const CompanyReviewCard = ({
   history,
   getReviewsByCompanyId,
@@ -99,7 +103,10 @@ const CompanyReviewCard = ({
   }, []);
   return (<div>
     { fromCompanyInfo ?
+    <div>
       <BackButton />
+      <H1>Company Reviews</H1>
+      </div>
     : null
 }
         {
