@@ -47,6 +47,9 @@ const Pcursor = styled.p`
 const H3 = styled.a`
   cursor: pointer;
 `;
+const Container = styled.div`
+max-width:1000px;
+`;
 export const CompanyInfoCard = ({
   history,
   companies,
@@ -81,6 +84,7 @@ export const CompanyInfoCard = ({
   );
 
   return (
+    <Container>
     <StyledDiv>
       {company && avgSalaries && reviews ? (
         <div>
@@ -138,6 +142,7 @@ export const CompanyInfoCard = ({
         </Pcursor>
       </div>
     </StyledDiv>
+    </Container>
   );
 };
 
