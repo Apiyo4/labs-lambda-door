@@ -8,7 +8,7 @@ import { CompanyProfileInfo } from './CompanyProfileInfo';
 const DivStyle = styled.div`
 display: flex;
 margin: 20px;
-width: 85%;
+width: 88%;
 line-height: 1.5;
 
 
@@ -18,7 +18,7 @@ margin-right:5%;
 flex-direction: row;`
 
 const Div1 = styled.div`
-width:30%;
+width:32%;
 text-align: center;
 border-radius:10px;
 border: 1px solid #ccc;
