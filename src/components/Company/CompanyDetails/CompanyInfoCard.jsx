@@ -20,6 +20,7 @@ const StyledDiv = styled.div`
 
   h2 {
     font-size: 2rem;
+    margin-left: 40px;
   }
   @media ${mobilePortrait} {
     padding: 0 !important;
