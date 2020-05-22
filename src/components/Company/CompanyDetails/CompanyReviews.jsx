@@ -68,12 +68,11 @@ const Div1 = styled.div`
 const CompanyReviews = ({ reviews, title, companyReview,pathname, history }) => {
   const reviewInfo = reviews[0];
   const seeReviews = ()=>{
-    if(pathname){
       history.push({
         pathname: pathname,
         state: { fromCompanyInfo: true },
       })
-    }
+   
   }
   if (!reviews) {
     return (
