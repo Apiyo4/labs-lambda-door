@@ -20,7 +20,7 @@ const StyledDiv = styled.div`
 
   h2 {
     font-size: 2rem;
-    margin-left: 40px;
+    
   }
   @media ${mobilePortrait} {
     padding: 0 !important;
@@ -35,7 +35,8 @@ const StyledDiv = styled.div`
   }
   .textInfo {
     display: inline-block;
-    margin-right: 15px;
+    margin-right: 20px;
+    margin-left: 45px;
   }
   .location {
     display: inline-block;
