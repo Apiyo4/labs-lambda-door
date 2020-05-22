@@ -75,7 +75,6 @@ const CompanyReviews = ({ reviews, title, id, companyReview,pathname, history })
       })
     }
   }
-console.log(id,companyReview,pathname,"history")
   if (!reviews) {
     return (
       <Div3>
@@ -111,9 +110,7 @@ console.log(id,companyReview,pathname,"history")
             {reviewInfo.text ? reviewInfo.text : reviewInfo.review}
           </p>
           <Button
-          onClick={
-           seeReviews
-          }
+          onClick={seeReviews}
         >
           {companyReview === true ? <CompanyCards /> : null}
           See More
