@@ -65,7 +65,7 @@ const Div1 = styled.div`
   }
 `;
 
-const CompanyReviews = ({ reviews, title, id, companyReview,pathname, history }) => {
+const CompanyReviews = ({ reviews, title, companyReview,pathname, history }) => {
   const reviewInfo = reviews[0];
   const seeReviews = ()=>{
     if(pathname){
