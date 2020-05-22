@@ -40,6 +40,7 @@ const Div1 = styled.div`
   padding-right: 30px;
   margin: 0 auto;
   width: 800px;
+  font-size: 18px;
   color: #000000;
 
   span{
