@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { mobilePortrait, tabletPortrait } from '../../../styles/theme.styles';
 import { Empty } from 'antd';
-
+import { CompanyCards } from './CompanyCards';
+import { withRouter } from 'react-router-dom';
+import {  Button, Icon } from 'antd'
 
 const StyledDiv = styled.div`
   max-width: 800px;
@@ -63,9 +65,17 @@ const Div1 = styled.div`
   }
 `;
 
-const CompanyReviews = ({ reviews, title }) => {
+const CompanyReviews = ({ reviews, title, id, companyReview,pathname, history }) => {
   const reviewInfo = reviews[0];
-
+  const seeReviews = ()=>{
+    if(pathname){
+      history.push({
+        pathname: pathname,
+        state: { fromCompanyInfo: true },
+      })
+    }
+  }
+console.log(id,companyReview,pathname,"history")
   if (!reviews) {
     return (
       <Div3>
@@ -100,10 +110,18 @@ const CompanyReviews = ({ reviews, title }) => {
           <p className="reviews">
             {reviewInfo.text ? reviewInfo.text : reviewInfo.review}
           </p>
+          <Button
+          onClick={
+           seeReviews
+          }
+        >
+          {companyReview === true ? <CompanyCards /> : null}
+          See More
+        </Button>
         </Div1>
       )}
     </StyledDiv>
   );
 };
 
-export default CompanyReviews;
+export default withRouter(CompanyReviews);

@@ -99,9 +99,12 @@ export const CompanyInfoCard = ({
 
       <div>
         {/* <h2>Review</h2> */}
-        {companyReview && (
+        {companyReview && companyId &&  (
           <CompanyReviews
             reviews={companyReview}
+            // pathname={ `/company-page/${companyId}/review`}
+            companyReview={companyReview}
+            interviewReview={interviewReview}
             id={companyId}
             title={'Reviews'}
           />
