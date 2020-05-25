@@ -105,43 +105,24 @@ export const CompanyInfoCard = ({
 
       <div>
         {/* <h2>Review</h2> */}
-        {companyReview && (
+        {companyReview && companyId &&  (
           <CompanyReviews
             reviews={companyReview}
+            pathname={ `/company-page/${companyId}/review`}
+            companyReview={companyReview}
+            interviewReview={interviewReview}
             id={companyId}
             title={'Reviews'}
           />
         )}
-        <Pcursor
-          onClick={() =>
-            history.push({
-              pathname: `/company-page/${companyId}/review`,
-              state: { fromCompanyInfo: true },
-            })
-          }
-        >
-          {companyReview === true ? <CompanyCards /> : null}
-          See More
-        </Pcursor>
-
         {/* <h2>Interview Process</h2> */}
         {interviewReview && (
           <CompanyReviews
             reviews={interviewReview}
             title={'Interview Process'}
+            pathname={ `/company-page/${companyId}/interview`}
           />
         )}
-        <Pcursor
-          onClick={() =>
-            history.push({
-              pathname: `/company-page/${companyId}/interview`,
-              state: { fromCompanyInfo: true },
-            })
-          }
-        >
-          {interviewReview === true ? <CompanyCards /> : null}
-          See More
-        </Pcursor>
       </div>
     </StyledDiv>
     </Container>

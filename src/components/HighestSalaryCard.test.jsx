@@ -5,7 +5,6 @@ import '@testing-library/jest-dom/extend-expect';
 import { renderWithRedux } from '../utils/testingHelpers';
 
 beforeEach(rtl.cleanup);
-
 describe('highestSalaryCard', () => {
   it('renders without crashing', () => {
     renderWithRedux(<HighestSalaryCard />);
