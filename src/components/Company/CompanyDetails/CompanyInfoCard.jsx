@@ -20,6 +20,7 @@ const StyledDiv = styled.div`
 
   h2 {
     font-size: 2rem;
+    
   }
   @media ${mobilePortrait} {
     padding: 0 !important;
@@ -34,7 +35,8 @@ const StyledDiv = styled.div`
   }
   .textInfo {
     display: inline-block;
-    margin-right: 15px;
+    margin-right: 20px;
+    margin-left: 45px;
   }
   .location {
     display: inline-block;
@@ -46,6 +48,9 @@ const Pcursor = styled.p`
 `;
 const H3 = styled.a`
   cursor: pointer;
+`;
+const Container = styled.div`
+max-width:1000px;
 `;
 export const CompanyInfoCard = ({
   history,
@@ -81,6 +86,7 @@ export const CompanyInfoCard = ({
   );
 
   return (
+    <Container>
     <StyledDiv>
       {company && avgSalaries && reviews ? (
         <div>
@@ -119,6 +125,7 @@ export const CompanyInfoCard = ({
         )}
       </div>
     </StyledDiv>
+    </Container>
   );
 };
 
