@@ -5,16 +5,16 @@ exports[`Company Profile renders correctly 1`] = `
   <div>
     <div>
       <div
-        class="sc-bdVaJa cjQLwn"
+        class="sc-bwzfXH gYQxUp"
       >
         <div
-          class="sc-bwzfXH gIOgTZ"
+          class="sc-htpNat iDxItc"
         >
            
           Nigerian Naira
            
           <h2>
-            3000000
+            3000000.00
           </h2>
           <p>
             Average salary
@@ -315,20 +315,19 @@ exports[`Company Profile renders correctly 1`] = `
               </div>
             </li>
           </ul>
-          <span>
-             (
-            4
-            )
-          </span>
           <p>
-            Average Rating?
+            Average Rating
           </p>
         </div>
         <div
-          class="sc-htpNat drDNGy"
+          class="sc-bxivhb kuRuTP"
         >
-          <div>
-            <h2>
+          <div
+            class="sc-bdVaJa cWkura"
+          >
+            <h2
+              id="infoR"
+            >
               Company Bio
             </h2>
             <p>

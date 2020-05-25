@@ -6,6 +6,7 @@ import { renderWithRedux } from '../../../utils/testingHelpers';
 
 beforeEach(rtl.cleanup);
 
+
 describe('CompanyReviewCardDetails', () => {
   it('renders without crashing', () => {
     renderWithRedux(<CompanyReviewCardDetails />);
