@@ -72,7 +72,6 @@ const AppRouter = ({
         <DashboardLayout path="/highest" component={HighestRated} />
         <DashboardLayout path="/add-review" component={AddReview} />
         <DashboardLayout exact path="/company-page/:id" component={CompanyPage} />
-        
         <DashboardLayout path="/reviews" exact component={ManageReviews} />
         <DashboardLayout
           path="/reviews/interview/:id"

@@ -17,6 +17,7 @@ const DivMargin = styled.div`
 const UserProfile = ({ changeIsClose, isClose }) => {
   const openForm = () => {
     changeIsClose();
+    
   };
   return (
     <Div>

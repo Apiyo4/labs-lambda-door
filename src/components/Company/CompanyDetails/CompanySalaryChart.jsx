@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import uuid from 'uuid';
+
 import {
   BarChart,
   Bar,
